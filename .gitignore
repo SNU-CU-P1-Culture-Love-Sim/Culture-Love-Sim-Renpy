@@ -1,0 +1,28 @@
+# Ren'Py 컴파일된 파일
+*.rpyc
+*.rpa
+*.rpymc
+
+# 바이너리 빌드 파일
+/build/
+*.exe
+*.apk
+*.zip
+*.tar.gz
+*.dmg
+
+# 캐시 및 임시 파일
+/cache/
+*.log
+*.bak
+*.tmp
+
+# Ren'Py 프로젝트 설정 파일 (이건 생길수도 안 생길수도 있는데 생긴다면)
+log.txt
+renpy/common/
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
