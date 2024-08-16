@@ -77,7 +77,7 @@ label start:
     
 label Korean_gender_select:
 
-    e "What is your gender?"
+    e "Are you a boy or a girl?"
 
     menu:
 
@@ -110,7 +110,7 @@ label Korean_girl_ver:
 
 label Indian_gender_select:
 
-    e "What is your gender?"
+    e "Are you a boy or a girl?"
 
     menu:
 
@@ -174,7 +174,7 @@ label Ch1_S1_T0_IG:
 
     p "Hi, I'm [player_name]. I'm an exchange student from Christ University in India, now studying at SNU's College of Liberal Studies."
 
-    kb "Oh, nice to meet you!! I'm {kb}. I heard an SNU student went to India, and now we have an exchange student here, too!"
+    kb "Oh, nice to meet you!! I'm [kb]. I heard an SNU student went to India, and now we have an exchange student here, too!"
 
     kb "Anyway, if you need help with anything, feel free to ask! Oh, wait, I don't have your number yet! What's your number?"
 
@@ -224,11 +224,11 @@ label Ch1_S2_T0_IG:
 
         "What would you do?"
 
-        "1. Remove the grain of rice stuck on {kb}'s face with your hand.":
+        "1. Remove the grain of rice stuck on [kb]'s face with your hand.":
 
             jump Ch1_S3_T1_IG
 
-        "2. Hand {kb} a handkerchief.":
+        "2. Hand [kb] a handkerchief.":
             
             jump Ch1_S3_T2_IG
 
@@ -297,7 +297,7 @@ label Ch2_S1_T0_IG:
 
     kb "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
-    p "Thank you. You're so kind ㅜㅜ. I'll sing first!"
+    p "Thank you. You're so kind. I'll sing first!"
 
     "I am confident in my singing skills, so I sing my favorite song with great enthusiasm."
     "I look to the side while singing and see the other person staring at me."
@@ -404,7 +404,7 @@ label Ch2_S3_T0_IG:
 
     kb "Do you have an umbrella? I only have one for myself…"
 
-    p "No, ㅜㅜ. It seems like Korea gets a lot of rain showers."
+    p "No. It seems like Korea gets a lot of rain showers."
 
     kb "Let's go under the eaves and wait for it to stop."
 
@@ -1014,7 +1014,7 @@ label Ch4_S16_T0_IG:
 
     kb "I can't wait to watch more. Thank you for introducing me to this part of your culture."
 
-    "As we left the theatre, I felt even closer to {kb}. Sharing these experiences together has deepened our bond, and I'm excited to see where our journey takes us next."
+    "As we left the theatre, I felt even closer to [kb]. Sharing these experiences together has deepened our bond, and I'm excited to see where our journey takes us next."
 
     jump Ch5_S1_T0_IG
 
@@ -1027,7 +1027,7 @@ label Ch5_S1_T0_IG:
 
 label Ch5_S1_T1_IG:
 
-    "After parting ways with {kb}, I returned to my dormitory, trying to focus on my exams."
+    "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
     kb "We're both busy, so let's concentrate on studying."
 
@@ -1037,12 +1037,12 @@ label Ch5_S1_T1_IG:
 
     "With the semester ending, I immersed myself in exams. Uncertain about my feelings, I hesitated."
 
-    p "When did {kb}'s exchange program end again?"
+    p "When did [kb]'s exchange program end again?"
 
-    "I found myself at {kb}'s dormitory. Seeing the empty room, I wondered if I would regret this day."
+    "I found myself at [kb]'s dormitory. Seeing the empty room, I wondered if I would regret this day."
 
-    "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like {kb} again?"
-    "Realizing today was {kb}'s departure, I called a taxi and headed to the airport."
+    "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [kb] again?"
+    "Realizing today was [kb]'s departure, I called a taxi and headed to the airport."
 
     p "It was today! I still wanted to say goodbye..."
 
@@ -1050,7 +1050,7 @@ label Ch5_S1_T1_IG:
 
     p "Are you at the airport? I saw the letter you left!"
 
-    "Even now, {kb} was the best person I'd met. So kind and together often. I don't think I'll meet someone like {kb} again."
+    "Even now, [kb] was the best person I'd met. So kind and together often. I don't think I'll meet someone like [kb] again."
 
     kb "Yeah... but I don't want to go. I couldn't say it then, but I realize I need you."
 
@@ -1070,13 +1070,13 @@ label Ch5_S1_T1_IG:
 
     p "Ready for the party? It's going to go late into the night!!"
 
-    "As we entered the hall, I remembered when I first met {kb}. If I hadn't met {kb}, what would have happened? This beautiful story of mine will continue forever."
+    "As we entered the hall, I remembered when I first met [kb]. If I hadn't met [kb], what would have happened? This beautiful story of mine will continue forever."
 
     return
 
 label Ch5_S1_T2_IG:
 
-    "After parting ways with {kb}, I returned to my dormitory, trying to focus on my exams."
+    "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
     kb "We're both busy, so let's concentrate on studying."
 
@@ -1086,12 +1086,12 @@ label Ch5_S1_T2_IG:
 
     "With the semester ending, I immersed myself in exams. Uncertain about my feelings, I hesitated."
 
-    p "When does {kb}'s exchange program end?"
+    p "When does [kb]'s exchange program end?"
 
-    "I found myself standing outside {kb}'s empty dormitory, wondering if I'd regret letting go."
+    "I found myself standing outside [kb]'s empty dormitory, wondering if I'd regret letting go."
 
-    "We had some wonderful times together, perhaps more beautiful now as memories. I wondered if I'd meet anyone like {kb} again."
-    "Realizing today was {kb}'s departure, I impulsively headed to the airport."
+    "We had some wonderful times together, perhaps more beautiful now as memories. I wondered if I'd meet anyone like [kb] again."
+    "Realizing today was [kb]'s departure, I impulsively headed to the airport."
 
     p "Today's the day! I still wanted to say goodbye..."
 
@@ -1099,21 +1099,21 @@ label Ch5_S1_T2_IG:
 
     p "Are you at the airport? I saw your letter at the dorm!"
 
-    "Reflecting on the past, {kb} was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
+    "Reflecting on the past, [kb] was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
 
-    "As time passed, life moved on. Years later, I joined a reunion trip for the exchange program. Among familiar faces, I saw {kb} again."
+    "As time passed, life moved on. Years later, I joined a reunion trip for the exchange program. Among familiar faces, I saw [kb] again."
 
     kb "It's been a long time!"
 
     p "It really has. How have you been?"
 
-    "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing {kb} again felt like a new beginning, in a different way."
+    "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [kb] again felt like a new beginning, in a different way."
 
     return
 
 label Ch5_S1_T3_IG:
 
-    "After parting ways with {kb}, I returned to my dormitory, trying to focus on my exams."
+    "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
     kb "We're both busy, so let's concentrate on studying."
 
@@ -1123,25 +1123,25 @@ label Ch5_S1_T3_IG:
 
     "With the semester ending, I immersed myself in exams. Uncertain about my feelings, I hesitated."
 
-    p "When does {kb}'s exchange program end?"
+    p "When does [kb]'s exchange program end?"
 
-    "I found myself outside {kb}'s empty dormitory, wondering if I'd regret how things ended."
+    "I found myself outside [kb]'s empty dormitory, wondering if I'd regret how things ended."
 
     "We had some wonderful times together, but they felt distant now. Our breakup was painful, leaving me with lingering doubts."
-    "I knew today was {kb}'s departure, but I couldn't bring myself to go to the airport."
+    "I knew today was [kb]'s departure, but I couldn't bring myself to go to the airport."
 
     p "I should have gone... but I just couldn't face it."
 
-    "Time passed, and life moved on. Years later, I was on a business trip and unexpectedly saw {kb} again."
+    "Time passed, and life moved on. Years later, I was on a business trip and unexpectedly saw [kb] again."
 
     "In a crowded conference room, our eyes met briefly. An awkward silence stretched between us, heavy with unspoken words."
 
-    "I tried to focus on my work, but my thoughts kept drifting back to {kb}. Memories of our time together resurfaced, mingling with the bitterness of our breakup."
+    "I tried to focus on my work, but my thoughts kept drifting back to [kb]. Memories of our time together resurfaced, mingling with the bitterness of our breakup."
 
     p "I wish things had ended differently."
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
-    "All I could do was think about {kb}, trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
+    "All I could do was think about [kb], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
 
     return
