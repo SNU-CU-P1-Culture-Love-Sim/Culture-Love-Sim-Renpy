@@ -21,6 +21,7 @@ define gd = Character("Guide", color="#c8caff")
 
 define m = Character("mom", color="#c8caff")
 
+define affection = 0
 
 # The game starts here.
 
@@ -37,6 +38,8 @@ label start:
     # directory.
 
     show eileen happy
+    
+    show screen show_affection
 
     # These display lines of dialogue.
     
@@ -223,18 +226,24 @@ label Ch1_S2_T0_IG:
     menu:
 
         "What would you do?"
-
         "1. Remove the grain of rice stuck on [kb]'s face with your hand.":
-
+            
+            $ affection += 5
             jump Ch1_S3_T1_IG
+            
 
         "2. Hand [kb] a handkerchief.":
             
+            $ affection += 2
             jump Ch1_S3_T2_IG
+            
 
         "3. Glare at the person next to you.":
 
+            $ affection -= 5
             jump Ch1_S3_T3_IG
+
+    #show screen show_affection
 
 label Ch1_S3_T1_IG:
 
@@ -317,15 +326,20 @@ label Ch2_S1_T0_IG:
         "Which of the following actions should I choose?"
 
         "1. Sing along to the duet song.":
-            ## Affection level increases.
+            ## $ affection level increases.
+            
+            $ affection += 5
             jump Ch2_S2_T1_IG
 
         "2. Stay still.":
-            ## Affection level decreases.
+            ## $ affection level decreases.
+            $ affection -= 5
             jump Ch2_S2_T2_IG
+            
 
         "3. Pick up a tambourine and dance like crazy.":
-            ## Affection level increases slightly.
+            ## $ affection level increases slightly.
+            $ affection += 2
             jump Ch2_S2_T3_IG
 
 label Ch2_S2_T1_IG:
@@ -417,14 +431,18 @@ label Ch2_S3_T0_IG:
     menu:
         "1. Go to a nearby convenience store and buy an umbrella each.":
             ## Slightly decrease in favorability
+            $ affection += 3
             jump Ch2_S4_T1_IG
+            
 
         "2. Share an umbrella and run to the market.":
-            ## Affection level goes up significantly
+            ## $ affection level goes up significantly
+            $ affection += 5
             jump Ch2_S4_T2_IG
 
         "3. Suggest that we both just go while getting rained on.":
-            ## Affection level goes down significantly
+            ## $ affection level goes down significantly
+            $ affection += 3
             jump Ch2_S4_T3_IG
 
 label Ch2_S4_T1_IG:
@@ -460,14 +478,17 @@ label Ch2_S5_T0_IG:
     menu:
         "1. Yeah, I like spicy food. Wow~":
             ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_IG
 
         "2. I can't eat spicy food well... I'll try it next time.":
             ## Affinity maintained
+            $ affection += 0
             jump Ch2_S6_T2_IG
 
         "3. Hmm, I'll rinse it in water and try it. Give it to me.":
             ## Affinity decrease
+            $ affection -= 5
             jump Ch2_S6_T3_IG
 
 label Ch2_S6_T1_IG:
@@ -520,19 +541,19 @@ label Ch3_S1_T0_IG:
         "Guess the name of the festival:"
 
         "1. Pentaport Rock Festival":
-
+            $ affection -= 3
             jump Ch3_S2_T1_IG
 
         "2. Waterbomb Festival":
-
+            $ affection += 3
             jump Ch3_S2_T2_IG
 
         "3. Boryeong Mud Festival":
-
+            $ affection -= 3
             jump Ch3_S2_T3_IG
 
         "4. Seoul Jazz Festival":
-
+            $ affection -= 3
             jump Ch3_S2_T4_IG
 
 label Ch3_S2_T1_IG:
@@ -619,15 +640,15 @@ label Ch3_S3_T0_IG:
 
     menu:
         "1. I suppose so. I'm really sorry.":
-
+            $ affection -= 5
             jump Ch3_S4_T1_IG
 
         "2. We were never meant to be together for long anyway.":
-            
+            $ affection += 4
             jump Ch3_S4_T2_IG
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
-
+            $ affection += 2
             jump Ch3_S4_T3_IG
 
 label Ch3_S4_T1_IG:
@@ -656,15 +677,19 @@ label Ch3_S5_T0_IG:
 
     menu:
         "1. Hanbok":
+            $ affection += 5
             jump Ch3_S6_T1_IG
 
         "2. Kimono":
+            $ affection -= 5
             jump Ch3_S6_T2_IG
 
         "3. Ao Dai":
+            $ affection -= 5
             jump Ch3_S6_T3_IG
 
         "4. Sari":
+            $ affection -= 2
             jump Ch3_S6_T4_IG
 
 label Ch3_S6_T1_IG:
@@ -708,11 +733,11 @@ label Ch4_S1_T0_IG:
 
     menu:
         "Read the email":
-
+            $ affection += 5
             jump Ch4_S1_T1_IG
 
         "Don't read the email":
-
+            $ affection -= 5
             jump Ch4_S1_T2_IG
 
 label Ch4_S1_T1_IG:
@@ -739,15 +764,15 @@ label Ch4_S2_T0_IG:
 
     menu:
         "Go to the Taj Mahal":
-
+            $ affection += 5
             jump Ch4_S3_T1_IG
 
         "Go to Agra Fort":
-
+            $ affection += 2
             jump Ch4_S3_T2_IG
 
         "Go shopping":
-
+            $ affection -= 5
             jump Ch4_S3_T3_IG
 
 label Ch4_S3_T1_IG:
@@ -772,15 +797,15 @@ label Ch4_S4_T0_IG:
 
     menu:
         "Observe the people following the tour guide":
-
+            $ affection += 3
             jump Ch4_S5_T1_IG
 
         "Watch people getting their photos taken by peddlers":
-
+            $ affection += 0
             jump Ch4_S5_T2_IG
 
         "No way, such a coincidence couldn't happen":
-
+            $ affection -= 5
             jump Ch4_S5_T3_IG
 
 label Ch4_S5_T1_IG:
@@ -813,15 +838,15 @@ label Ch4_S6_T0_IG:
 
     menu:
         "Myeong-dong":
-
+            $ affection += 0
             jump Ch4_S7_T1_IG
 
         "Jongno":
-
+            $ affection += 3
             jump Ch4_S7_T2_IG
 
         "Itaewon":
-
+            $ affection -= 3
             jump Ch4_S7_T3_IG
 
 label Ch4_S7_T1_IG:
@@ -846,15 +871,15 @@ label Ch4_S8_T0_IG:
 
     menu:
         "Let's go eat street food in Delhi":
-
+            $ affection += 5
             jump Ch4_S9_T1_IG
 
         "I'll take a picture of you in front of the Taj Mahal":
-
+            $ affection += 0
             jump Ch4_S9_T2_IG
 
         "Let's go back to the hotel and rest":
-
+            $ affection -= 5
             jump Ch4_S9_T3_IG
 
 label Ch4_S9_T1_IG:
@@ -886,20 +911,21 @@ label Ch4_S10_T0_IG:
     kb "I can't wait! What should we expect during the journey?"
 
     menu:
-        "Talk about the diversity of regions and cultures in India.":
-
-            jump Ch4_S11_T1_IG
 
         "Discuss the history and significance of Indian Railways.":
-
+            $ affection += 4
             jump Ch4_S11_T2_IG
 
+        "Talk about the diversity of regions and cultures in India.":
+            $ affection += 7
+            jump Ch4_S11_T1_IG
+        
         "Mention the culinary delights available on the train.":
-
+            $ affection += 1
             jump Ch4_S11_T3_IG
 
         "Suggest sleeping or reading during the journey to pass the time.":
-
+            $ affection -= 5
             jump Ch4_S11_T4_IG
 
 label Ch4_S11_T1_IG:
@@ -929,21 +955,23 @@ label Ch4_S12_T0_IG:
     kb "I'm excited to explore it. What should we do first?"
 
     menu:
-        "Suggest exploring the historic parts of Bangalore.":
-
-            jump Ch4_S13_T1_IG
+        "Propose heading straight to the hotel to rest.":
+            $ affection -= 5
+            jump Ch4_S13_T4_IG
 
         "Propose visiting the local parks and gardens.":
-
+            $ affection += 4
             jump Ch4_S13_T2_IG
 
         "Suggest checking out the local markets.":
-
+            $ affection += 0
             jump Ch4_S13_T3_IG
+            
+        "Suggest exploring the historic parts of Bangalore.":
+            $ affection += 7
+            jump Ch4_S13_T1_IG
 
-        "Propose heading straight to the hotel to rest.":
-
-            jump Ch4_S13_T4_IG
+        
 
 label Ch4_S13_T1_IG:
 
@@ -972,21 +1000,21 @@ label Ch4_S14_T0_IG:
     p "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
-        "Explain the history and evolution of Indian cinema.":
-
-            jump Ch4_S15_T1_IG
-
+        "Suggest watching the movie quietly without discussing it.":
+            $ affection -= 5
+            jump Ch4_S15_T4_IG
+            
         "Talk about the influence of Indian cinema globally.":
-
+            $ affection += 3
             jump Ch4_S15_T2_IG
 
         "Discuss the different film genres and what to expect.":
-
+            $ affection += 1
             jump Ch4_S15_T3_IG
-
-        "Suggest watching the movie quietly without discussing it.":
-
-            jump Ch4_S15_T4_IG
+            
+        "Explain the history and evolution of Indian cinema.":
+            $ affection += 5
+            jump Ch4_S15_T1_IG
 
 label Ch4_S15_T1_IG:
 
@@ -1020,10 +1048,15 @@ label Ch4_S16_T0_IG:
 
 
 ### need codes to decide the ending. Sanghyuk fighting ^^
+## I'm working until the night ;o;
 
 label Ch5_S1_T0_IG:
-
-    jump Ch5_S1_T1_IG
+    if affection >= 50:
+        jump Ch5_S1_T1_IG
+    elif affection >= 25:
+        jump Ch5_S1_T2_IG
+    else:
+        jump Ch5_S1_T3_IG
 
 label Ch5_S1_T1_IG:
 
@@ -1072,6 +1105,7 @@ label Ch5_S1_T1_IG:
 
     "As we entered the hall, I remembered when I first met [kb]. If I hadn't met [kb], what would have happened? This beautiful story of mine will continue forever."
 
+    "Happy Ending"
     return
 
 label Ch5_S1_T2_IG:
@@ -1109,6 +1143,7 @@ label Ch5_S1_T2_IG:
 
     "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [kb] again felt like a new beginning, in a different way."
 
+    "Normal Ending"
     return
 
 label Ch5_S1_T3_IG:
@@ -1144,6 +1179,7 @@ label Ch5_S1_T3_IG:
 
     "All I could do was think about [kb], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
 
+    "Bad ending"
     return
 
 
@@ -1233,15 +1269,15 @@ label Ch1_S2_T0_IB:
         "What would you do?"
 
         "1. Remove the grain of rice stuck on [kg]'s face with your hand.":
-
+            $ affection += 5
             jump Ch1_S3_T1_IB
 
         "2. Hand [kg] a handkerchief.":
-            
+            $ affection += 2
             jump Ch1_S3_T2_IB
 
         "3. Glare at the person next to you.":
-
+            $ affection -= 5
             jump Ch1_S3_T3_IB
 
 label Ch1_S3_T1_IB:
@@ -1325,15 +1361,18 @@ label Ch2_S1_T0_IB:
         "Which of the following actions should I choose?"
 
         "1. Sing along to the duet song.":
-            ## Affection level increases.
+            ## $ affection level increases.
+            $ affection += 5
             jump Ch2_S2_T1_IB
 
         "2. Stay still.":
-            ## Affection level decreases.
+            ## $ affection level decreases.
+            $ affection -= 5
             jump Ch2_S2_T2_IB
 
         "3. Pick up a tambourine and dance like crazy.":
-            ## Affection level increases slightly.
+            ## $ affection level increases slightly.
+            $ affection += 2
             jump Ch2_S2_T3_IB
 
 label Ch2_S2_T1_IB:
@@ -1425,14 +1464,17 @@ label Ch2_S3_T0_IB:
     menu:
         "1. Go to a nearby convenience store and buy an umbrella each.":
             ## Slightly decrease in favorability
+            $ affection +=  3
             jump Ch2_S4_T1_IB
 
         "2. Share an umbrella and run to the market.":
-            ## Affection level goes up significantly
+            ## $ affection level goes up significantly
+            $ affection += 5
             jump Ch2_S4_T2_IB
 
         "3. Suggest that we both just go while getting rained on.":
-            ## Affection level goes down significantly
+            ## $ affection level goes down significantly
+            $ affection += 3
             jump Ch2_S4_T3_IB
 
 label Ch2_S4_T1_IB:
@@ -1468,14 +1510,17 @@ label Ch2_S5_T0_IB:
     menu:
         "1. Yeah, I like spicy food. Wow~":
             ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_IB
 
         "2. I can't eat spicy food well... I'll try it next time.":
             ## Affinity maintained
+            $ affection += 0
             jump Ch2_S6_T2_IB
 
         "3. Hmm, I'll rinse it in water and try it. Give it to me.":
             ## Affinity decrease
+            $ affection += -5
             jump Ch2_S6_T3_IB
 
 label Ch2_S6_T1_IB:
@@ -1528,19 +1573,19 @@ label Ch3_S1_T0_IB:
         "Guess the name of the festival:"
 
         "1. Pentaport Rock Festival":
-
+            $ affection += -3
             jump Ch3_S2_T1_IB
 
         "2. Waterbomb Festival":
-
+            $ affection += 3
             jump Ch3_S2_T2_IB
 
         "3. Boryeong Mud Festival":
-
+            $ affection += -3
             jump Ch3_S2_T3_IB
 
         "4. Seoul Jazz Festival":
-
+            $ affection += -3
             jump Ch3_S2_T4_IB
 
 label Ch3_S2_T1_IB:
@@ -1627,15 +1672,15 @@ label Ch3_S3_T0_IB:
 
     menu:
         "1. I suppose so. I'm really sorry.":
-
+            $ affection -= 5
             jump Ch3_S4_T1_IB
 
         "2. We were never meant to be together for long anyway.":
-            
+            $ affection += 4
             jump Ch3_S4_T2_IB
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
-
+            $ affection += 2
             jump Ch3_S4_T3_IB
 
 label Ch3_S4_T1_IB:
@@ -1664,15 +1709,19 @@ label Ch3_S5_T0_IB:
 
     menu:
         "1. Hanbok":
+            $ affection += 5
             jump Ch3_S6_T1_IB
 
         "2. Kimono":
+            $ affection += -5
             jump Ch3_S6_T2_IB
 
         "3. Ao Dai":
+            $ affection += -5
             jump Ch3_S6_T3_IB
 
         "4. Sari":
+            $ affection += -2
             jump Ch3_S6_T4_IB
 
 label Ch3_S6_T1_IB:
@@ -1716,11 +1765,11 @@ label Ch4_S1_T0_IB:
 
     menu:
         "Read the email":
-
+            $ affection += 5
             jump Ch4_S1_T1_IB
 
         "Don't read the email":
-
+            $ affection += -5
             jump Ch4_S1_T2_IB
 
 label Ch4_S1_T1_IB:
@@ -1747,15 +1796,15 @@ label Ch4_S2_T0_IB:
 
     menu:
         "Go to the Taj Mahal":
-
+            $ affection += 5
             jump Ch4_S3_T1_IB
 
         "Go to Agra Fort":
-
+            $ affection += 2
             jump Ch4_S3_T2_IB
 
         "Go shopping":
-
+            $ affection += -5
             jump Ch4_S3_T3_IB
 
 label Ch4_S3_T1_IB:
@@ -1780,15 +1829,15 @@ label Ch4_S4_T0_IB:
 
     menu:
         "Observe the people following the tour guide":
-
+            $ affection += 3
             jump Ch4_S5_T1_IB
 
         "Watch people getting their photos taken by peddlers":
-
+            $ affection += 0
             jump Ch4_S5_T2_IB
 
         "No way, such a coincidence couldn't happen":
-
+            $ affection -= 5
             jump Ch4_S5_T3_IB
 
 label Ch4_S5_T1_IB:
@@ -1821,15 +1870,15 @@ label Ch4_S6_T0_IB:
 
     menu:
         "Myeong-dong":
-
+            $ affection += 0
             jump Ch4_S7_T1_IB
 
         "Jongno":
-
+            $ affection += 3
             jump Ch4_S7_T2_IB
 
         "Itaewon":
-
+            $ affection += -3
             jump Ch4_S7_T3_IB
 
 label Ch4_S7_T1_IB:
@@ -1854,15 +1903,15 @@ label Ch4_S8_T0_IB:
 
     menu:
         "Let's go eat street food in Delhi":
-
+            $ affection += 5
             jump Ch4_S9_T1_IB
 
         "I'll take a picture of you in front of the Taj Mahal":
-
+            $ affection += 0
             jump Ch4_S9_T2_IB
 
         "Let's go back to the hotel and rest":
-
+            $ affection += -5
             jump Ch4_S9_T3_IB
 
 label Ch4_S9_T1_IB:
@@ -1894,20 +1943,21 @@ label Ch4_S10_T0_IB:
     kg "I can't wait! What should we expect during the journey?"
 
     menu:
-        "Talk about the diversity of regions and cultures in India.":
-
-            jump Ch4_S11_T1_IB
 
         "Discuss the history and significance of Indian Railways.":
-
+            $ affection += 4
             jump Ch4_S11_T2_IB
 
+        "Talk about the diversity of regions and cultures in India.":
+            $ affection += 7
+            jump Ch4_S11_T1_IB
+            
         "Mention the culinary delights available on the train.":
-
+            $ affection += 1
             jump Ch4_S11_T3_IB
 
         "Suggest sleeping or reading during the journey to pass the time.":
-
+            $ affection += -5
             jump Ch4_S11_T4_IB
 
 label Ch4_S11_T1_IB:
@@ -1937,21 +1987,22 @@ label Ch4_S12_T0_IB:
     kg "I'm excited to explore it. What should we do first?"
 
     menu:
-        "Suggest exploring the historic parts of Bangalore.":
-
-            jump Ch4_S13_T1_IB
+        "Propose heading straight to the hotel to rest.":
+            $ affection -= 5
+            jump Ch4_S13_T4_IB
 
         "Propose visiting the local parks and gardens.":
-
+            $ affection += 4
             jump Ch4_S13_T2_IB
 
         "Suggest checking out the local markets.":
-
+            $ affection += 0
             jump Ch4_S13_T3_IB
+            
+        "Suggest exploring the historic parts of Bangalore.":
+            $ affection += 7
+            jump Ch4_S13_T1_IB
 
-        "Propose heading straight to the hotel to rest.":
-
-            jump Ch4_S13_T4_IB
 
 label Ch4_S13_T1_IB:
 
@@ -1980,21 +2031,21 @@ label Ch4_S14_T0_IB:
     p "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
+        "Suggest watching the movie quietly without discussing it.":
+            $ affection += -5
+            jump Ch4_S15_T4_IB
+        
         "Explain the history and evolution of Indian cinema.":
-
+            $ affection += 5
             jump Ch4_S15_T1_IB
 
         "Talk about the influence of Indian cinema globally.":
-
+            $ affection += 3
             jump Ch4_S15_T2_IB
 
         "Discuss the different film genres and what to expect.":
-
+            $ affection += 1
             jump Ch4_S15_T3_IB
-
-        "Suggest watching the movie quietly without discussing it.":
-
-            jump Ch4_S15_T4_IB
 
 label Ch4_S15_T1_IB:
 
@@ -2031,7 +2082,12 @@ label Ch4_S16_T0_IB:
 
 label Ch5_S1_T0_IB:
 
-    jump Ch5_S1_T1_IB
+    if affection >= 50:
+        jump Ch5_S1_T1_IB
+    elif affection >= 25:
+        jump Ch5_S1_T2_IB
+    else:
+        jump Ch5_S1_T3_IB
 
 label Ch5_S1_T1_IB:
 
@@ -2079,7 +2135,7 @@ label Ch5_S1_T1_IB:
     p "Ready for the party? It's going to go late into the night!!"
 
     "As we entered the hall, I remembered when I first met [kg]. If I hadn't met [kg], what would have happened? This beautiful story of mine will continue forever."
-
+    "Happy ending"
     return
 
 label Ch5_S1_T2_IB:
@@ -2117,6 +2173,7 @@ label Ch5_S1_T2_IB:
 
     "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [kg] again felt like a new beginning, in a different way."
 
+    "Normal ending"
     return
 
 label Ch5_S1_T3_IB:
@@ -2152,6 +2209,7 @@ label Ch5_S1_T3_IB:
 
     "All I could do was think about [kg], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
 
+    "Bad ending"
     return
 
 
@@ -2230,12 +2288,15 @@ label Ch1_S2_T0_KG:
 
     menu:
         "1. Quickly dash to grab a tissue.":
+            $ affection += 5
             jump Ch1_S3_T1_KG
 
         "2. Apologize to [ib] in embarrassment.":
+            $ affection += 1
             jump Ch1_S3_T2_KG
 
         "3. Apologize to the person you bumped into first.":
+            $ affection += -5
             jump Ch1_S3_T3_KG
 
 label Ch1_S3_T1_KG:
@@ -2271,13 +2332,13 @@ label Ch2_S1_T0_KG:
 
     ## Chatting app
 
-    p "[player_name], have you ever been to Seol-ip?"
+    ib "[player_name], do you often go to Seol-ip?"
 
-    ib "Seol-ip..? You mean Seoul National University Station, right? I've never been there!"
+    p "Yeah, I go often."
 
-    p "Then do you want to go with me? I'll show you around."
+    ib "Then will you go with me? I've never been there before, so I'm curious.."
 
-    ib "Okay, good!"
+    p "Okay, I'll show you around."
 
     "The next day. the two met in Seol-ip."
 
@@ -2285,21 +2346,32 @@ label Ch2_S1_T0_KG:
 
     p "Ta-da! Students from our school usually come here to hang out."
 
-    ib "Um... Since we just had lunch, how about going to a cafe I know and having some dessert?"
+    ib "Then what kind of food do you usually eat? I want to eat dessert."
 
-    p "Okay."
+    p "There's a cafe nearby that I often go to. Do you want to go and have some shaved ice?"
 
-    ib "I'll buy you some for your first time at Seol-ip."
+    "What should I say to the opponent who's visiting Seol-ip for the first time?"
+    menu:
+        "1. I'll buy it for you as a souvenir of your first visit to Seol-ip!":
+            $ affection += 5
 
-    p "Oh really?? Thank you. I'll eat well~"
+        "2. You know we split the bill, right? Haha..":
+            $ affection += -2
 
+        "3. You'll pay instead~~! I'll eat well ^^":
+            $ affection += -5
+    ib "Phew, I'm full. The shaved ice here is really delicious."
+
+    p " I'm glad you enjoyed it."
+    
+    
     ib "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
 
     p "Really? Then let's go in now."
 
     p "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
-    ib "Thank you. You're so kind ㅜㅜ. I'll sing first!"
+    ib "Thank you. You're so kind TT. I'll sing first!"
 
     "I am confident in my singing skills, so I sing my favorite song with great enthusiasm."
     "I look to the side while singing and see the other person staring at me."
@@ -2320,14 +2392,17 @@ label Ch2_S1_T0_KG:
 
         "1. Sing along to the duet song.":
             ## Affection level increases.
+            $ affection += 5
             jump Ch2_S2_T1_KG
 
         "2. Stay still.":
             ## Affection level decreases.
+            $ affection -= 5
             jump Ch2_S2_T2_KG
 
         "3. Pick up a tambourine and dance like crazy.":
             ## Affection level increases slightly.
+            $ affection += 2
             jump Ch2_S2_T3_KG
 
 label Ch2_S2_T1_KG:
@@ -2418,15 +2493,18 @@ label Ch2_S3_T0_KG:
 
     menu:
         "1. Go to a nearby convenience store and buy an umbrella each.":
+            $ affection += -2
             ## Slightly decrease in favorability
             jump Ch2_S4_T1_KG
 
         "2. Share an umbrella and run to the market.":
             ## Affection level goes up significantly
+            $ affection += 5
             jump Ch2_S4_T2_KG
 
         "3. Suggest that we both just go while getting rained on.":
             ## Affection level goes down significantly
+            $ affection += -5
             jump Ch2_S4_T3_KG
 
 label Ch2_S4_T1_KG:
@@ -2454,22 +2532,21 @@ label Ch2_S5_T0_KG:
 
     ib "Right. Let's eat something since we're hungry."
 
-    p "This is tteokbokki, a national snack that Koreans of all ages and genders love. "
-    p "It might be a little spicy, but is that okay?"
-
-    "What should I say in response to that suggestion?"
+    "I look around and see various foods. What kind of food should I recommend that the opponent like?"
 
     menu:
-        "1. Yeah, I like spicy food. Wow~":
+        "1. Tteokbokki ":
             ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_KG
 
-        "2. I can't eat spicy food well... I'll try it next time.":
+        "2. Bindaetteok":
             ## Affinity maintained
+            $ affection += 3
             jump Ch2_S6_T2_KG
 
-        "3. Hmm, I'll rinse it in water and try it. Give it to me.":
-            ## Affinity decrease
+        "3. Janchi noodles":
+            $ affection += 3
             jump Ch2_S6_T3_KG
 
 label Ch2_S6_T1_KG:
@@ -2492,7 +2569,7 @@ label Ch2_S7_T0_KG:
     p "This noodle is called janchi-guksu. "
     p "It originated from the fact that it was enjoyed at weddings, birthday parties, and 60th birthday parties in the hopes of longevity."
 
-    ib "The food here is really delicious."
+    ib "Oh, I love it!"
 
     "Then they enjoy the food with a happy conversation."
 
@@ -2520,15 +2597,19 @@ label Ch3_S1_T0_KG:
         "Guess the name of the festival:"
 
         "1. Pentaport Rock Festival":
+            $ affection += -3
             jump Ch3_S2_T1_KG
 
         "2. Waterbomb Festival":
+            $ affection += 3
             jump Ch3_S2_T2_KG
 
         "3. Boryeong Mud Festival":
+            $ affection += -3
             jump Ch3_S2_T3_KG
 
         "4. Seoul Jazz Festival":
+            $ affection += -3
             jump Ch3_S2_T4_KG
 
 label Ch3_S2_T1_KG:
@@ -2606,12 +2687,15 @@ label Ch3_S3_T0_KG:
 
     menu:
         "1. I suppose so. I'm really sorry.":
+            $ affection += -5
             jump Ch3_S4_T1_KG
 
         "2. We were never meant to be together for long anyway.":
+            $ affection += 4
             jump Ch3_S4_T2_KG
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
+            $ affection += 2
             jump Ch3_S4_T3_KG
 
 label Ch3_S4_T1_KG:
@@ -2637,15 +2721,19 @@ label Ch3_S5_T0_KG:
 
     menu:
         "1. Hanbok":
+            $ affection += 5
             jump Ch3_S6_T1_KG
 
         "2. Kimono":
+            $ affection += -5
             jump Ch3_S6_T2_KG
 
         "3. Ao Dai":
+            $ affection += -5
             jump Ch3_S6_T3_KG
 
         "4. Sari":
+            $ affection += -2
             jump Ch3_S6_T4_KG
 
 label Ch3_S6_T1_KG:
@@ -2683,9 +2771,11 @@ label Ch4_S1_T0_KG:
 
     menu:
         "Send the text":
+            $ affection += 5
             jump Ch4_S1_T1_KG
 
         "Don't send the text":
+            $ affection += -5
             jump Ch4_S1_T2_KG
 
 label Ch4_S1_T1_KG:
@@ -2733,12 +2823,15 @@ label Ch4_S2_T0_KG:
 
     menu:
         "This place is such a beautiful palace.":
+            $ affection += -3
             jump Ch4_S3_T1_KG
 
         "This place is such a beautiful tomb.":
+            $ affection += 5
             jump Ch4_S3_T2_KG
 
         "This place is such a beautiful government building.":
+            $ affection += -5
             jump Ch4_S3_T3_KG
 
 label Ch4_S3_T1_KG:
@@ -2775,15 +2868,19 @@ label Ch4_S4_T0_KG:
 
     menu:
         "I want to try Paratha!":
+            $ affection += 3
             jump Ch4_S5_T1_KG
 
         "I want to try Chaat!":
+            $ affection += 3
             jump Ch4_S5_T2_KG
 
         "I want to try Aloo Tikki!":
+            $ affection += 3
             jump Ch4_S5_T3_KG
 
         "I don't think I'll like any of them.":
+            $ affection += -5
             jump Ch4_S5_T4_KG
 
 label Ch4_S5_T1_KG:
@@ -2807,9 +2904,11 @@ label Ch4_S6_T0_KG:
 
     menu:
         "Sure!":
+            $ affection += 3
             jump Ch4_S7_T1_KG
 
         "I want to go alone.":
+            $ affection += -3
             jump Ch4_S7_T2_KG
 
 label Ch4_S7_T1_KG:
@@ -2833,15 +2932,19 @@ label Ch4_S8_T0_KG:
 
     menu:
         "Encourage I to tell me more about the diversity of regions and cultures in India.":
+            $ affection += 7
             jump Ch4_S9_T1_KG
 
         "Ask about the history and significance of Indian Railways.":
+            $ affection += 4
             jump Ch4_S9_T2_KG
 
         "Inquire about the food available on the train.":
+            $ affection += 1
             jump Ch4_S9_T3_KG
 
         "Suggest we rest or read to pass the time during the journey.":
+            $ affection += -5
             jump Ch4_S9_T4_KG
 
 label Ch4_S9_T1_KG:
@@ -2870,17 +2973,22 @@ label Ch4_S10_T0_KG:
     p "I'm excited to explore it. What should we do first?"
 
     menu:
+        "Propose heading straight to the hotel to rest.":
+            $ affection += -5
+            jump Ch4_S11_T4_KG
+            
         "Express interest in exploring the historic parts of Bangalore.":
+            $ affection += 7
             jump Ch4_S11_T1_KG
 
         "Show enthusiasm for visiting the local parks and gardens.":
+            $ affection += 4
             jump Ch4_S11_T2_KG
 
         "Suggest exploring the local markets.":
+            $ affection += 0
             jump Ch4_S11_T3_KG
 
-        "Propose heading straight to the hotel to rest.":
-            jump Ch4_S11_T4_KG
 
 label Ch4_S11_T1_KG:
     jump Ch4_S12_T0_KG
@@ -2906,17 +3014,20 @@ label Ch4_S12_T0_KG:
     ib "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
-        "Ask about the history and evolution of Indian cinema.":
-            jump Ch4_S13_T1_KG
+        "Suggest watching the movie quietly without much discussion.":
+            $ affection += -5
+            jump Ch4_S13_T4_KG
 
         "Inquire about the global influence of Indian cinema.":
+            $ affection += 4
             jump Ch4_S13_T2_KG
 
         "Express curiosity about different film genres.":
+            $ affection += 1
             jump Ch4_S13_T3_KG
-
-        "Suggest watching the movie quietly without much discussion.":
-            jump Ch4_S13_T4_KG
+        "Ask about the history and evolution of Indian cinema.":
+            $ affection += 7
+            jump Ch4_S13_T1_KG
 
 label Ch4_S13_T1_KG:
     jump Ch4_S14_T0_KG
@@ -2949,8 +3060,12 @@ label Ch4_S14_T0_KG:
     jump Ch5_S1_T0_KG    
 
 label Ch5_S1_T0_KG:
-
-    jump Ch5_S1_T1_KG
+    if affection >= 50:
+        jump Ch5_S1_T1_KG
+    elif affection >= 25:
+        jump Ch5_S1_T2_KG
+    else:
+        jump Ch5_S1_T3_KG
 
 label Ch5_S1_T1_KG:
 
@@ -2998,7 +3113,7 @@ label Ch5_S1_T1_KG:
     p "Ready for the party? It's going to go late into the night!!"
 
     "As we entered the hall, I remembered when I first met [ib]. If I hadn't met [ib], what would have happened? This beautiful story of mine will continue forever."
-
+    "Happy ending"
     return
 
 label Ch5_S1_T2_KG:
@@ -3035,7 +3150,7 @@ label Ch5_S1_T2_KG:
     p "It really has. How have you been?"
 
     "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [ib] again felt like a new beginning, in a different way."
-
+    "Normal Ending"
     return
 
 label Ch5_S1_T3_KG:
@@ -3070,7 +3185,7 @@ label Ch5_S1_T3_KG:
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
     "All I could do was think about [ib], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
-
+    "Bad ending"
     return
 
 ### KB ver. ###
@@ -3147,12 +3262,15 @@ label Ch1_S2_T0_KB:
 
     menu:
         "1. Quickly dash to grab a tissue.":
+            $ affection += 5
             jump Ch1_S3_T1_KB
 
         "2. Apologize to [ig] in embarrassment.":
+            $ affection += 1
             jump Ch1_S3_T2_KB
 
         "3. Apologize to the person you bumped into first.":
+            $ affection += -5
             jump Ch1_S3_T3_KB
 
 label Ch1_S3_T1_KB:
@@ -3189,13 +3307,13 @@ label Ch2_S1_T0_KB:
 
     ## Chatting app
 
-    p "[player_name], have you ever been to Seol-ip?"
+    ig "[player_name], do you often go to Seol-ip?"
 
-    ig "Seol-ip..? You mean Seoul National University Station, right? I've never been there!"
+    p "Yeah, I go often."
 
-    p "Then do you want to go with me? I'll show you around."
+    ig "Then will you go with me? I've never been there before, so I'm curious.."
 
-    ig "Okay, good!"
+    p "Okay, I'll show you around."
 
     "The next day. the two met in Seol-ip."
 
@@ -3203,13 +3321,24 @@ label Ch2_S1_T0_KB:
 
     p "Ta-da! Students from our school usually come here to hang out."
 
-    ig "Um... Since we just had lunch, how about going to a cafe I know and having some dessert?"
+    ig "Then what kind of food do you usually eat? I want to eat dessert."
 
-    p "Okay."
+    p "There's a cafe nearby that I often go to. Do you want to go and have some shaved ice?"
 
-    ig "I'll buy you some for your first time at Seol-ip."
+    "What should I say to the opponent who's visiting Seol-ip for the first time?"
+    menu:
+        "1. I'll buy it for you as a souvenir of your first visit to Seol-ip!":
+            $ affection += 5
 
-    p "Oh really?? Thank you. I'll eat well~"
+        "2. You know we split the bill, right? Haha..":
+            $ affection += -2
+
+        "3. You'll pay instead~~! I'll eat well ^^":
+            $ affection += -5
+            
+    ig "Phew, I'm full. The shaved ice here is really delicious."
+
+    p " I'm glad you enjoyed it."
 
     ig "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
 
@@ -3217,7 +3346,7 @@ label Ch2_S1_T0_KB:
 
     p "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
-    ig "Thank you. You're so kind ㅜㅜ. I'll sing first!"
+    ig "Thank you. You're so kind TT. I'll sing first!"
 
     "I am confident in my singing skills, so I sing my favorite song with great enthusiasm."
     "I look to the side while singing and see the other person staring at me."
@@ -3237,12 +3366,15 @@ label Ch2_S1_T0_KB:
         "Which of the following actions should I choose?"
 
         "1. Sing along to the duet song.":
+            $ affection += 5
             jump Ch2_S2_T1_KB
 
         "2. Stay still.":
+            $ affection += -5
             jump Ch2_S2_T2_KB
 
         "3. Pick up a tambourine and dance like crazy.":
+            $ affection += 2
             jump Ch2_S2_T3_KB
 
 label Ch2_S2_T1_KB:
@@ -3333,12 +3465,15 @@ label Ch2_S3_T0_KB:
 
     menu:
         "1. Go to a nearby convenience store and buy an umbrella each.":
+            $ affection += -2
             jump Ch2_S4_T1_KB
 
         "2. Share an umbrella and run to the market.":
+            $ affection += 5
             jump Ch2_S4_T2_KB
 
         "3. Suggest that we both just go while getting rained on.":
+            $ affection += -5
             jump Ch2_S4_T3_KB
 
 label Ch2_S4_T1_KB:
@@ -3366,19 +3501,21 @@ label Ch2_S5_T0_KB:
 
     ig "Right. Let's eat something since we're hungry."
 
-    p "This is tteokbokki, a national snack that Koreans of all ages and genders love. "
-    p "It might be a little spicy, but is that okay?"
-
-    "What should I say in response to that suggestion?"
+    "I look around and see various foods. What kind of food should I recommend that the opponent like?"
 
     menu:
-        "1. Yeah, I like spicy food. Wow~":
+        "1. Tteokbokki ":
+            ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_KB
 
-        "2. I can't eat spicy food well... I'll try it next time.":
+        "2. Bindaetteok":
+            ## Affinity maintained
+            $ affection += 3
             jump Ch2_S6_T2_KB
 
-        "3. Hmm, I'll rinse it in water and try it. Give it to me.":
+        "3. Janchi noodles":
+            $ affection += 3
             jump Ch2_S6_T3_KB
 
 label Ch2_S6_T1_KB:
@@ -3429,15 +3566,19 @@ label Ch3_S1_T0_KB:
         "Guess the name of the festival:"
 
         "1. Pentaport Rock Festival":
+            $ affection += -3
             jump Ch3_S2_T1_KB
 
         "2. Waterbomb Festival":
+            $ affection += 3
             jump Ch3_S2_T2_KB
 
         "3. Boryeong Mud Festival":
+            $ affection += -3
             jump Ch3_S2_T3_KB
 
         "4. Seoul Jazz Festival":
+            $ affection += -3
             jump Ch3_S2_T4_KB
 
 label Ch3_S2_T1_KB:
@@ -3515,12 +3656,15 @@ label Ch3_S3_T0_KB:
 
     menu:
         "1. I suppose so. I'm really sorry.":
+            $ affection += -5
             jump Ch3_S4_T1_KB
 
         "2. We were never meant to be together for long anyway.":
+            $ affection += 4
             jump Ch3_S4_T2_KB
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
+            $ affection += 2
             jump Ch3_S4_T3_KB
 
 label Ch3_S4_T1_KB:
@@ -3546,15 +3690,19 @@ label Ch3_S5_T0_KB:
 
     menu:
         "1. Hanbok":
+            $ affection += 5
             jump Ch3_S6_T1_KB
 
         "2. Kimono":
+            $ affection += -5
             jump Ch3_S6_T2_KB
 
         "3. Ao Dai":
+            $ affection += -5
             jump Ch3_S6_T3_KB
 
         "4. Sari":
+            $ affection += -2
             jump Ch3_S6_T4_KB
 
 label Ch3_S6_T1_KB:
@@ -3592,9 +3740,11 @@ label Ch4_S1_T0_KB:
 
     menu:
         "Send the text":
+            $ affection += 5
             jump Ch4_S1_T1_KB
 
         "Don't send the text":
+            $ affection += -5
             jump Ch4_S1_T2_KB
 
 label Ch4_S1_T1_KB:
@@ -3635,12 +3785,15 @@ label Ch4_S2_T0_KB:
 
     menu:
         "This place is such a beautiful palace.":
+            $ affection += -3
             jump Ch4_S3_T1_KB
 
         "This place is such a beautiful tomb.":
+            $ affection += 5
             jump Ch4_S3_T2_KB
 
         "This place is such a beautiful government building.":
+            $ affection += -5
             jump Ch4_S3_T3_KB
 
 label Ch4_S3_T1_KB:
@@ -3676,15 +3829,19 @@ label Ch4_S4_T0_KB:
 
     menu:
         "I want to try Paratha!":
+            $ affection += 3
             jump Ch4_S5_T1_KB
 
         "I want to try Chaat!":
+            $ affection += 3
             jump Ch4_S5_T2_KB
 
         "I want to try Aloo Tikki!":
+            $ affection += 3
             jump Ch4_S5_T3_KB
 
         "I don't think I'll like any of them.":
+            $ affection += -5
             jump Ch4_S5_T4_KB
 
 label Ch4_S5_T1_KB:
@@ -3707,9 +3864,11 @@ label Ch4_S6_T0_KB:
 
     menu:
         "Sure!":
+            $ affection += 3
             jump Ch4_S7_T1_KB
 
         "I want to go alone.":
+            $ affection += -3
             jump Ch4_S7_T2_KB
 
 label Ch4_S7_T1_KB:
@@ -3732,15 +3891,19 @@ label Ch4_S8_T0_KB:
 
     menu:
         "Encourage I to tell me more about the diversity of regions and cultures in India.":
+            $ affection += 7
             jump Ch4_S9_T1_KB
 
         "Ask about the history and significance of Indian Railways.":
+            $ affection += 4
             jump Ch4_S9_T2_KB
 
         "Inquire about the food available on the train.":
+            $ affection += 1
             jump Ch4_S9_T3_KB
 
         "Suggest we rest or read to pass the time during the journey.":
+            $ affection += -5
             jump Ch4_S9_T4_KB
 
 label Ch4_S9_T1_KB:
@@ -3768,17 +3931,21 @@ label Ch4_S10_T0_KB:
     p "I'm excited to explore it. What should we do first?"
 
     menu:
+        "Propose heading straight to the hotel to rest.":
+            $ affection += -5
+            jump Ch4_S11_T4_KB
+            
         "Express interest in exploring the historic parts of Bangalore.":
+            $ affection += 7
             jump Ch4_S11_T1_KB
 
         "Show enthusiasm for visiting the local parks and gardens.":
+            $ affection += 4
             jump Ch4_S11_T2_KB
 
         "Suggest exploring the local markets.":
+            $ affection += 0
             jump Ch4_S11_T3_KB
-
-        "Propose heading straight to the hotel to rest.":
-            jump Ch4_S11_T4_KB
 
 label Ch4_S11_T1_KB:
     jump Ch4_S12_T0_KB
@@ -3803,17 +3970,20 @@ label Ch4_S12_T0_KB:
     ig "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
-        "Ask about the history and evolution of Indian cinema.":
-            jump Ch4_S13_T1_KB
+        "Suggest watching the movie quietly without much discussion.":
+            $ affection += -5
+            jump Ch4_S13_T4_KB
 
         "Inquire about the global influence of Indian cinema.":
+            $ affection += 4
             jump Ch4_S13_T2_KB
 
         "Express curiosity about different film genres.":
+            $ affection += 1
             jump Ch4_S13_T3_KB
-
-        "Suggest watching the movie quietly without much discussion.":
-            jump Ch4_S13_T4_KB
+        "Ask about the history and evolution of Indian cinema.":
+            $ affection += 7
+            jump Ch4_S13_T1_KB
 
 label Ch4_S13_T1_KB:
     jump Ch4_S14_T0_KB
@@ -3845,8 +4015,12 @@ label Ch4_S14_T0_KB:
 
 
 label Ch5_S1_T0_KB:
-
-    jump Ch5_S1_T1_KB
+    if affection >= 50:
+        jump Ch5_S1_T1_KB
+    elif affection >= 25:
+        jump Ch5_S1_T2_KB
+    else:
+        jump Ch5_S1_T3_KB
 
 label Ch5_S1_T1_KB:
 
@@ -3894,7 +4068,7 @@ label Ch5_S1_T1_KB:
     p "Ready for the party? It's going to go late into the night!!"
 
     "As we entered the hall, I remembered when I first met [ig]. If I hadn't met [ig], what would have happened? This beautiful story of mine will continue forever."
-
+    "Happy ending"
     return
 
 label Ch5_S1_T2_KB:
@@ -3931,7 +4105,7 @@ label Ch5_S1_T2_KB:
     p "It really has. How have you been?"
 
     "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [ig] again felt like a new beginning, in a different way."
-
+    "Normal ending"
     return
 
 label Ch5_S1_T3_KB:
@@ -3966,5 +4140,5 @@ label Ch5_S1_T3_KB:
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
     "All I could do was think about [ig], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
-
+    "Bad ending"
     return
