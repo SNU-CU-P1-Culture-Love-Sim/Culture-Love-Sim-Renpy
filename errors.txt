@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 612: scene statement expects a non-empty block.
-    scene bg waterbomb:
-                       ^
+File "game/script.rpy", line 306: scene statement expects a non-empty block.
+    scene bg india_street:
+                          ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Aug 20 05:36:11 2024
+Tue Aug 20 06:48:32 2024
