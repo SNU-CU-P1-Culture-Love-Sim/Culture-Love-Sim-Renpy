@@ -23,6 +23,7 @@ define m = Character("mom", color="#c8caff")
 
 define affection = 0
 
+
 # The game starts here.
 
 label start:
@@ -149,12 +150,19 @@ label Indian_girl_ver:
 
 label Ch1_S1_T0_IG:
 
+    scene bg building_220:
+        zoom 1.2
+
     "Today was my first day as an exchange student in Korea. The wind felt particularly refreshing that day."
 
     p "Hmm... I have no idea where anything is since it's my first time here. Let's head to the lounge in Building 220 and think things over."
 
     "I headed towards the lounge in Building 220 and opened the door."
 
+    scene bg lounge_220:
+        zoom 4.5
+    with dissolve
+    
     f1 "Oh? A new face. Are you an exchange student by any chance?"
 
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
@@ -194,6 +202,9 @@ label Ch1_S1_T0_IG:
     p "Sounds good!"
 
     "We headed to the cafeteria together..."
+    scene bg snu_cafeteria:
+        zoom 1.4
+    with dissolve
 
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
 
@@ -286,6 +297,9 @@ label Ch2_S1_T0_IG:
 
     p "Okay, good!"
 
+    scene bg seolip:
+        zoom 1.8
+
     "The next day. the two met in Seol-ip."
 
     kb "Ta-da! Students from our school usually come here to hang out."
@@ -303,6 +317,10 @@ label Ch2_S1_T0_IG:
     kb "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
 
     p "Really? Then let's go in now."
+
+    scene bg karaoke:
+        zoom 2.8
+    with dissolve
 
     kb "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
@@ -364,6 +382,10 @@ label Ch2_S3_T0_IG:
 
     p "Okay, fine."
 
+    scene bg gyunbok:
+        zoom 2.8
+    with dissolve
+
     "The two take a bus and arrive at Gyeongbokgung Palace."
 
     "There are many people walking around the palace wearing hanbok."
@@ -412,6 +434,10 @@ label Ch2_S3_T0_IG:
 
     p "Oh, it's cold."
 
+    scene bg gyunbok_raining:
+        zoom 1.8
+
+
     kb "Huh? It's raining."
 
     "(Shooting, swoosh, the sound of rain falling)"
@@ -458,6 +484,8 @@ label Ch2_S4_T3_IG:
     jump Ch2_S5_T0_IG
 
 label Ch2_S5_T0_IG:
+    scene bg kmarket:
+        zoom 1.7
 
     "After many twists and turns, the two arrive at Gwangjang Market."
 
@@ -581,8 +609,10 @@ label Ch3_S2_T4_IG:
     jump Ch3_S3_T0_IG
 
 label Ch3_S3_T0_IG:
+    scene bg waterbomb:
+        zoom 1.2
 
-    "Enjoy Waterbomb water gun play photos attached"
+    "We arrived to the Waterbomb festival!"
 
     p "Wow! This is really fun!!"
 
@@ -604,11 +634,9 @@ label Ch3_S3_T0_IG:
 
     kb "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "*Performance photos attached*"
-
     p "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    kb "Oh really? Then should we go to **Hongdae** next time?"
+    kb "Oh really? Then should we go to Hongdae next time?"
 
     p "Why Hongdae? Is it famous for music?"
 
@@ -664,6 +692,8 @@ label Ch3_S4_T3_IG:
     jump Ch3_S5_T0_IG
 
 label Ch3_S5_T0_IG:
+    scene bg kairport:
+        zoom 1.2
 
     "*at the airport*"
 
@@ -724,6 +754,8 @@ label Ch3_S7_T0_IG:
 
 
 label Ch4_S1_T0_IG:
+    scene bg india_room:
+        zoom 1.2
 
     "It's been two months since I returned to Bengaluru in a hurry. Fortunately, my mother's health (or the specific reason why I returned) is gradually improving."
 
@@ -768,10 +800,13 @@ label Ch4_S2_T0_IG:
             jump Ch4_S3_T1_IG
 
         "Go to Agra Fort":
+            scene bg agra
             $ affection += 2
             jump Ch4_S3_T2_IG
 
         "Go shopping":
+            scene bg india_shopping:
+                zoom 1.7
             $ affection -= 5
             jump Ch4_S3_T3_IG
 
@@ -792,6 +827,7 @@ label Ch4_S3_T3_IG:
     jump Ch4_S4_T0_IG
 
 label Ch4_S4_T0_IG:
+    scene bg tajmahal
 
     "Come to think of it, he also wanted to visit this place... I have a feeling he might be here today."
 
@@ -895,6 +931,7 @@ label Ch4_S9_T3_IG:
     jump Ch4_S10_T0_IG
 
 label Ch4_S10_T0_IG:
+    scene bg india_train
 
     "We traveled around Agra and Delhi for a few days. Now it's time to return to Bangalore."
 
@@ -945,6 +982,8 @@ label Ch4_S11_T4_IG:
     jump Ch4_S12_T0_IG
 
 label Ch4_S12_T0_IG:
+    scene bg bangalore:
+        zoom 1.1
 
     "After a long but enriching journey, we finally arrived in Bangalore. The city greeted us with its pleasant weather and vibrant atmosphere."
 
@@ -1033,9 +1072,11 @@ label Ch4_S15_T4_IG:
     jump Ch4_S16_T0_IG
 
 label Ch4_S16_T0_IG:
+    scene bg theatre:
+        zoom 1.3
 
     "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. The movie started, and I could see K was completely engrossed in the experience."
-
+    
     kb "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
     p "I'm glad you enjoyed it. Indian cinema is all about making you feel deeply, whether it's joy, sorrow, or excitement."
@@ -1059,6 +1100,7 @@ label Ch5_S1_T0_IG:
         jump Ch5_S1_T3_IG
 
 label Ch5_S1_T1_IG:
+    scene bg christ_dorm
 
     "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
@@ -1076,6 +1118,8 @@ label Ch5_S1_T1_IG:
 
     "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [kb] again?"
     "Realizing today was [kb]'s departure, I called a taxi and headed to the airport."
+    
+    scene bg india_airport
 
     p "It was today! I still wanted to say goodbye..."
 
@@ -1090,6 +1134,9 @@ label Ch5_S1_T1_IG:
     p "Smiles silently."
 
     "We persuaded our parents, got back together, and continued our relationship between Korea and India."
+
+    scene bg wedding:
+        zoom 1.4
 
     "A vibrant Indian wedding with flowers."
 
@@ -1109,6 +1156,7 @@ label Ch5_S1_T1_IG:
     return
 
 label Ch5_S1_T2_IG:
+    scene bg christ_dorm
 
     "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
@@ -1127,11 +1175,15 @@ label Ch5_S1_T2_IG:
     "We had some wonderful times together, perhaps more beautiful now as memories. I wondered if I'd meet anyone like [kb] again."
     "Realizing today was [kb]'s departure, I impulsively headed to the airport."
 
+    scene bg india_airport
+
     p "Today's the day! I still wanted to say goodbye..."
 
     "At the airport, I looked for flights to Korea and decided to wait. I saw missed calls and dialed back."
 
     p "Are you at the airport? I saw your letter at the dorm!"
+
+    scene bg foreign_street
 
     "Reflecting on the past, [kb] was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
 
@@ -1147,6 +1199,7 @@ label Ch5_S1_T2_IG:
     return
 
 label Ch5_S1_T3_IG:
+    scene bg christ_dorm
 
     "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
@@ -1166,6 +1219,8 @@ label Ch5_S1_T3_IG:
     "I knew today was [kb]'s departure, but I couldn't bring myself to go to the airport."
 
     p "I should have gone... but I just couldn't face it."
+
+    scene bg foreign_street
 
     "Time passed, and life moved on. Years later, I was on a business trip and unexpectedly saw [kb] again."
 

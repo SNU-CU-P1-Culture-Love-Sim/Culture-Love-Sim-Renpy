@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 146: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    xfill True
-              ^
+File "game/script.rpy", line 612: scene statement expects a non-empty block.
+    scene bg waterbomb:
+                       ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Thu Aug 15 23:12:03 2024
+Tue Aug 20 05:36:11 2024

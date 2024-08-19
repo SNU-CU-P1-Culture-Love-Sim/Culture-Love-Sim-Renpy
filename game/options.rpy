@@ -50,7 +50,6 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = True
 
-
 ## To allow the user to play a test sound on the sound or voice channel,
 ## uncomment a line below and use it to set a sample sound to play.
 
@@ -107,6 +106,10 @@ define config.end_game_transition = None
 ## "window hide", and "window auto" statements.
 
 define config.window = "auto"
+
+init python:
+    def scale_background(image_name):
+        return im.Scale(image_name, config.screen_width, config.screen_height)
 
 
 ## Transitions used to show and hide the dialogue window

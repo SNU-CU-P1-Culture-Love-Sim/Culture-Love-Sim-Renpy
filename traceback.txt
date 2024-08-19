@@ -1,22 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 64, in script
-    jump Korean_girl_ver
-ScriptError: could not find label 'Korean_girl_ver'.
+FileNotFoundError: [WinError 2] 지정된 파일을 찾을 수 없습니다: 'C:\\Users\\uzinf\\AppData\\Roaming/RenPy/miyeonsi_01-1723704089\\persistent'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 64, in script
-    jump Korean_girl_ver
-  File "C:\Users\heon0\OneDrive\Desktop\와플\renpy-8.2.3-sdk\renpy\ast.py", line 1701, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\heon0\OneDrive\Desktop\와플\renpy-8.2.3-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'Korean_girl_ver'.
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\main.py", line 651, in main
+    renpy.persistent.update(True)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\persistent.py", line 434, in update
+    save()
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\persistent.py", line 455, in save
+    renpy.loadsave.location.save_persistent(compressed)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 566, in save_persistent
+    l.save_persistent(data)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 381, in save_persistent
+    self.persistent_mtime = os.path.getmtime(fn)
+  File "lib/python3.9/genericpath.py", line 55, in getmtime
+FileNotFoundError: [WinError 2] 지정된 파일을 찾을 수 없습니다: 'C:\\Users\\uzinf\\AppData\\Roaming/RenPy/miyeonsi_01-1723704089\\persistent'
 
-Windows-10-10.0.19045 AMD64
+Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 miyeonsi_01 1.0
-Thu Aug 15 18:05:54 2024
+Tue Aug 20 05:20:39 2024
