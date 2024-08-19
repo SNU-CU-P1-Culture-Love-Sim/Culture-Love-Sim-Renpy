@@ -1,7 +1,7 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-FileNotFoundError: [WinError 2] 지정된 파일을 찾을 수 없습니다: 'C:\\Users\\uzinf\\AppData\\Roaming/RenPy/miyeonsi_01-1723704089\\persistent'
+PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: 'C:\\Users\\uzinf\\Downloads\\renpy-8.2.3-sdk\\Culture-Love-Sim-Renpy\\game\\saves\\persistent'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -16,12 +16,13 @@ Full traceback:
     renpy.loadsave.location.save_persistent(compressed)
   File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 566, in save_persistent
     l.save_persistent(data)
-  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 381, in save_persistent
-    self.persistent_mtime = os.path.getmtime(fn)
-  File "lib/python3.9/genericpath.py", line 55, in getmtime
-FileNotFoundError: [WinError 2] 지정된 파일을 찾을 수 없습니다: 'C:\\Users\\uzinf\\AppData\\Roaming/RenPy/miyeonsi_01-1723704089\\persistent'
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 378, in save_persistent
+    safe_rename(fn_new, fn)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\loadsave.py", line 303, in safe_rename
+    os.unlink(new)
+PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: 'C:\\Users\\uzinf\\Downloads\\renpy-8.2.3-sdk\\Culture-Love-Sim-Renpy\\game\\saves\\persistent'
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 miyeonsi_01 1.0
-Tue Aug 20 05:20:39 2024
+Tue Aug 20 07:03:27 2024
