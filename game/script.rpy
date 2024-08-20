@@ -1107,7 +1107,7 @@ label Ch4_S12_T0_IG:
         zoom 1.1
 
     "After a long but enriching journey, we finally arrived in Bangalore. The city greeted us with its pleasant weather and vibrant atmosphere."
-    show kb at rght
+    show kb at right
     kb "Bangalore seems so lively! I've heard it's known as the Silicon Valley of India."
     hide kb
     show ig smartcasuals at left
