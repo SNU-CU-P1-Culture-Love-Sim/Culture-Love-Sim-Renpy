@@ -43,13 +43,17 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show e start
+
+    # show eileen happy
     
     show screen show_affection
 
     # These display lines of dialogue.
     
     e "Hi. Welcome to Miyeonsi."
+
+    # show e start
 
     e "This game is a love simulation game for Korea and India."
 
@@ -176,6 +180,8 @@ label Ch1_S1_T0_IG:
     f1 "Nice to meet you! If you have any questions, feel free to ask!"
 
     "Just then, someone suddenly grabbed my shoulder."
+
+    show kb date
 
     kb "Hey! What were you guys talking about?"
 
