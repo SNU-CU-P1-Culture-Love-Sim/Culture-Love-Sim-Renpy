@@ -841,13 +841,16 @@ label Ch3_S7_T0_IG:
     hide ig rushed
     show kb at right 
     kb "Don't forget me when you go back to India."
-
-    p "Of course not. We're under the same sky. Our love will be eternal."
-
-    kb "Take care in Korea."
-
-    p "Yes, you take care in India too. Let's meet in India next time."
-
+    hide kb 
+    show ig rushed at left
+    p "Of course not. We're under the same sky. You will be eternal to me."
+    hide ig rushed
+    show kb at right
+    kb "Take care in India."
+    hide kb
+    show ig rushed
+    p "Yes, you take care in Korea too. Let's meet in India next time."
+    hide ig rushed
     jump Ch4_S1_T0_IG
 
 
@@ -883,13 +886,15 @@ label Ch4_S1_T2_IG:
     jump Ch4_S2_T0_IG
 
 label Ch4_S2_T0_IG:
-
+    show m at left
     m "We're going to visit your grandfather in Agra next week."
-
+    hide m 
+    show ig pyjamas
     p "Agra?"
-
+    hide ig pyjamas
+    show m
     m "Yes. We need to deliver these things to your grandfather."
-
+    hide m
     "After visiting my grandfather's house, I had a bit of time before my flight. What should I do now?"
 
     menu:
@@ -926,9 +931,9 @@ label Ch4_S3_T3_IG:
 
 label Ch4_S4_T0_IG:
     scene bg tajmahal
-
+    show ig kurti
     "Come to think of it, he also wanted to visit this place... I have a feeling he might be here today."
-
+    hide ig kurti
     menu:
         "Observe the people following the tour guide":
             $ affection += 3
@@ -957,19 +962,24 @@ label Ch4_S5_T3_IG:
 label Ch4_S6_T0_IG:
 
     "I see a Korean person over there! No way..."
-
+    show kb
     kb "Oh! It's you!"
-
+    hide kb
+    show ig kurti
     p "What a coincidence to meet here..."
-
+    hide ig kurti
+    show kb
     kb "I arrived in India yesterday. You said you would take me to the Taj Mahal, so I wanted to come even if it was alone."
-
+    hide kb
+    show ig kurti
     p "I had a feeling you might be here today."
-
+    hide ig kurti
+    show kb
     kb "The Taj Mahal is so beautiful! Just like you described it."
-
+    hide kb
+    show ig kurti
     p "I thought you would like Agra. It has many historical sites that showcase Indian tradition. It's like..."
-
+    hide ig kurti
     menu:
 
         "It's like... ( ) in Seoul."
@@ -999,17 +1009,20 @@ label Ch4_S7_T3_IG:
     jump Ch4_S8_T0_IG
 
 label Ch4_S8_T0_IG:
-
+    show kb at right
     kb "That's right! You seem to know quite a lot about Korea now!"
-
+    hide kb
+    show ig kurti at left
     p "Of course! It's always a place I miss."
-
+    hide ig kurti
+    show kb at right
     kb "What should we do now?"
+    hide kb 
 
     menu:
 
         "What should we do now?"
-
+        
         "Let's go eat street food in Delhi":
             $ affection += 5
             jump Ch4_S9_T1_IG
@@ -1042,15 +1055,17 @@ label Ch4_S10_T0_IG:
     "After spending a few memorable days in Delhi and Agra, it's time to head back to Bangalore. "
 
     "We decided to take the train together—an experience that would allow us to see more of India's diverse landscapes and cultures as we travel across regions."
-
+    show kb at left
     kb "I've heard that train journeys in India are quite an experience. I'm excited but also a bit nervous. How long will the journey take?"
-
+    hide kb
+    show ig train at right
     p "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. "
-
+    
     p "You'll get to see so much of India, from the bustling cities to the peaceful countryside."
-
+    hide ig train
+    show kb at left
     kb "I can't wait! What should we expect during the journey?"
-
+    hide kb
     menu:
 
         "What should we expect during the journey?"
@@ -1092,13 +1107,15 @@ label Ch4_S12_T0_IG:
         zoom 1.1
 
     "After a long but enriching journey, we finally arrived in Bangalore. The city greeted us with its pleasant weather and vibrant atmosphere."
-
+    show kb at rght
     kb "Bangalore seems so lively! I've heard it's known as the Silicon Valley of India."
-
+    hide kb
+    show ig smartcasuals at left
     p "That's right. Bangalore is a major hub for technology and startups, but it's also known for its parks, historic sites, and diverse culture."
-
+    hide ig smartcasuals
+    show kb at right
     kb "I'm excited to explore it. What should we do first?"
-
+    hide kb
     menu:
 
         "What should we do first?"
@@ -1141,15 +1158,16 @@ label Ch4_S14_T0_IG:
 
     "After settling in, I thought it would be a great idea to introduce [kb] to Indian cinema—a vital part of the culture here."
     "We decided to go to a local theatre to watch a popular Indian film."
-
+    show kb at left
     kb "I've heard so much about Indian cinema. Bollywood, right?"
-
+    hide kb 
+    show ig smartcasuals at right
     p "Yes, but there's so much more to Indian cinema than just Bollywood. "
     
     p "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
 
     p "Indian cinema has a rich history, and it's evolved a lot over the years."
-
+    hide ig smartcasuals
     menu:
         "Suggest watching the movie quietly without discussing it.":
             $ affection -= 5
@@ -1190,13 +1208,15 @@ label Ch4_S16_T0_IG:
     "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. "
     
     "The movie started, and I could see [kb] was completely engrossed in the experience."
-    
+    show kb at left
     kb "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
-
+    hide kb 
+    show ig smartcasuals at right
     p "I'm glad you enjoyed it. Indian cinema is all about making you feel deeply, whether it's joy, sorrow, or excitement."
-
+    hide ig smartcasuals 
+    show kb at left
     kb "I can't wait to watch more. Thank you for introducing me to this part of your culture."
-
+    hide kb
     "As we left the theatre, I felt even closer to [kb]. Sharing these experiences together has deepened our bond, and I'm excited to see where our journey takes us next."
 
     jump Ch5_S1_T0_IG
@@ -1217,24 +1237,26 @@ label Ch5_S1_T1_IG:
     scene bg christ_dorm
 
     "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
-
+    show kb at right
     kb "We're both busy, so let's concentrate on studying."
-
+    hide kb
+    show ig kurti at left
     p "Yeah, let's do that."
-
+    hide ig kurti
     "Back then, if I'd acted differently, could we have stayed closer? This question lingered in my mind as the days passed."
 
     "With the semester ending, I immersed myself in exams. Uncertain about my feelings, I hesitated."
-
+    show ig kurti
     p "When did [kb]'s exchange program end again?"
 
     "I found myself at [kb]'s dormitory. Seeing the empty room, I wondered if I would regret this day."
 
     "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [kb] again?"
+    hide ig kurti
     "Realizing today was [kb]'s departure, I called a taxi and headed to the airport."
     
     scene bg india_airport
-
+    show ig rushed
     p "It was today! I still wanted to say goodbye..."
 
     "At the airport, I found the counter for flights to Korea and waited. Noticing missed calls, I called back."
@@ -1242,12 +1264,14 @@ label Ch5_S1_T1_IG:
     p "Are you at the airport? I saw the letter you left!"
 
     "Even now, [kb] was the best person I'd met. So kind and together often. I don't think I'll meet someone like [kb] again."
-
+    hide ig rushed
+    show kb 
     kb "Yeah... but I don't want to go. I couldn't say it then, but I realize I need you."
-
+    hide kb
+    show ig rushed
     p "Smiles silently."
 
-    "We persuaded our parents, got back together, and continued our relationship between Korea and India."
+    "We got back together later, and continued our relationship between Korea and India."
 
     scene bg wedding:
         zoom 1.4
