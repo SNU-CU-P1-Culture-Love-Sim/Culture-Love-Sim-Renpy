@@ -43,17 +43,13 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show e start
-
-    # show eileen happy
+    show eileen happy
     
     show screen show_affection
 
     # These display lines of dialogue.
     
     e "Hi. Welcome to Miyeonsi."
-
-    # show e start
 
     e "This game is a love simulation game for Korea and India."
 
@@ -182,8 +178,6 @@ label Ch1_S1_T0_IG:
     "Just then, someone suddenly grabbed my shoulder."
     hide ig cafeteria
     show kb at right
-
-    show kb date
 
     kb "Hey! What were you guys talking about?"
     hide kb
@@ -610,23 +604,29 @@ label Ch2_S7_T0_IG:
 
 
 label Ch3_S1_T0_IG:
-
-    kb "How about we try dating somewhere new?"
-
+    show kb at left
+    kb "How about we try have fun somewhere new?"
+    hide kb
+    show ig wterbomb at right
     p "Sounds good! Where should we go?"
-
+    hide ig wterbomb 
+    show kb at left
     kb "Is there anything you'd like to try?"
-
+    hide kb 
+    show ig wterbomb at right
     p "Hmm... Could we maybe go to a famous festival in Korea?"
-
+    hide ig wterbomb
+    show kb at left
     kb "Of course! How about we go to the largest music and water-themed festival in the country? "
 
     kb "It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights!"
-
+    hide kb
+    show ig wterbomb at right
     p "Great! What's the name of that festival?"
-
+    hide ig wterbomb 
+    show kb at left
     kb "Want to try guessing?"
-
+    hide kb
 
     menu:
 
@@ -649,25 +649,25 @@ label Ch3_S1_T0_IG:
             jump Ch3_S2_T4_IG
 
 label Ch3_S2_T1_IG:
-
+    show kb at left
     kb "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
 
     jump Ch3_S3_T0_IG
 
 label Ch3_S2_T2_IG:
-
+    show kb at left
     kb "That's right!! My darling! Then shall we go to Waterbomb?"
 
     jump Ch3_S3_T0_IG
 
 label Ch3_S2_T3_IG:
-
+    show kb at left
     kb "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
 
     jump Ch3_S3_T0_IG
 
 label Ch3_S2_T4_IG:
-
+    show kb at left
     kb "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
 
     jump Ch3_S3_T0_IG
@@ -675,60 +675,78 @@ label Ch3_S2_T4_IG:
 label Ch3_S3_T0_IG:
     scene bg waterbomb:
         zoom 1.2
-
+    show kb at left
     "We arrived to the Waterbomb festival!"
-
+    hide kb 
+    show ig wterbomb at right
     p "Wow! This is really fun!!"
-
+    hide ig wterbomb 
     "During the water gun play, I became the target of many people."
-
+    show ig wterbomb at left
     p "Oh no..."
-
+    hide ig wterbomb
+    show kb at right
     kb "[player_name]!!"
-
+    hide kb
     "[kb] shielded me with his whole body."
-
+    show kb at right
     kb "Are you okay??"
-
+    hide kb
+    show ig wterbomb at left
     p "Yes!! Really thank you"
-
+    hide ig wterbomb
+    show kb at right
     kb "How was it?"
-
+    hide kb 
+    show ig wterbomb at left
     p "This was so much fun!!"
-
+    hide ig wterbomb
+    show kb at right
     kb "Great! Then let's go watch the performances now? We can buy some beers too!"
-
+    hide kb 
+    show ig wterbomb at left
     p "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
-
+    hide ig wterbmob
+    show kb at right
     kb "Oh really? Then should we go to Hongdae next time?"
-
+    hide kb 
+    show ig wterbomb at left
     p "Why Hongdae? Is it famous for music?"
-
+    hide ig wterbomb 
+    show kb at right 
     kb "Many musicians do street performances in Hongdae! "
-
+    hide kb
     "I saw busking in Hongdae with [kb]"
-
+    show ig wterbomb 
     p "This is so enjoyable~"
-
+    hide ig wterbomb
     "I suddenly got a text message."
-
+    show ig sadwaterbomb
     p "Oh no..."
-
+    hide ig sadwaterbomb 
+    show kb at left
     kb "What's wrong? You don't look good."
-
-    p "I think I need to go back to India now."
-
+    hide kb 
+    show ig sadwaterbomb at right
+    p "I need to go back to India now."
+    hide ig sadwaterbomb 
+    show kb at left
     kb "What? Didn't you have half a year left?"
-
+    hide kb 
+    show ig sadwaterbomb at right 
     p "I loved Korea and you so much that I extended my exchange student program for another semester, "
 
-    p "but I just got a message saying my application was rejected."
-
-    kb "What? I'm so disappointed... I'm tearing up..."
-
-    p "Oh honey, don't cry... I'm really disappointed too.."
-
+    p "but I just got a message saying my mother met with an accident"
+    hide ig sadwaterbomb
+    show kb at left
+    kb "What? That's so unfortunate... I'm tearing up..."
+    hide kb
+    show ig sadwaterbomb at right
+    p "Oh honey, don't cry... I'm miserable too.."
+    hide ig sadwaterbomb
+    show kb at left
     kb "So we won't be able to see each other anymore?"
+    hide kb
 
     menu:
 
@@ -742,7 +760,7 @@ label Ch3_S3_T0_IG:
             $ affection += 4
             jump Ch3_S4_T2_IG
 
-        "3. No, don't say that! Everything will be alright, don't worry my dear.":
+        "3. No, don't say that! Everything will be alright, don't worry; you will always be in my heart.":
             $ affection += 2
             jump Ch3_S4_T3_IG
 
@@ -763,13 +781,15 @@ label Ch3_S5_T0_IG:
         zoom 1.2
 
     "_at the airport_"
-
+    show kb 
     kb "I wish we could meet again soon."
-
-    p "Be happy even after you go back."
-
+    hide kb 
+    show ig rushed
+    p "Be happy even after I go back."
+    hide ig rushed
+    show kb 
     kb "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
-
+    hide kb
     menu:
 
         "Guess the name of the costume:"
@@ -791,33 +811,35 @@ label Ch3_S5_T0_IG:
             jump Ch3_S6_T4_IG
 
 label Ch3_S6_T1_IG:
-
+    show kb
     kb "Right! You remember!"
 
     jump Ch3_S7_T0_IG
 
 label Ch3_S6_T2_IG:
-
+    show kb
     kb "Don't you remember that? The answer was Hanbok."
 
     jump Ch3_S7_T0_IG
 
 label Ch3_S6_T3_IG:
-
+    show kb
     kb "Don't you remember that? The answer was Hanbok."
 
     jump Ch3_S7_T0_IG
 
 label Ch3_S6_T4_IG:
-
+    show kb
     kb "Don't you remember that? The answer was Hanbok."
 
     jump Ch3_S7_T0_IG
 
 label Ch3_S7_T0_IG:
-
+    hide kb
+    show ig rushed at left
     p "Thank you so much. This will remind me of you."
-
+    hide ig rushed
+    show kb at right 
     kb "Don't forget me when you go back to India."
 
     p "Of course not. We're under the same sky. Our love will be eternal."
