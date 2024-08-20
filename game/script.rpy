@@ -753,15 +753,15 @@ label Ch3_S3_T0_IG:
         "Choose the right sentence to comfort the other person:"
 
         "1. I suppose so. I'm really sorry.":
-            $ affection -= 5
+            $ affection -= 2
             jump Ch3_S4_T1_IG
 
         "2. We were never meant to be together for long anyway.":
-            $ affection += 4
+            $ affection += -5
             jump Ch3_S4_T2_IG
 
         "3. No, don't say that! Everything will be alright, don't worry; you will always be in my heart.":
-            $ affection += 2
+            $ affection += 5
             jump Ch3_S4_T3_IG
 
 label Ch3_S4_T1_IG:
@@ -1226,9 +1226,9 @@ label Ch4_S16_T0_IG:
 ## I'm working until the night ;o;
 
 label Ch5_S1_T0_IG:
-    if affection >= 50:
+    if affection >= 40:
         jump Ch5_S1_T1_IG
-    elif affection >= 25:
+    elif affection >= 20:
         jump Ch5_S1_T2_IG
     else:
         jump Ch5_S1_T3_IG
@@ -1902,15 +1902,15 @@ label Ch3_S3_T0_IB:
         "Choose the right sentence to comfort the other person:"
 
         "1. I suppose so. I'm really sorry.":
-            $ affection -= 5
+            $ affection -= 2
             jump Ch3_S4_T1_IB
 
         "2. We were never meant to be together for long anyway.":
-            $ affection += 4
+            $ affection += -5
             jump Ch3_S4_T2_IB
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
-            $ affection += 2
+            $ affection += 5
             jump Ch3_S4_T3_IB
 
 label Ch3_S4_T1_IB:
@@ -2343,9 +2343,9 @@ label Ch4_S16_T0_IB:
 
 label Ch5_S1_T0_IB:
 
-    if affection >= 50:
+    if affection >= 40:
         jump Ch5_S1_T1_IB
-    elif affection >= 25:
+    elif affection >= 20:
         jump Ch5_S1_T2_IB
     else:
         jump Ch5_S1_T3_IB
@@ -2923,12 +2923,15 @@ label Ch3_S1_T0_KG:
 
     menu:
         "1. I'll surprise them by spraying them with a water gun too, since it's so fun!":
+            $ affection += 3
             jump Ch3_S2_T1_KG
 
         "2. I'm my partner's bodyguard! I'll shield them with my own body.":
+            $ affection += 5
             jump Ch3_S2_T2_KG
 
         "3. I'll just give them a quick heads up in English.":
+            $ affection += -4
             jump Ch3_S2_T3_KG
 
 label Ch3_S2_T1_KG:
@@ -2986,12 +2989,15 @@ label Ch3_S3_T0_KG:
 
     menu:
         "1. I suppose so. I'm really sorry.":
+            $ affection += -2
             jump Ch3_S4_T1_KG
 
         "2. We were never meant to be together for long anyway.":
+            $ affection += -5
             jump Ch3_S4_T2_KG
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
+            $ affection += 5
             jump Ch3_S4_T3_KG
 
 label Ch3_S4_T1_KG:
@@ -3345,9 +3351,9 @@ label Ch4_S14_T0_KG:
     jump Ch5_S1_T0_KG    
 
 label Ch5_S1_T0_KG:
-    if affection >= 50:
+    if affection >= 40:
         jump Ch5_S1_T1_KG
-    elif affection >= 25:
+    elif affection >= 20:
         jump Ch5_S1_T2_KG
     else:
         jump Ch5_S1_T3_KG
@@ -3898,12 +3904,15 @@ label Ch3_S1_T0_KB:
 
     menu:
         "1. I'll surprise them by spraying them with a water gun too, since it's so fun!":
+            $ affection += 3
             jump Ch3_S2_T1_KB
 
         "2. I'm my partner's bodyguard! I'll shield them with my own body.":
+            $ affection += 5
             jump Ch3_S2_T2_KB
 
         "3. I'll just give them a quick heads up in English.":
+            $ affection += -4
             jump Ch3_S2_T3_KB
 
 label Ch3_S2_T1_KB:
@@ -3961,12 +3970,15 @@ label Ch3_S3_T0_KB:
 
     menu:
         "1. I suppose so. I'm really sorry.":
+            $ affection += -2
             jump Ch3_S4_T1_KB
 
         "2. We were never meant to be together for long anyway.":
+            $ affection += -5
             jump Ch3_S4_T2_KB
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
+            $ affection += 5
             jump Ch3_S4_T3_KB
 
 label Ch3_S4_T1_KB:
@@ -4308,9 +4320,9 @@ label Ch4_S14_T0_KB:
 
 
 label Ch5_S1_T0_KB:
-    if affection >= 50:
+    if affection >= 40:
         jump Ch5_S1_T1_KB
-    elif affection >= 25:
+    elif affection >= 20:
         jump Ch5_S1_T2_KB
     else:
         jump Ch5_S1_T3_KB
@@ -4446,4 +4458,3 @@ label Ch5_S1_T3_KB:
     "The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
     "{b}Bad ending{/b}"
     return
-    "test"
