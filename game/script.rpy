@@ -174,52 +174,60 @@ label Ch1_S1_T0_IG:
     with dissolve
     
     f1 "Oh? A new face. Are you an exchange student by any chance?"
-
+    show ig cafeteria at left
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
 
     f1 "Nice to meet you! If you have any questions, feel free to ask!"
 
     "Just then, someone suddenly grabbed my shoulder."
+    hide ig cafeteria
+    show kb at right
 
     show kb date
 
     kb "Hey! What were you guys talking about?"
-
+    hide kb
+    show ig cafeteria at left
     p "Uh?"
-
+    hide ig cafeteria
+    show kb at right
     kb "Uh? Who... are you?"
 
     "That was how we first met. He was quite flustered, and his cheeks turned a bit red with embarrassment. Haha."
 
     kb "Oh!! I'm so sorry!!"
-
+    hide kb 
+    
     f1 "Haha, introduce yourself. He's an exchange student who just joined the College of Liberal Studies today."
-
+    show ig cafeteria at left
     p "Hi, I'm [player_name]. I'm an exchange student from Christ University in India, now studying at SNU's College of Liberal Studies."
-
+    hide ig cafeteria 
+    show kb at right
     kb "Oh, nice to meet you!! I'm [kb]. I heard an SNU student went to India, and now we have an exchange student here, too!"
 
     kb "Anyway, if you need help with anything, feel free to ask! Oh, wait, I don't have your number yet! What's your number?"
-
+    hide kb
+    show ig caferia at left
     p "My number is ~~!"
-
+    hide ig cafeteria 
+    show kb at right
     kb "Great, thanks!"
 
     "(Growling sound)"
 
     kb "(Quickly changing the subject) Uh, did you have lunch yet? Haha"
-
+    hide kb
     f1 "Haha, we were just about to grab something. Let's go together!"
-
+    show ig cafeteria at left
     p "Sounds good!"
-
+    hide ig cafeteria 
     "We headed to the cafeteria together..."
     scene bg snu_cafeteria:
         zoom 1.4
     with dissolve
 
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
-
+    
     "Being left awkwardly alone... Well, let's go eat."
 
     jump Ch1_S2_T0_IG
@@ -229,13 +237,15 @@ label Ch1_S2_T0_IG:
     ## Cafeteria
 
     "We arrive at the cafeteria, and today's menu is bibimbap. We each grab a bowl and sit down."
-
+    show kb at left
     kb "This must be your first time at the cafeteria, right? This is SNU's cafeteria!"
-
+    
     kb "This is bibimbap, a Korean dish where you mix rice with various vegetables and gochujang (Korean chili paste)!"
-
+    hide kb
+    show ig cafeteria at right
     p "Oh!! It looks delicious!! I've never had bibimbap before!"
-
+    hide ig cafeteria
+    show kb at left
     kb "Let me mix it for you!"
 
     "I put all my effort into mixing it."
@@ -282,72 +292,90 @@ label Ch1_S3_T3_IG:
     jump Ch1_S4_T0_IG
 
 label Ch1_S4_T0_IG:
-
+    show ig cafeteria at right
     p "Haha, it's okay. I have a handkerchief. You got some rice on your face."
 
     p "This bibimbap is really good! The flavors are mild, and it goes well with the gochujang!"
-
+    hide ig cafeteria
+    show kb at left 
     kb "Really? I'm glad you like it, haha. By the way, are you busy these days? Have you explored Seoul much?"
-
+    hide kb 
+    show ig cafeteria at right
     p "Huh? No, I haven't really had the chance to see much outside the campus... Do you have time tomorrow? Maybe you could show me around Seoul?"
-
+    hide ig cafeteria 
+    show kb at left
     kb "Yeah, I'm free tomorrow! Let's meet up after class! I'll text you!"
-
+    hide kb 
+    show ig cafeteria at right
     p "Sounds good. See you tomorrow then!"
-
+    hide ig cafeteria 
     jump Ch2_S1_T0_IG
 
 
 label Ch2_S1_T0_IG:
 
     "_Chatting app_"
-
+    show kb
     kb "[player_name], have you ever been to Seol-ip?"
-
+    hide kb
+    show ig pyjamas
     p "Seol-ip..? You mean Seoul National University Station, right? I've never been there!"
-
+    hide ig pyjamas
+    show kb
     kb "Then do you want to go with me? I'll show you around."
-
+    hide kb
+    show ig pyjamas 
     p "Okay, good!"
-
+    hide ig pyjamas
     scene bg seolip:
         zoom 1.2
 
-    "The next day. we two met in Seol-ip."
+    "The next day. We met in Seol-ip."
 
-
+    show kb at right
     kb "Ta-da! Students from our school usually come here to hang out."
-
+    hide kb
+    show ig date at left
     p "Wow, there are a lot of people."
-
+    hide ig date
+    show kb at right
     kb "Um... Since we just had lunch, how about going to a cafe I know and having some dessert?"
-
+    hide kb
+    show ig date at left
     p "Okay."
-
+    hide ig date 
+    show kb at right
     kb "I'll buy you some for your first time at Seol-ip."
-
+    hide kb
+    show ig date at left
     p "Oh really?? Thank you. I'll eat well~"
-
+    hide ig date 
+    show kb at right 
     kb "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
-
+    hide kb 
+    show ig date at left
     p "Really? Then let's go in now."
-
+    hide ig date 
     scene bg karaoke:
         zoom 2.8
     with dissolve
-
+    show kb at left 
     kb "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
-
+    hide kb 
+    show ig date at right
     p "Thank you. You're so kind. I'll sing first!"
-
+    hide ig date 
+    show kb at left
     "I am confident in my singing skills, so I sing my favorite song with great enthusiasm."
     "I look to the side while singing and see the other person staring at me."
     "I was a little nervous about the other person until the song ended."
-
+    hide kb 
+    show ig date at right
     p "Wow, you sing really well!"
-
+    hide ig date
+    show kb at left 
     kb "Haha, no. Now sing too."
-
+    hide kb 
     "The other person chose a duet song that is famous for being romantic."
     "Blah blah~"
 
@@ -387,15 +415,18 @@ label Ch2_S2_T3_IG:
     jump Ch2_S3_T0_IG
 
 label Ch2_S3_T0_IG:
-
+    show kb at left 
     kb "Phew, I had fun. Where should we go now... Is there a place you want to go?"
-
+    hide kb 
+    show ig date at right
     p "Um... Actually, I wanted to see the palaces of Korea."
-
+    hide ig date
+    show kb at left
     kb "Really? Then do you want to go to Gyeongbokgung Palace together?"
-
+    hide kb
+    show ig date at right
     p "Okay, fine."
-
+    hide ig date
     scene bg gyunbok:
         zoom 2.8
     with dissolve
@@ -403,27 +434,31 @@ label Ch2_S3_T0_IG:
     "We two take a bus and arrive at Gyeongbokgung Palace."
 
     "There are many people walking around the palace wearing hanbok."
-
+    show ig date at left
     p "What are those clothes?"
-
+    hide ig date
+    show kb at right
     kb "That's a traditional Korean costume called hanbok. Hanbok is a costume that our people have worn since ancient times, "
-    
+    hide kb 
+    show ig date at left 
     kb "and it has changed over time based on the basics of a skirt, jeogori, and pants. "
-    
+    hide ig date
+    show kb at right
     kb "Today's hanbok follows the style that was popular during the Joseon Dynasty, "
     
     kb "and modernized hanbok, which is designed to be worn in everyday life, is also popular. "
     
     kb "You can rent a hanbok nearby. Shall we try it on together?"
-
+    hide kb 
+    show ig date at left
     p "Okay, let's do that!"
-
+    hide ig date
     "The two change into hanbok."
-
+    show kb at right
     kb "Now let's take a look around Gyeongbokgung Palace."
-
+    hide kb 
     gd "Gyeongbokgung Palace is the first palace built when Joseon was founded and Hanyang (present-day Seoul) became the capital. "
- 
+    
     gd "It was used for banquets and receptions by the king and his subjects, as well as for receiving envoys, "
  
     gd "by building a large pond and a grand pavilion. "
@@ -435,37 +470,43 @@ label Ch2_S3_T0_IG:
     gd "It is a symbolic palace of the Joseon Dynasty that still maintains its original location since its founding."
 
     "The two leisurely stroll through Geunjeongjeon and Gyeonghoeru, enjoying the tranquil atmosphere of Gyeongbokgung Palace."
-
+    show kb at right
     kb "I think we've seen all the palaces. How was it?"
-
+    hide kb
+    show ig hanbok at left
     p "It was really beautiful! The color arrangement and elaborate design were really impressive. "
     "It was touching to be able to experience Korean history and tradition in person while wearing hanbok. "
     "It felt like a harmony of tradition and modernity, considering that there is a palace like this in the middle of Seoul."
-
+    hide ig hanbok
+    show kb at right
     kb "I'm glad it was a good experience haha. Next, I'll introduce you to the famous traditional market in this area."
-
+    hide kb
+    show ig hanbok at left
     p "Right!"
-
+    
     p "Oh, it's cold."
 
     scene bg gyunbok_raining:
         zoom 1.8
 
-
+    hide ig hanbok
+    show kb at left
     kb "Huh? It's raining."
 
     "(Shooting, swoosh, the sound of rain falling)"
 
     kb "Do you have an umbrella? I only have one for myself…"
-
+    hide kb 
+    show ig hanbok at right
     p "No. It seems like Korea gets a lot of rain showers."
-
+    hide ig hanbok
+    show kb at left
     kb "Let's go under the eaves and wait for it to stop."
-
+    hide kb
     "The two moved under the skirts to take shelter from the rain for a while, but the rain showed no sign of stopping."
-
+    show kb at left
     kb "Hmm, the rain won't stop. We have to get to the market on time, but..."
-
+    hide kb
     
 
     menu:
@@ -505,19 +546,23 @@ label Ch2_S5_T0_IG:
         zoom 1.7
 
     "After many twists and turns, the two arrive at Gwangjang Market."
-
+    show kb at right
     kb "Okay, this is Gwangjang Market."
-
+    hide kb
+    show ig hanbok at left
     p "It's bigger and more crowded than I thought."
-
+    hide ig hanbok 
+    show kb at right 
     kb "That's right. Gwangjang Market is the largest and oldest traditional market in Korea. "
     "There are various food alleys in Gwangjang Market, hanbok stores where you can buy daily necessities, and second-hand stores."
-
+    hide kb
+    show ig hanbok at left
     p "Right. Let's eat something since we're hungry."
-
+    hide ig hanbok
+    show kb at right
     kb "This is tteokbokki, a national snack that Koreans of all ages and genders love. "
     "It might be a little spicy, but is that okay?"
-
+    hide kb 
     "What should I say in response to that suggestion?"
 
     menu:
@@ -549,15 +594,16 @@ label Ch2_S6_T3_IG:
     jump Ch2_S7_T0_IG
 
 label Ch2_S7_T0_IG:
-
+    show kb at right
     kb "This is bindae-tteok, a specialty of Gwangjang Market. "
     "It is a dish made by mixing vegetables or meat into a dough made from ground soybeans and frying it."
 
     kb "This noodle is called janchi-guksu. "
     "It originated from the fact that it was enjoyed at weddings, birthday parties, and 60th birthday parties in the hopes of longevity."
-
+    hide kb
+    show ig hanbok at left
     p "The food here is really delicious."
-
+    hide ig hanbok
     "Then they enjoy the food with a happy conversation."
 
     jump Ch3_S1_T0_IG
