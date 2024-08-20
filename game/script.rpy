@@ -559,6 +559,7 @@ label Ch3_S1_T0_IG:
     p "Hmm... Could we maybe go to a famous festival in Korea?"
 
     kb "Of course! How about we go to the largest music and water-themed festival in the country? "
+
     kb "It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights!"
 
     p "Great! What's the name of that festival?"
@@ -642,11 +643,13 @@ label Ch3_S3_T0_IG:
 
     p "Why Hongdae? Is it famous for music?"
 
-    kb "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    kb "Many musicians do street performances in Hongdae! "
+
+    "I saw busking in Hongdae with [kb]"
 
     p "This is so enjoyable~"
 
-    "*gets a text message*"
+    "I suddenly got a text message."
 
     p "Oh no..."
 
@@ -705,9 +708,10 @@ label Ch3_S5_T0_IG:
 
     kb "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
 
-    p "Guess the name of the costume:"
-
     menu:
+
+        "Guess the name of the costume:"
+
         "1. Hanbok":
             $ affection += 5
             jump Ch3_S6_T1_IG
@@ -1036,7 +1040,9 @@ label Ch4_S14_T0_IG:
 
     kb "I've heard so much about Indian cinema. Bollywood, right?"
 
-    p "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
+    p "Yes, but there's so much more to Indian cinema than just Bollywood. "
+    
+    p "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
 
     p "Indian cinema has a rich history, and it's evolved a lot over the years."
 
@@ -1077,7 +1083,9 @@ label Ch4_S16_T0_IG:
     scene bg theatre:
         zoom 1.3
 
-    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. The movie started, and I could see K was completely engrossed in the experience."
+    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. "
+    
+    "The movie started, and I could see K was completely engrossed in the experience."
     
     kb "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
@@ -1230,7 +1238,9 @@ label Ch5_S1_T3_IG:
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
-    "All I could do was think about [kb], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
+    "All I could do was think about [kb], trapped by what once was, but unable to bridge the gap between us. "
+    
+    "The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
 
     "Bad ending"
     return
@@ -1695,7 +1705,7 @@ label Ch3_S3_T0_IB:
     scene bg waterbomb:
         zoom 1.2
 
-    "Enjoy Waterbomb water gun play photos attached"
+    "We really enjoyed Waterbomb."
 
     p "Wow! This is really fun!!"
 
@@ -1717,19 +1727,19 @@ label Ch3_S3_T0_IB:
 
     kg "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "*Performance photos attached*"
+    #"*Performance photos attached*"
 
     p "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    kg "Oh really? Then should we go to **Hongdae** next time?"
+    kg "Oh really? Then should we go to Hongdae next time?"
 
     p "Why Hongdae? Is it famous for music?"
 
-    kg "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    "I saw busking in Hongdae with [kg]"
 
     p "This is so enjoyable~"
 
-    "*gets a text message*"
+    "I suddenly got a text message."
 
     p "Oh no..."
 
@@ -1749,9 +1759,10 @@ label Ch3_S3_T0_IB:
 
     kg "So we won't be able to see each other anymore?"
 
-    p "Choose the right sentence to comfort the other person:"
-
     menu:
+
+        "Choose the right sentence to comfort the other person:"
+
         "1. I suppose so. I'm really sorry.":
             $ affection -= 5
             jump Ch3_S4_T1_IB
@@ -1780,7 +1791,7 @@ label Ch3_S5_T0_IB:
     scene bg kairport:
         zoom 1.2
 
-    "*at the airport*"
+    "at the airport"
 
     kg "I wish we could meet again soon."
 
@@ -1788,9 +1799,10 @@ label Ch3_S5_T0_IB:
 
     kg "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
 
-    p "Guess the name of the costume:"
-
     menu:
+
+        "Guess the name of the costume:"
+
         "1. Hanbok":
             $ affection += 5
             jump Ch3_S6_T1_IB
@@ -2113,11 +2125,15 @@ label Ch4_S13_T4_IB:
 
 label Ch4_S14_T0_IB:
 
-    "After settling in, I thought it would be a great idea to introduce K to Indian cinema—a vital part of the culture here. We decided to go to a local theatre to watch a popular Indian film."
+    "After settling in, I thought it would be a great idea to introduce K to Indian cinema—a vital part of the culture here."
+    
+    "We decided to go to a local theatre to watch a popular Indian film."
 
     kg "I've heard so much about Indian cinema. Bollywood, right?"
 
-    p "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
+    p "Yes, but there's so much more to Indian cinema than just Bollywood."
+    
+    p "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
 
     p "Indian cinema has a rich history, and it's evolved a lot over the years."
 
@@ -2158,7 +2174,9 @@ label Ch4_S16_T0_IB:
     scene bg theatre:
         zoom 1.3
 
-    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. The movie started, and I could see K was completely engrossed in the experience."
+    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. "
+    
+    "The movie started, and I could see K was completely engrossed in the experience."
 
     kg "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
@@ -2170,8 +2188,6 @@ label Ch4_S16_T0_IB:
 
     jump Ch5_S1_T0_IB
 
-
-### need codes to decide the ending. Sanghyuk fighting ^^
 
 label Ch5_S1_T0_IB:
 
@@ -2313,7 +2329,9 @@ label Ch5_S1_T3_IB:
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
-    "All I could do was think about [kg], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
+    "All I could do was think about [kg], trapped by what once was, but unable to bridge the gap between us. "
+    
+    "The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
 
     "Bad ending"
     return
@@ -2401,6 +2419,9 @@ label Ch1_S2_T0_KG:
     "(Tutorial) This game requires you to make choices at key moments! Depending on your choices, the relationship level can increase or decrease. The final ending will be different based on your decisions, so choose carefully!"
 
     menu:
+
+        "What would you do?"
+
         "1. Quickly dash to grab a tissue.":
             $ affection += 5
             jump Ch1_S3_T1_KG
@@ -2620,6 +2641,9 @@ label Ch2_S3_T0_KG:
     "How should I respond to an unexpected downpour?"
 
     menu:
+
+        "How should I respond to an unexpected downpour?"
+
         "1. Go to a nearby convenience store and buy an umbrella each.":
             $ affection += -2
             ## Slightly decrease in favorability
@@ -2784,19 +2808,21 @@ label Ch3_S3_T0_KG:
 
     p "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "Performance photos attached"
+    # "Performance photos attached"
 
     ib "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    p "Oh really? Then should we go to **Hongdae** next time?"
+    p "Oh really? Then should we go to Hongdae next time?"
 
     ib "Why Hongdae? Is it famous for music?"
 
-    p "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    p "Many musicians do street performances in Hongdae!" 
+
+    "I saw busking in Hongdae with [ib]"
 
     ib "This is so enjoyable~"
 
-    "*gets a text message*"
+    "[ib] suddenly got a text message."
 
     ib "Oh no..."
 
@@ -2900,7 +2926,11 @@ label Ch3_S7_T0_KG:
 label Ch4_S1_T0_KG:
     scene bg kstreet
 
-    "It's already been two months since he suddenly left. Even though he's not here, time keeps moving forward. Before I met him, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. Will I be able to meet him again if I go to the school he attends?"
+    "It's already been two months since he suddenly left. Even though he's not here, time keeps moving forward."
+
+    "Before I met him, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. "
+    
+    "Will I be able to meet him again if I go to the school he attends?"
 
     p "Should I text him to say I'll be at Christ University starting next week?"
 
@@ -2937,7 +2967,9 @@ label Ch4_S2_T0_KG:
 
     p "Trying to avoid the touting photographers, I joined a guided tour group."
 
-    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory. He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
+    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory." 
+    
+    gd "He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
 
     #(Narration)
     p "The Taj Mahal has such a romantic history."
@@ -3058,11 +3090,15 @@ label Ch4_S8_T0_KG:
     scene bg india_train
 
     #(Narration)
-    p "After exploring Delhi and Agra, it was time to continue our journey to Bangalore. I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
+    p "After exploring Delhi and Agra, it was time to continue our journey to Bangalore."
+    
+    p "I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
 
     p "I've heard that train journeys in India are quite an experience. I'm excited but also a bit nervous. How long will the journey take?"
 
-    ib "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. You'll get to see so much of India, from the bustling cities to the peaceful countryside."
+    ib "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. "
+    
+    ib "You'll get to see so much of India, from the bustling cities to the peaceful countryside."
 
     p "I can't wait! What should we expect during the journey?"
 
@@ -3099,7 +3135,8 @@ label Ch4_S10_T0_KG:
 
     scene bg bangalore:
         zoom 1.1
-    "After a long journey, we finally arrived in Bangalore. The city felt alive with energy, and the weather was so pleasant. I could see why it's such a popular place."
+    "After a long journey, we finally arrived in Bangalore. The city felt alive with energy, and the weather was so pleasant."
+    "I could see why it's such a popular place."
 
     p "Bangalore seems so lively! I've heard it's known as the Silicon Valley of India."
 
@@ -3143,11 +3180,16 @@ label Ch4_S12_T0_KG:
         zoom 1.3
 
     #(Narration)
-    "After settling in, [ib] suggested we experience something truly unique—watching an Indian movie at a local theatre. I'd heard a lot about Indian cinema, and I was eager to see it for myself."
+    "After settling in, [ib] suggested we experience something truly unique—watching an Indian movie at a local theatre."
+    "I'd heard a lot about Indian cinema, and I was eager to see it for myself."
 
     p "I've heard so much about Indian cinema. Bollywood, right?"
 
-    ib "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. Indian cinema has a rich history, and it's evolved a lot over the years."
+    ib "Yes, but there's so much more to Indian cinema than just Bollywood. "
+    
+    ib "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka." 
+    
+    ib "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
         "Suggest watching the movie quietly without much discussion.":
@@ -3180,7 +3222,8 @@ label Ch4_S13_T4_KG:
 label Ch4_S14_T0_KG:
 
     
-    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
+    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. "
+    "As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
 
     p "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
@@ -3287,7 +3330,8 @@ label Ch5_S1_T2_KG:
 
     p "It really has. How have you been?"
 
-    "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [ib] again felt like a new beginning, in a different way."
+    "We shared stories and laughter, reconnecting as friends."
+    "Those moments we shared were a cherished chapter, and seeing [ib] again felt like a new beginning, in a different way."
     "Normal Ending"
     return
 
@@ -3790,19 +3834,21 @@ label Ch3_S3_T0_KB:
 
     p "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "Performance photos attached"
+    # "Performance photos attached"
 
     ig "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    p "Oh really? Then should we go to **Hongdae** next time?"
+    p "Oh really? Then should we go to Hongdae next time?"
 
     ig "Why Hongdae? Is it famous for music?"
 
-    p "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    p "Many musicians do street performances in Hongdae! "
 
-    ig "This is so enjoyable~"
+    "I saw busking in Hongdae with [ig]"
 
-    "*gets a text message*"
+    ib "This is so enjoyable~"
+
+    "[ig] suddenly got a text message."
 
     ig "Oh no..."
 
@@ -3905,7 +3951,11 @@ label Ch3_S7_T0_KB:
 label Ch4_S1_T0_KB:
     scene bg kstreet
 
-    "It's already been two months since she suddenly left. Even though she's not here, time keeps moving forward. Before I met her, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. Will I be able to meet her again if I go to the school she attends?"
+    "It's already been two months since she suddenly left. Even though she's not here, time keeps moving forward. "
+    
+    "Before I met her, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. "
+    
+    "Will I be able to meet her again if I go to the school she attends?"
 
     p "Should I text her to say I'll be at Christ University starting next week?"
 
@@ -3940,7 +3990,11 @@ label Ch4_S2_T0_KB:
 
     p "Trying to avoid the touting photographers, I joined a guided tour group."
 
-    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory. He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
+    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. "
+    
+    gd "He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory." 
+    
+    gd "He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
 
     p "The Taj Mahal has such a romantic history."
 
@@ -4056,11 +4110,14 @@ label Ch4_S8_T0_KB:
 
     scene bg india_train
 
-    p "After exploring Delhi and Agra, it was time to continue our journey to Bangalore. I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
+    p "After exploring Delhi and Agra, it was time to continue our journey to Bangalore. "
+    
+    p "I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
 
     p "I've heard that train journeys in India are quite an experience. I'm excited but also a bit nervous. How long will the journey take?"
 
-    ig "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. You'll get to see so much of India, from the bustling cities to the peaceful countryside."
+    ig "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. "
+    ig "You'll get to see so much of India, from the bustling cities to the peaceful countryside."
 
     p "I can't wait! What should we expect during the journey?"
 
@@ -4098,7 +4155,8 @@ label Ch4_S10_T0_KB:
     scene bg bangalore:
         zoom 1.1
 
-    "After a long journey, we finally arrived in Bangalore. The city felt alive with energy, and the weather was so pleasant. I could see why it's such a popular place."
+    "After a long journey, we finally arrived in Bangalore. "
+    "The city felt alive with energy, and the weather was so pleasant. I could see why it's such a popular place."
 
     p "Bangalore seems so lively! I've heard it's known as the Silicon Valley of India."
 
@@ -4140,11 +4198,14 @@ label Ch4_S12_T0_KB:
     scene bg theatre:
         zoom 1.3
 
-    "After settling in, [ig] suggested we experience something truly unique—watching an Indian movie at a local theatre. I'd heard a lot about Indian cinema, and I was eager to see it for myself."
+    "After settling in, [ig] suggested we experience something truly unique—watching an Indian movie at a local theatre. "
+    "I'd heard a lot about Indian cinema, and I was eager to see it for myself."
 
     p "I've heard so much about Indian cinema. Bollywood, right?"
 
-    ig "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. Indian cinema has a rich history, and it's evolved a lot over the years."
+    ig "Yes, but there's so much more to Indian cinema than just Bollywood. "
+    ig "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
+    ig "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
         "Suggest watching the movie quietly without much discussion.":
@@ -4176,7 +4237,8 @@ label Ch4_S13_T4_KB:
 
 label Ch4_S14_T0_KB:
 
-    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
+    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. "
+    "As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
 
     p "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
@@ -4283,7 +4345,8 @@ label Ch5_S1_T2_KB:
 
     p "It really has. How have you been?"
 
-    "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [ig] again felt like a new beginning, in a different way."
+    "We shared stories and laughter, reconnecting as friends. "
+    "Those moments we shared were a cherished chapter, and seeing [ig] again felt like a new beginning, in a different way."
     "Normal ending"
     return
 
@@ -4320,7 +4383,8 @@ label Ch5_S1_T3_KB:
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
-    "All I could do was think about [ig], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
+    "All I could do was think about [ig], trapped by what once was, but unable to bridge the gap between us. "
+    "The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
     "Bad ending"
     return
     "test"
