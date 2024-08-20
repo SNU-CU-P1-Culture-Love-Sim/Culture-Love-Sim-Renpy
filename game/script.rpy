@@ -15,11 +15,18 @@ define kb = Character("Seonjae", color="#c8caff")
 
 define kg = Character("Sol", color="#c8caff")
 
-define f1 = Character("Inhyeok", color="#c8caff")
+define f1 = Character("Inhyeok", color="#59ff56")
 
-define gd = Character("Guide", color="#c8caff")
+define gd = Character("Guide", color="#ff6464")
 
 define m = Character("mom", color="#c8caff")
+
+define m1 = Character("merchant A", color="#50ff70")
+
+define m2 = Character("merchant B", color="#e6ffb8")
+
+
+define affection = 0
 
 
 # The game starts here.
@@ -37,6 +44,8 @@ label start:
     # directory.
 
     show eileen happy
+    
+    show screen show_affection
 
     # These display lines of dialogue.
     
@@ -146,12 +155,20 @@ label Indian_girl_ver:
 
 label Ch1_S1_T0_IG:
 
+    scene bg building_220:
+        zoom 1.2
+
     "Today was my first day as an exchange student in Korea. The wind felt particularly refreshing that day."
 
     p "Hmm... I have no idea where anything is since it's my first time here. Let's head to the lounge in Building 220 and think things over."
 
     "I headed towards the lounge in Building 220 and opened the door."
 
+## need to change the lounge pic
+    scene bg lounge_220:
+        zoom 4.5
+    with dissolve
+    
     f1 "Oh? A new face. Are you an exchange student by any chance?"
 
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
@@ -191,6 +208,9 @@ label Ch1_S1_T0_IG:
     p "Sounds good!"
 
     "We headed to the cafeteria together..."
+    scene bg snu_cafeteria:
+        zoom 1.4
+    with dissolve
 
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
 
@@ -225,16 +245,23 @@ label Ch1_S2_T0_IG:
         "What would you do?"
 
         "1. Remove the grain of rice stuck on [kb]'s face with your hand.":
-
+            
+            $ affection += 5
             jump Ch1_S3_T1_IG
+            
 
         "2. Hand [kb] a handkerchief.":
             
+            $ affection += 2
             jump Ch1_S3_T2_IG
+            
 
         "3. Glare at the person next to you.":
 
+            $ affection -= 5
             jump Ch1_S3_T3_IG
+
+    #show screen show_affection
 
 label Ch1_S3_T1_IG:
 
@@ -267,7 +294,7 @@ label Ch1_S4_T0_IG:
 
 label Ch2_S1_T0_IG:
 
-    ## Chatting app
+    "_Chatting app_"
 
     kb "[player_name], have you ever been to Seol-ip?"
 
@@ -277,7 +304,11 @@ label Ch2_S1_T0_IG:
 
     p "Okay, good!"
 
-    "The next day. the two met in Seol-ip."
+    scene bg seolip:
+        zoom 1.2
+
+    "The next day. we two met in Seol-ip."
+
 
     kb "Ta-da! Students from our school usually come here to hang out."
 
@@ -294,6 +325,10 @@ label Ch2_S1_T0_IG:
     kb "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
 
     p "Really? Then let's go in now."
+
+    scene bg karaoke:
+        zoom 2.8
+    with dissolve
 
     kb "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
@@ -317,15 +352,20 @@ label Ch2_S1_T0_IG:
         "Which of the following actions should I choose?"
 
         "1. Sing along to the duet song.":
-            ## Affection level increases.
+            ## $ affection level increases.
+            
+            $ affection += 5
             jump Ch2_S2_T1_IG
 
         "2. Stay still.":
-            ## Affection level decreases.
+            ## $ affection level decreases.
+            $ affection -= 5
             jump Ch2_S2_T2_IG
+            
 
         "3. Pick up a tambourine and dance like crazy.":
-            ## Affection level increases slightly.
+            ## $ affection level increases slightly.
+            $ affection += 2
             jump Ch2_S2_T3_IG
 
 label Ch2_S2_T1_IG:
@@ -350,7 +390,11 @@ label Ch2_S3_T0_IG:
 
     p "Okay, fine."
 
-    "The two take a bus and arrive at Gyeongbokgung Palace."
+    scene bg gyunbok:
+        zoom 2.8
+    with dissolve
+
+    "We two take a bus and arrive at Gyeongbokgung Palace."
 
     "There are many people walking around the palace wearing hanbok."
 
@@ -398,6 +442,10 @@ label Ch2_S3_T0_IG:
 
     p "Oh, it's cold."
 
+    scene bg gyunbok_raining:
+        zoom 1.8
+
+
     kb "Huh? It's raining."
 
     "(Shooting, swoosh, the sound of rain falling)"
@@ -412,19 +460,26 @@ label Ch2_S3_T0_IG:
 
     kb "Hmm, the rain won't stop. We have to get to the market on time, but..."
 
-    "How should I respond to an unexpected downpour?"
+    
 
     menu:
+
+        "How should I respond to an unexpected downpour?"
+
         "1. Go to a nearby convenience store and buy an umbrella each.":
             ## Slightly decrease in favorability
+            $ affection += 3
             jump Ch2_S4_T1_IG
+            
 
         "2. Share an umbrella and run to the market.":
-            ## Affection level goes up significantly
+            ## $ affection level goes up significantly
+            $ affection += 5
             jump Ch2_S4_T2_IG
 
         "3. Suggest that we both just go while getting rained on.":
-            ## Affection level goes down significantly
+            ## $ affection level goes down significantly
+            $ affection += 3
             jump Ch2_S4_T3_IG
 
 label Ch2_S4_T1_IG:
@@ -440,6 +495,8 @@ label Ch2_S4_T3_IG:
     jump Ch2_S5_T0_IG
 
 label Ch2_S5_T0_IG:
+    scene bg kmarket:
+        zoom 1.7
 
     "After many twists and turns, the two arrive at Gwangjang Market."
 
@@ -460,14 +517,17 @@ label Ch2_S5_T0_IG:
     menu:
         "1. Yeah, I like spicy food. Wow~":
             ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_IG
 
         "2. I can't eat spicy food well... I'll try it next time.":
             ## Affinity maintained
+            $ affection += 0
             jump Ch2_S6_T2_IG
 
         "3. Hmm, I'll rinse it in water and try it. Give it to me.":
             ## Affinity decrease
+            $ affection -= 5
             jump Ch2_S6_T3_IG
 
 label Ch2_S6_T1_IG:
@@ -508,6 +568,7 @@ label Ch3_S1_T0_IG:
     p "Hmm... Could we maybe go to a famous festival in Korea?"
 
     kb "Of course! How about we go to the largest music and water-themed festival in the country? "
+
     kb "It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights!"
 
     p "Great! What's the name of that festival?"
@@ -520,19 +581,19 @@ label Ch3_S1_T0_IG:
         "Guess the name of the festival:"
 
         "1. Pentaport Rock Festival":
-
+            $ affection -= 3
             jump Ch3_S2_T1_IG
 
         "2. Waterbomb Festival":
-
+            $ affection += 3
             jump Ch3_S2_T2_IG
 
         "3. Boryeong Mud Festival":
-
+            $ affection -= 3
             jump Ch3_S2_T3_IG
 
         "4. Seoul Jazz Festival":
-
+            $ affection -= 3
             jump Ch3_S2_T4_IG
 
 label Ch3_S2_T1_IG:
@@ -560,8 +621,10 @@ label Ch3_S2_T4_IG:
     jump Ch3_S3_T0_IG
 
 label Ch3_S3_T0_IG:
+    scene bg waterbomb:
+        zoom 1.2
 
-    "Enjoy Waterbomb water gun play photos attached"
+    "We arrived to the Waterbomb festival!"
 
     p "Wow! This is really fun!!"
 
@@ -571,7 +634,7 @@ label Ch3_S3_T0_IG:
 
     kb "[player_name]!!"
 
-    "My partner shielded me with their whole body."
+    "[kb] shielded me with his whole body."
 
     kb "Are you okay??"
 
@@ -583,19 +646,19 @@ label Ch3_S3_T0_IG:
 
     kb "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "*Performance photos attached*"
-
     p "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    kb "Oh really? Then should we go to **Hongdae** next time?"
+    kb "Oh really? Then should we go to Hongdae next time?"
 
     p "Why Hongdae? Is it famous for music?"
 
-    kb "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    kb "Many musicians do street performances in Hongdae! "
+
+    "I saw busking in Hongdae with [kb]"
 
     p "This is so enjoyable~"
 
-    "*gets a text message*"
+    "I suddenly got a text message."
 
     p "Oh no..."
 
@@ -615,19 +678,20 @@ label Ch3_S3_T0_IG:
 
     kb "So we won't be able to see each other anymore?"
 
-    p "Choose the right sentence to comfort the other person:"
-
     menu:
-        "1. I suppose so. I'm really sorry.":
 
+        "Choose the right sentence to comfort the other person:"
+
+        "1. I suppose so. I'm really sorry.":
+            $ affection -= 5
             jump Ch3_S4_T1_IG
 
         "2. We were never meant to be together for long anyway.":
-            
+            $ affection += 4
             jump Ch3_S4_T2_IG
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
-
+            $ affection += 2
             jump Ch3_S4_T3_IG
 
 label Ch3_S4_T1_IG:
@@ -643,8 +707,10 @@ label Ch3_S4_T3_IG:
     jump Ch3_S5_T0_IG
 
 label Ch3_S5_T0_IG:
+    scene bg kairport:
+        zoom 1.2
 
-    "*at the airport*"
+    "_at the airport_"
 
     kb "I wish we could meet again soon."
 
@@ -652,40 +718,53 @@ label Ch3_S5_T0_IG:
 
     kb "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
 
-    p "Guess the name of the costume:"
-
     menu:
+
+        "Guess the name of the costume:"
+
         "1. Hanbok":
+            $ affection += 5
             jump Ch3_S6_T1_IG
 
         "2. Kimono":
+            $ affection -= 5
             jump Ch3_S6_T2_IG
 
         "3. Ao Dai":
+            $ affection -= 5
             jump Ch3_S6_T3_IG
 
         "4. Sari":
+            $ affection -= 2
             jump Ch3_S6_T4_IG
 
 label Ch3_S6_T1_IG:
+
+    kb "Right! You remember!"
 
     jump Ch3_S7_T0_IG
 
 label Ch3_S6_T2_IG:
 
+    kb "Don't you remember that? The answer was Hanbok."
+
     jump Ch3_S7_T0_IG
 
 label Ch3_S6_T3_IG:
+
+    kb "Don't you remember that? The answer was Hanbok."
 
     jump Ch3_S7_T0_IG
 
 label Ch3_S6_T4_IG:
 
+    kb "Don't you remember that? The answer was Hanbok."
+
     jump Ch3_S7_T0_IG
 
 label Ch3_S7_T0_IG:
 
-    p "Wow, thank you so much. This will remind me of you."
+    p "Thank you so much. This will remind me of you."
 
     kb "Don't forget me when you go back to India."
 
@@ -699,8 +778,10 @@ label Ch3_S7_T0_IG:
 
 
 label Ch4_S1_T0_IG:
+    scene bg india_room:
+        zoom 1.2
 
-    "It's been two months since I returned to Bengaluru in a hurry. Fortunately, my mother's health (or the specific reason why I returned) is gradually improving."
+    "It's been two months since I returned to Bengaluru in a hurry. Fortunately, my mother's health is gradually improving."
 
     p "He must have been surprised that I left so suddenly. Will I be able to see him again?"
 
@@ -708,11 +789,11 @@ label Ch4_S1_T0_IG:
 
     menu:
         "Read the email":
-
+            $ affection += 5
             jump Ch4_S1_T1_IG
 
         "Don't read the email":
-
+            $ affection -= 5
             jump Ch4_S1_T2_IG
 
 label Ch4_S1_T1_IG:
@@ -739,15 +820,18 @@ label Ch4_S2_T0_IG:
 
     menu:
         "Go to the Taj Mahal":
-
+            $ affection += 5
             jump Ch4_S3_T1_IG
 
         "Go to Agra Fort":
-
+            scene bg agra
+            $ affection += 2
             jump Ch4_S3_T2_IG
 
         "Go shopping":
-
+            scene bg india_shopping:
+                zoom 1.7
+            $ affection -= 5
             jump Ch4_S3_T3_IG
 
 label Ch4_S3_T1_IG:
@@ -767,20 +851,21 @@ label Ch4_S3_T3_IG:
     jump Ch4_S4_T0_IG
 
 label Ch4_S4_T0_IG:
+    scene bg tajmahal
 
     "Come to think of it, he also wanted to visit this place... I have a feeling he might be here today."
 
     menu:
         "Observe the people following the tour guide":
-
+            $ affection += 3
             jump Ch4_S5_T1_IG
 
         "Watch people getting their photos taken by peddlers":
-
+            $ affection += 0
             jump Ch4_S5_T2_IG
 
         "No way, such a coincidence couldn't happen":
-
+            $ affection -= 5
             jump Ch4_S5_T3_IG
 
 label Ch4_S5_T1_IG:
@@ -809,19 +894,22 @@ label Ch4_S6_T0_IG:
 
     kb "The Taj Mahal is so beautiful! Just like you described it."
 
-    p "I thought you would like Agra. It has many historical sites that showcase Indian tradition. It's like ( ) in Seoul."
+    p "I thought you would like Agra. It has many historical sites that showcase Indian tradition. It's like..."
 
     menu:
-        "Myeong-dong":
 
+        "It's like... ( ) in Seoul."
+        
+        "Myeong-dong":
+            $ affection += 0
             jump Ch4_S7_T1_IG
 
         "Jongno":
-
+            $ affection += 3
             jump Ch4_S7_T2_IG
 
         "Itaewon":
-
+            $ affection -= 3
             jump Ch4_S7_T3_IG
 
 label Ch4_S7_T1_IG:
@@ -845,16 +933,19 @@ label Ch4_S8_T0_IG:
     kb "What should we do now?"
 
     menu:
-        "Let's go eat street food in Delhi":
 
+        "What should we do now?"
+
+        "Let's go eat street food in Delhi":
+            $ affection += 5
             jump Ch4_S9_T1_IG
 
         "I'll take a picture of you in front of the Taj Mahal":
-
+            $ affection += 0
             jump Ch4_S9_T2_IG
 
         "Let's go back to the hotel and rest":
-
+            $ affection -= 5
             jump Ch4_S9_T3_IG
 
 label Ch4_S9_T1_IG:
@@ -870,6 +961,7 @@ label Ch4_S9_T3_IG:
     jump Ch4_S10_T0_IG
 
 label Ch4_S10_T0_IG:
+    scene bg india_train
 
     "We traveled around Agra and Delhi for a few days. Now it's time to return to Bangalore."
 
@@ -886,20 +978,23 @@ label Ch4_S10_T0_IG:
     kb "I can't wait! What should we expect during the journey?"
 
     menu:
-        "Talk about the diversity of regions and cultures in India.":
 
-            jump Ch4_S11_T1_IG
+        "What should we expect during the journey?"
 
         "Discuss the history and significance of Indian Railways.":
-
+            $ affection += 4
             jump Ch4_S11_T2_IG
 
+        "Talk about the diversity of regions and cultures in India.":
+            $ affection += 7
+            jump Ch4_S11_T1_IG
+        
         "Mention the culinary delights available on the train.":
-
+            $ affection += 1
             jump Ch4_S11_T3_IG
 
         "Suggest sleeping or reading during the journey to pass the time.":
-
+            $ affection -= 5
             jump Ch4_S11_T4_IG
 
 label Ch4_S11_T1_IG:
@@ -919,6 +1014,8 @@ label Ch4_S11_T4_IG:
     jump Ch4_S12_T0_IG
 
 label Ch4_S12_T0_IG:
+    scene bg bangalore:
+        zoom 1.1
 
     "After a long but enriching journey, we finally arrived in Bangalore. The city greeted us with its pleasant weather and vibrant atmosphere."
 
@@ -929,21 +1026,26 @@ label Ch4_S12_T0_IG:
     kb "I'm excited to explore it. What should we do first?"
 
     menu:
-        "Suggest exploring the historic parts of Bangalore.":
 
-            jump Ch4_S13_T1_IG
+        "What should we do first?"
+
+        "Propose heading straight to the hotel to rest.":
+            $ affection -= 5
+            jump Ch4_S13_T4_IG
 
         "Propose visiting the local parks and gardens.":
-
+            $ affection += 4
             jump Ch4_S13_T2_IG
 
         "Suggest checking out the local markets.":
-
+            $ affection += 0
             jump Ch4_S13_T3_IG
+            
+        "Suggest exploring the historic parts of Bangalore.":
+            $ affection += 7
+            jump Ch4_S13_T1_IG
 
-        "Propose heading straight to the hotel to rest.":
-
-            jump Ch4_S13_T4_IG
+        
 
 label Ch4_S13_T1_IG:
 
@@ -963,30 +1065,33 @@ label Ch4_S13_T4_IG:
 
 label Ch4_S14_T0_IG:
 
-    "After settling in, I thought it would be a great idea to introduce K to Indian cinema—a vital part of the culture here. We decided to go to a local theatre to watch a popular Indian film."
+    "After settling in, I thought it would be a great idea to introduce [kb] to Indian cinema—a vital part of the culture here."
+    "We decided to go to a local theatre to watch a popular Indian film."
 
     kb "I've heard so much about Indian cinema. Bollywood, right?"
 
-    p "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
+    p "Yes, but there's so much more to Indian cinema than just Bollywood. "
+    
+    p "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
 
     p "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
-        "Explain the history and evolution of Indian cinema.":
-
-            jump Ch4_S15_T1_IG
-
+        "Suggest watching the movie quietly without discussing it.":
+            $ affection -= 5
+            jump Ch4_S15_T4_IG
+            
         "Talk about the influence of Indian cinema globally.":
-
+            $ affection += 3
             jump Ch4_S15_T2_IG
 
         "Discuss the different film genres and what to expect.":
-
+            $ affection += 1
             jump Ch4_S15_T3_IG
-
-        "Suggest watching the movie quietly without discussing it.":
-
-            jump Ch4_S15_T4_IG
+            
+        "Explain the history and evolution of Indian cinema.":
+            $ affection += 5
+            jump Ch4_S15_T1_IG
 
 label Ch4_S15_T1_IG:
 
@@ -1005,9 +1110,13 @@ label Ch4_S15_T4_IG:
     jump Ch4_S16_T0_IG
 
 label Ch4_S16_T0_IG:
+    scene bg theatre:
+        zoom 1.3
 
-    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. The movie started, and I could see K was completely engrossed in the experience."
-
+    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. "
+    
+    "The movie started, and I could see [kb] was completely engrossed in the experience."
+    
     kb "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
     p "I'm glad you enjoyed it. Indian cinema is all about making you feel deeply, whether it's joy, sorrow, or excitement."
@@ -1020,12 +1129,18 @@ label Ch4_S16_T0_IG:
 
 
 ### need codes to decide the ending. Sanghyuk fighting ^^
+## I'm working until the night ;o;
 
 label Ch5_S1_T0_IG:
-
-    jump Ch5_S1_T1_IG
+    if affection >= 50:
+        jump Ch5_S1_T1_IG
+    elif affection >= 25:
+        jump Ch5_S1_T2_IG
+    else:
+        jump Ch5_S1_T3_IG
 
 label Ch5_S1_T1_IG:
+    scene bg christ_dorm
 
     "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
@@ -1043,6 +1158,8 @@ label Ch5_S1_T1_IG:
 
     "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [kb] again?"
     "Realizing today was [kb]'s departure, I called a taxi and headed to the airport."
+    
+    scene bg india_airport
 
     p "It was today! I still wanted to say goodbye..."
 
@@ -1058,9 +1175,8 @@ label Ch5_S1_T1_IG:
 
     "We persuaded our parents, got back together, and continued our relationship between Korea and India."
 
-    "A vibrant Indian wedding with flowers."
-
-    "Officiant" 
+    scene bg wedding:
+        zoom 1.4
     
     "The bride is ready to enter!"
 
@@ -1072,9 +1188,11 @@ label Ch5_S1_T1_IG:
 
     "As we entered the hall, I remembered when I first met [kb]. If I hadn't met [kb], what would have happened? This beautiful story of mine will continue forever."
 
+    "{b}Happy Ending{/b}"
     return
 
 label Ch5_S1_T2_IG:
+    scene bg christ_dorm
 
     "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
@@ -1093,15 +1211,21 @@ label Ch5_S1_T2_IG:
     "We had some wonderful times together, perhaps more beautiful now as memories. I wondered if I'd meet anyone like [kb] again."
     "Realizing today was [kb]'s departure, I impulsively headed to the airport."
 
+    scene bg india_airport
+
     p "Today's the day! I still wanted to say goodbye..."
 
     "At the airport, I looked for flights to Korea and decided to wait. I saw missed calls and dialed back."
 
     p "Are you at the airport? I saw your letter at the dorm!"
 
+    scene bg foreign_street
+
     "Reflecting on the past, [kb] was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
 
-    "As time passed, life moved on. Years later, I joined a reunion trip for the exchange program. Among familiar faces, I saw [kb] again."
+    "As time passed, life moved on. "
+    "Years later, I joined a reunion trip for the exchange program. "
+    "Among familiar faces, I saw [kb] again."
 
     kb "It's been a long time!"
 
@@ -1109,9 +1233,11 @@ label Ch5_S1_T2_IG:
 
     "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [kb] again felt like a new beginning, in a different way."
 
+    "{b}Normal Ending{/b}"
     return
 
 label Ch5_S1_T3_IG:
+    scene bg christ_dorm
 
     "After parting ways with [kb], I returned to my dormitory, trying to focus on my exams."
 
@@ -1132,7 +1258,10 @@ label Ch5_S1_T3_IG:
 
     p "I should have gone... but I just couldn't face it."
 
-    "Time passed, and life moved on. Years later, I was on a business trip and unexpectedly saw [kb] again."
+    scene bg foreign_street
+
+    "Time passed, and life moved on. "
+    "Years later, I was on a business trip and unexpectedly saw [kb] again."
 
     "In a crowded conference room, our eyes met briefly. An awkward silence stretched between us, heavy with unspoken words."
 
@@ -1142,8 +1271,11 @@ label Ch5_S1_T3_IG:
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
-    "All I could do was think about [kb], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
+    "All I could do was think about [kb], trapped by what once was, but unable to bridge the gap between us. "
+    
+    "The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
 
+    "{b}Bad ending{/b}"
     return
 
 
@@ -1154,12 +1286,19 @@ label Ch5_S1_T3_IG:
 
 label Ch1_S1_T0_IB:
 
+    scene bg building_220:
+        zoom 1.2
+
     "Today was my first day as an exchange student in Korea. The wind felt particularly refreshing that day."
 
     p "Hmm... I have no idea where anything is since it's my first time here. Let's head to the lounge in Building 220 and think things over."
 
     "I headed towards the lounge in Building 220 and opened the door."
 
+    scene bg lounge_220:
+        zoom 4.5
+    with dissolve
+    
     f1 "Oh? A new face. Are you an exchange student by any chance?"
 
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
@@ -1199,6 +1338,9 @@ label Ch1_S1_T0_IB:
     p "Sounds good!"
 
     "We headed to the cafeteria together..."
+    scene bg snu_cafeteria:
+        zoom 1.4
+    with dissolve
 
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
 
@@ -1233,15 +1375,15 @@ label Ch1_S2_T0_IB:
         "What would you do?"
 
         "1. Remove the grain of rice stuck on [kg]'s face with your hand.":
-
+            $ affection += 5
             jump Ch1_S3_T1_IB
 
         "2. Hand [kg] a handkerchief.":
-            
+            $ affection += 2
             jump Ch1_S3_T2_IB
 
         "3. Glare at the person next to you.":
-
+            $ affection -= 5
             jump Ch1_S3_T3_IB
 
 label Ch1_S3_T1_IB:
@@ -1275,7 +1417,7 @@ label Ch1_S4_T0_IB:
 
 label Ch2_S1_T0_IB:
 
-    ## Chatting app
+    "_Chatting app_"
 
     kg "[player_name], have you ever been to Seol-ip?"
 
@@ -1285,7 +1427,10 @@ label Ch2_S1_T0_IB:
 
     p "Okay, good!"
 
-    "The next day. the two met in Seol-ip."
+    scene bg seolip:
+        zoom 1.2
+
+    "The next day. we two met in Seol-ip."
 
     kg "Ta-da! Students from our school usually come here to hang out."
 
@@ -1302,6 +1447,10 @@ label Ch2_S1_T0_IB:
     kg "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
 
     p "Really? Then let's go in now."
+    
+    scene bg karaoke:
+        zoom 2.8
+    with dissolve
 
     kg "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
@@ -1325,15 +1474,18 @@ label Ch2_S1_T0_IB:
         "Which of the following actions should I choose?"
 
         "1. Sing along to the duet song.":
-            ## Affection level increases.
+            ## $ affection level increases.
+            $ affection += 5
             jump Ch2_S2_T1_IB
 
         "2. Stay still.":
-            ## Affection level decreases.
+            ## $ affection level decreases.
+            $ affection -= 5
             jump Ch2_S2_T2_IB
 
         "3. Pick up a tambourine and dance like crazy.":
-            ## Affection level increases slightly.
+            ## $ affection level increases slightly.
+            $ affection += 2
             jump Ch2_S2_T3_IB
 
 label Ch2_S2_T1_IB:
@@ -1358,7 +1510,11 @@ label Ch2_S3_T0_IB:
 
     p "Okay, fine."
 
-    "The two take a bus and arrive at Gyeongbokgung Palace."
+    scene bg gyunbok:
+        zoom 2.8
+    with dissolve
+
+    "We two take a bus and arrive at Gyeongbokgung Palace."
 
     "There are many people walking around the palace wearing hanbok."
 
@@ -1406,6 +1562,9 @@ label Ch2_S3_T0_IB:
 
     p "Oh, it's cold."
 
+    scene bg gyunbok_raining:
+        zoom 1.8
+
     kg "Huh? It's raining."
 
     "(Shooting, swoosh, the sound of rain falling)"
@@ -1425,14 +1584,17 @@ label Ch2_S3_T0_IB:
     menu:
         "1. Go to a nearby convenience store and buy an umbrella each.":
             ## Slightly decrease in favorability
+            $ affection +=  3
             jump Ch2_S4_T1_IB
 
         "2. Share an umbrella and run to the market.":
-            ## Affection level goes up significantly
+            ## $ affection level goes up significantly
+            $ affection += 5
             jump Ch2_S4_T2_IB
 
         "3. Suggest that we both just go while getting rained on.":
-            ## Affection level goes down significantly
+            ## $ affection level goes down significantly
+            $ affection += 3
             jump Ch2_S4_T3_IB
 
 label Ch2_S4_T1_IB:
@@ -1448,6 +1610,8 @@ label Ch2_S4_T3_IB:
     jump Ch2_S5_T0_IB
 
 label Ch2_S5_T0_IB:
+    scene bg kmarket:
+        zoom 1.7
 
     "After many twists and turns, the two arrive at Gwangjang Market."
 
@@ -1468,14 +1632,17 @@ label Ch2_S5_T0_IB:
     menu:
         "1. Yeah, I like spicy food. Wow~":
             ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_IB
 
         "2. I can't eat spicy food well... I'll try it next time.":
             ## Affinity maintained
+            $ affection += 0
             jump Ch2_S6_T2_IB
 
         "3. Hmm, I'll rinse it in water and try it. Give it to me.":
             ## Affinity decrease
+            $ affection += -5
             jump Ch2_S6_T3_IB
 
 label Ch2_S6_T1_IB:
@@ -1528,19 +1695,19 @@ label Ch3_S1_T0_IB:
         "Guess the name of the festival:"
 
         "1. Pentaport Rock Festival":
-
+            $ affection += -3
             jump Ch3_S2_T1_IB
 
         "2. Waterbomb Festival":
-
+            $ affection += 3
             jump Ch3_S2_T2_IB
 
         "3. Boryeong Mud Festival":
-
+            $ affection += -3
             jump Ch3_S2_T3_IB
 
         "4. Seoul Jazz Festival":
-
+            $ affection += -3
             jump Ch3_S2_T4_IB
 
 label Ch3_S2_T1_IB:
@@ -1568,8 +1735,10 @@ label Ch3_S2_T4_IB:
     jump Ch3_S3_T0_IB
 
 label Ch3_S3_T0_IB:
+    scene bg waterbomb:
+        zoom 1.2
 
-    "Enjoy Waterbomb water gun play photos attached"
+    "We really enjoyed Waterbomb."
 
     p "Wow! This is really fun!!"
 
@@ -1579,7 +1748,7 @@ label Ch3_S3_T0_IB:
 
     kg "[player_name]!!"
 
-    "My partner shielded me with their whole body."
+    "[kg] shielded me with her whole body."
 
     kg "Are you okay??"
 
@@ -1591,19 +1760,19 @@ label Ch3_S3_T0_IB:
 
     kg "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "*Performance photos attached*"
+    #"*Performance photos attached*"
 
     p "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    kg "Oh really? Then should we go to **Hongdae** next time?"
+    kg "Oh really? Then should we go to Hongdae next time?"
 
     p "Why Hongdae? Is it famous for music?"
 
-    kg "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    "I saw busking in Hongdae with [kg]"
 
     p "This is so enjoyable~"
 
-    "*gets a text message*"
+    "I suddenly got a text message."
 
     p "Oh no..."
 
@@ -1623,19 +1792,20 @@ label Ch3_S3_T0_IB:
 
     kg "So we won't be able to see each other anymore?"
 
-    p "Choose the right sentence to comfort the other person:"
-
     menu:
-        "1. I suppose so. I'm really sorry.":
 
+        "Choose the right sentence to comfort the other person:"
+
+        "1. I suppose so. I'm really sorry.":
+            $ affection -= 5
             jump Ch3_S4_T1_IB
 
         "2. We were never meant to be together for long anyway.":
-            
+            $ affection += 4
             jump Ch3_S4_T2_IB
 
         "3. No, don't say that! Everything will be alright, don't worry my dear.":
-
+            $ affection += 2
             jump Ch3_S4_T3_IB
 
 label Ch3_S4_T1_IB:
@@ -1651,8 +1821,10 @@ label Ch3_S4_T3_IB:
     jump Ch3_S5_T0_IB
 
 label Ch3_S5_T0_IB:
+    scene bg kairport:
+        zoom 1.2
 
-    "*at the airport*"
+    "at the airport"
 
     kg "I wish we could meet again soon."
 
@@ -1660,34 +1832,47 @@ label Ch3_S5_T0_IB:
 
     kg "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
 
-    p "Guess the name of the costume:"
-
     menu:
+
+        "Guess the name of the costume:"
+
         "1. Hanbok":
+            $ affection += 5
             jump Ch3_S6_T1_IB
 
         "2. Kimono":
+            $ affection += -5
             jump Ch3_S6_T2_IB
 
         "3. Ao Dai":
+            $ affection += -5
             jump Ch3_S6_T3_IB
 
         "4. Sari":
+            $ affection += -2
             jump Ch3_S6_T4_IB
 
 label Ch3_S6_T1_IB:
+
+    "Right! You remember!"
 
     jump Ch3_S7_T0_IB
 
 label Ch3_S6_T2_IB:
 
+    "Don't you remember that? The answer was Hanbok."
+
     jump Ch3_S7_T0_IB
 
 label Ch3_S6_T3_IB:
 
+    "Don't you remember that? The answer was Hanbok."
+
     jump Ch3_S7_T0_IB
 
 label Ch3_S6_T4_IB:
+
+    "Don't you remember that? The answer was Hanbok."
 
     jump Ch3_S7_T0_IB
 
@@ -1707,8 +1892,10 @@ label Ch3_S7_T0_IB:
 
 
 label Ch4_S1_T0_IB:
+    scene bg india_room:
+        zoom 1.2
 
-    "It's been two months since I returned to Bengaluru in a hurry. Fortunately, my mother's health (or the specific reason why I returned) is gradually improving."
+    "It's been two months since I returned to Bengaluru in a hurry. Fortunately, my mother's health is gradually improving."
 
     p "She must have been surprised that I left so suddenly. Will I be able to see her again?"
 
@@ -1716,11 +1903,11 @@ label Ch4_S1_T0_IB:
 
     menu:
         "Read the email":
-
+            $ affection += 5
             jump Ch4_S1_T1_IB
 
         "Don't read the email":
-
+            $ affection += -5
             jump Ch4_S1_T2_IB
 
 label Ch4_S1_T1_IB:
@@ -1746,16 +1933,21 @@ label Ch4_S2_T0_IB:
     "After visiting my grandfather's house, I had a bit of time before my flight. What should I do now?"
 
     menu:
-        "Go to the Taj Mahal":
 
+        "What should I do now?"
+
+        "Go to the Taj Mahal":
+            $ affection += 5
             jump Ch4_S3_T1_IB
 
         "Go to Agra Fort":
-
+            scene bg agra
+            $ affection += 2
             jump Ch4_S3_T2_IB
 
         "Go shopping":
-
+            scene bg agra
+            $ affection += -5
             jump Ch4_S3_T3_IB
 
 label Ch4_S3_T1_IB:
@@ -1775,20 +1967,21 @@ label Ch4_S3_T3_IB:
     jump Ch4_S4_T0_IB
 
 label Ch4_S4_T0_IB:
+    scene bg tajmahal
 
     "Come to think of it, she also wanted to visit this place... I have a feeling she might be here today."
 
     menu:
         "Observe the people following the tour guide":
-
+            $ affection += 3
             jump Ch4_S5_T1_IB
 
         "Watch people getting their photos taken by peddlers":
-
+            $ affection += 0
             jump Ch4_S5_T2_IB
 
         "No way, such a coincidence couldn't happen":
-
+            $ affection -= 5
             jump Ch4_S5_T3_IB
 
 label Ch4_S5_T1_IB:
@@ -1817,19 +2010,22 @@ label Ch4_S6_T0_IB:
 
     kg "The Taj Mahal is so beautiful! Just like you described it."
 
-    p "I thought you would like Agra. It has many historical sites that showcase Indian tradition. It's like ( ) in Seoul."
+    p "I thought you would like Agra. It has many historical sites that showcase Indian tradition. It's like..."
 
     menu:
-        "Myeong-dong":
 
+        "It's like ( ) in Seoul."
+
+        "Myeong-dong":
+            $ affection += 0
             jump Ch4_S7_T1_IB
 
         "Jongno":
-
+            $ affection += 3
             jump Ch4_S7_T2_IB
 
         "Itaewon":
-
+            $ affection += -3
             jump Ch4_S7_T3_IB
 
 label Ch4_S7_T1_IB:
@@ -1854,15 +2050,15 @@ label Ch4_S8_T0_IB:
 
     menu:
         "Let's go eat street food in Delhi":
-
+            $ affection += 5
             jump Ch4_S9_T1_IB
 
         "I'll take a picture of you in front of the Taj Mahal":
-
+            $ affection += 0
             jump Ch4_S9_T2_IB
 
         "Let's go back to the hotel and rest":
-
+            $ affection += -5
             jump Ch4_S9_T3_IB
 
 label Ch4_S9_T1_IB:
@@ -1878,6 +2074,7 @@ label Ch4_S9_T3_IB:
     jump Ch4_S10_T0_IB
 
 label Ch4_S10_T0_IB:
+    scene bg india_train
 
     "We traveled around Agra and Delhi for a few days. Now it's time to return to Bangalore."
 
@@ -1894,20 +2091,21 @@ label Ch4_S10_T0_IB:
     kg "I can't wait! What should we expect during the journey?"
 
     menu:
-        "Talk about the diversity of regions and cultures in India.":
-
-            jump Ch4_S11_T1_IB
 
         "Discuss the history and significance of Indian Railways.":
-
+            $ affection += 4
             jump Ch4_S11_T2_IB
 
+        "Talk about the diversity of regions and cultures in India.":
+            $ affection += 7
+            jump Ch4_S11_T1_IB
+            
         "Mention the culinary delights available on the train.":
-
+            $ affection += 1
             jump Ch4_S11_T3_IB
 
         "Suggest sleeping or reading during the journey to pass the time.":
-
+            $ affection += -5
             jump Ch4_S11_T4_IB
 
 label Ch4_S11_T1_IB:
@@ -1927,6 +2125,8 @@ label Ch4_S11_T4_IB:
     jump Ch4_S12_T0_IB
 
 label Ch4_S12_T0_IB:
+    scene bg bangalore:
+        zoom 1.1
 
     "After a long but enriching journey, we finally arrived in Bangalore. The city greeted us with its pleasant weather and vibrant atmosphere."
 
@@ -1937,21 +2137,22 @@ label Ch4_S12_T0_IB:
     kg "I'm excited to explore it. What should we do first?"
 
     menu:
-        "Suggest exploring the historic parts of Bangalore.":
-
-            jump Ch4_S13_T1_IB
+        "Propose heading straight to the hotel to rest.":
+            $ affection -= 5
+            jump Ch4_S13_T4_IB
 
         "Propose visiting the local parks and gardens.":
-
+            $ affection += 4
             jump Ch4_S13_T2_IB
 
         "Suggest checking out the local markets.":
-
+            $ affection += 0
             jump Ch4_S13_T3_IB
+            
+        "Suggest exploring the historic parts of Bangalore.":
+            $ affection += 7
+            jump Ch4_S13_T1_IB
 
-        "Propose heading straight to the hotel to rest.":
-
-            jump Ch4_S13_T4_IB
 
 label Ch4_S13_T1_IB:
 
@@ -1971,30 +2172,34 @@ label Ch4_S13_T4_IB:
 
 label Ch4_S14_T0_IB:
 
-    "After settling in, I thought it would be a great idea to introduce K to Indian cinema—a vital part of the culture here. We decided to go to a local theatre to watch a popular Indian film."
+    "After settling in, I thought it would be a great idea to introduce K to Indian cinema—a vital part of the culture here."
+    
+    "We decided to go to a local theatre to watch a popular Indian film."
 
     kg "I've heard so much about Indian cinema. Bollywood, right?"
 
-    p "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
+    p "Yes, but there's so much more to Indian cinema than just Bollywood."
+    
+    p "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
 
     p "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
+        "Suggest watching the movie quietly without discussing it.":
+            $ affection += -5
+            jump Ch4_S15_T4_IB
+        
         "Explain the history and evolution of Indian cinema.":
-
+            $ affection += 5
             jump Ch4_S15_T1_IB
 
         "Talk about the influence of Indian cinema globally.":
-
+            $ affection += 3
             jump Ch4_S15_T2_IB
 
         "Discuss the different film genres and what to expect.":
-
+            $ affection += 1
             jump Ch4_S15_T3_IB
-
-        "Suggest watching the movie quietly without discussing it.":
-
-            jump Ch4_S15_T4_IB
 
 label Ch4_S15_T1_IB:
 
@@ -2013,8 +2218,12 @@ label Ch4_S15_T4_IB:
     jump Ch4_S16_T0_IB
 
 label Ch4_S16_T0_IB:
+    scene bg theatre:
+        zoom 1.3
 
-    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. The movie started, and I could see K was completely engrossed in the experience."
+    "We entered the theatre, the air filled with the aroma of popcorn and the excitement of the audience. "
+    
+    "The movie started, and I could see K was completely engrossed in the experience."
 
     kg "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
@@ -2027,13 +2236,17 @@ label Ch4_S16_T0_IB:
     jump Ch5_S1_T0_IB
 
 
-### need codes to decide the ending. Sanghyuk fighting ^^
-
 label Ch5_S1_T0_IB:
 
-    jump Ch5_S1_T1_IB
+    if affection >= 50:
+        jump Ch5_S1_T1_IB
+    elif affection >= 25:
+        jump Ch5_S1_T2_IB
+    else:
+        jump Ch5_S1_T3_IB
 
 label Ch5_S1_T1_IB:
+    scene bg christ_dorm
 
     "After parting ways with [kg], I returned to my dormitory, trying to focus on my exams."
 
@@ -2052,6 +2265,8 @@ label Ch5_S1_T1_IB:
     "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [kg] again?"
     "Realizing today was [kg]'s departure, I called a taxi and headed to the airport."
 
+    scene bg india_airport
+
     p "It was today! I still wanted to say goodbye..."
 
     "At the airport, I found the counter for flights to Korea and waited. Noticing missed calls, I called back."
@@ -2066,6 +2281,9 @@ label Ch5_S1_T1_IB:
 
     "We persuaded our parents, got back together, and continued our relationship between Korea and India."
 
+    scene bg wedding:
+        zoom 1.4
+
     "A vibrant Indian wedding with flowers."
 
     "Officiant" 
@@ -2079,10 +2297,11 @@ label Ch5_S1_T1_IB:
     p "Ready for the party? It's going to go late into the night!!"
 
     "As we entered the hall, I remembered when I first met [kg]. If I hadn't met [kg], what would have happened? This beautiful story of mine will continue forever."
-
+    "{b}Happy ending{/b}"
     return
 
 label Ch5_S1_T2_IB:
+    scene bg christ_dorm
 
     "After parting ways with [kg], I returned to my dormitory, trying to focus on my exams."
 
@@ -2101,15 +2320,21 @@ label Ch5_S1_T2_IB:
     "We had some wonderful times together, perhaps more beautiful now as memories. I wondered if I'd meet anyone like [kg] again."
     "Realizing today was [kg]'s departure, I impulsively headed to the airport."
 
+    scene bg india_airport
+
     p "Today's the day! I still wanted to say goodbye..."
 
     "At the airport, I looked for flights to Korea and decided to wait. I saw missed calls and dialed back."
 
     p "Are you at the airport? I saw your letter at the dorm!"
 
+    scene bg foreign_street
+
     "Reflecting on the past, [kg] was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
 
-    "As time passed, life moved on. Years later, I joined a reunion trip for the exchange program. Among familiar faces, I saw [kg] again."
+    "As time passed, life moved on. "
+    "Years later, I joined a reunion trip for the exchange program. "
+    "Among familiar faces, I saw [kg] again."
 
     kg "It's been a long time!"
 
@@ -2117,9 +2342,11 @@ label Ch5_S1_T2_IB:
 
     "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [kg] again felt like a new beginning, in a different way."
 
+    "{b}Normal Ending{/b}"
     return
 
 label Ch5_S1_T3_IB:
+    scene bg christ_dorm
 
     "After parting ways with [kg], I returned to my dormitory, trying to focus on my exams."
 
@@ -2140,7 +2367,9 @@ label Ch5_S1_T3_IB:
 
     p "I should have gone... but I just couldn't face it."
 
-    "Time passed, and life moved on. Years later, I was on a business trip and unexpectedly saw [kg] again."
+    scene bg foreign_street
+    "Time passed, and life moved on. "
+    "Years later, I was on a business trip and unexpectedly saw [kg] again."
 
     "In a crowded conference room, our eyes met briefly. An awkward silence stretched between us, heavy with unspoken words."
 
@@ -2150,8 +2379,11 @@ label Ch5_S1_T3_IB:
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
-    "All I could do was think about [kg], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
+    "All I could do was think about [kg], trapped by what once was, but unable to bridge the gap between us. "
+    
+    "The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
 
+    "{b}Bad ending{/b}"
     return
 
 
@@ -2159,14 +2391,23 @@ label Ch5_S1_T3_IB:
 ### KG ver. ###
 
 label Ch1_S1_T0_KG:
+    scene bg building_220:
+        zoom 1.2
 
     "It was a breezy day. I didn't know at the time that this semester would be a bit more special."
 
     p "The semester is starting soon! I can't believe I have to go back to school already!"
 
-    p "Hmm, but I have some time to kill... Maybe I'll hang out at the 220 lounge and chat with some friends."
+    p "Hmm, but I have some time to kill... "
+    
+    p "Maybe I'll hang out at the 220 lounge and chat with some friends."
 
-    "I arrive at the lounge and see my friends talking. I walk over, put my hand on someone's shoulder, and start talking."
+    scene bg lounge_220:
+        zoom 4.5
+    with dissolve
+
+    "I arrive at the lounge and see my friends talking. "
+    "I walk over, put my hand on someone's shoulder, and start talking."
 
     p "Hey! What were you guys talking about?"
 
@@ -2184,7 +2425,9 @@ label Ch1_S1_T0_KG:
 
     p "Oh, nice to meet you!! I'm [p]. I heard an SNU student went to India, and now we have an exchange student here, too!"
 
-    p "Anyway, if you need help with anything, feel free to ask! Oh, wait, I don't have your number yet! What's your number?"
+    p "Anyway, if you need help with anything, feel free to ask! "
+    
+    p "Oh, wait, I don't have your number yet! What's your number?"
 
     ib "My number is ~~!"
 
@@ -2199,6 +2442,9 @@ label Ch1_S1_T0_KG:
     ib "Sounds good!"
 
     "We headed to the cafeteria together..."
+    scene bg snu_cafeteria:
+        zoom 1.4
+    with dissolve
 
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
 
@@ -2207,8 +2453,6 @@ label Ch1_S1_T0_KG:
     jump Ch1_S2_T0_KG
 
 label Ch1_S2_T0_KG:
-
-    "Cafeteria"
 
     "We arrive at the cafeteria, and today's menu is bibimbap. We each grab a bowl and sit down."
 
@@ -2229,13 +2473,19 @@ label Ch1_S2_T0_KG:
     "(Tutorial) This game requires you to make choices at key moments! Depending on your choices, the relationship level can increase or decrease. The final ending will be different based on your decisions, so choose carefully!"
 
     menu:
+
+        "What would you do?"
+
         "1. Quickly dash to grab a tissue.":
+            $ affection += 5
             jump Ch1_S3_T1_KG
 
         "2. Apologize to [ib] in embarrassment.":
+            $ affection += 1
             jump Ch1_S3_T2_KG
 
         "3. Apologize to the person you bumped into first.":
+            $ affection += -5
             jump Ch1_S3_T3_KG
 
 label Ch1_S3_T1_KG:
@@ -2259,7 +2509,9 @@ label Ch1_S4_T0_KG:
 
     p "Really? I'm glad you like it, haha. By the way, are you busy these days? Have you explored Seoul much?"
 
-    ib "Huh? No, I haven't really had the chance to see much outside the campus... Do you have time tomorrow? Maybe you could show me around Seoul?"
+    ib "Huh? No, I haven't really had the chance to see much outside the campus... "
+    
+    ib "Do you have time tomorrow? Maybe you could show me around Seoul?"
 
     p "Yeah, I'm free tomorrow! Let's meet up after class! I'll text you!"
 
@@ -2269,37 +2521,56 @@ label Ch1_S4_T0_KG:
 
 label Ch2_S1_T0_KG:
 
-    ## Chatting app
+    "_Chatting app_"
 
-    p "[player_name], have you ever been to Seol-ip?"
+    ib "[player_name], do you often go to Seol-ip?"
 
-    ib "Seol-ip..? You mean Seoul National University Station, right? I've never been there!"
+    p "Yeah, I go often."
 
-    p "Then do you want to go with me? I'll show you around."
+    ib "Then will you go with me? I've never been there before, so I'm curious.."
 
-    ib "Okay, good!"
+    p "Okay, I'll show you around."
 
-    "The next day. the two met in Seol-ip."
+    scene bg seolip:
+        zoom 1.2
 
-    ib "Wow, there are a lot of people."
+    "The next day, the two met in Seol-ip."
+
+    ib "Wow! there are a lot of people."
 
     p "Ta-da! Students from our school usually come here to hang out."
 
-    ib "Um... Since we just had lunch, how about going to a cafe I know and having some dessert?"
+    ib "Then what kind of food do you usually eat? I want to eat dessert."
 
-    p "Okay."
+    p "There's a cafe nearby that I often go to. Do you want to go and have some shaved ice?"
+    
+    menu:
+        "What should I say to [ib] who's visiting Seol-ip for the first time?"
 
-    ib "I'll buy you some for your first time at Seol-ip."
+        "1. I'll buy it for you as a souvenir of your first visit to Seol-ip!":
+            $ affection += 5
 
-    p "Oh really?? Thank you. I'll eat well~"
+        "2. You know we split the bill, right? Haha..":
+            $ affection += -2
 
+        "3. You'll pay instead~~! I'll eat well ^^":
+            $ affection += -5
+    ib "Phew, I'm full. The shaved ice here is really delicious."
+
+    p " I'm glad you enjoyed it."
+    
+    
     ib "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
 
     p "Really? Then let's go in now."
 
+    scene bg karaoke:
+        zoom 2.8
+    with dissolve
+
     p "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
-    ib "Thank you. You're so kind ㅜㅜ. I'll sing first!"
+    ib "Thank you. You're so kind TT. I'll sing first!"
 
     "I am confident in my singing skills, so I sing my favorite song with great enthusiasm."
     "I look to the side while singing and see the other person staring at me."
@@ -2320,14 +2591,17 @@ label Ch2_S1_T0_KG:
 
         "1. Sing along to the duet song.":
             ## Affection level increases.
+            $ affection += 5
             jump Ch2_S2_T1_KG
 
         "2. Stay still.":
             ## Affection level decreases.
+            $ affection -= 5
             jump Ch2_S2_T2_KG
 
         "3. Pick up a tambourine and dance like crazy.":
             ## Affection level increases slightly.
+            $ affection += 2
             jump Ch2_S2_T3_KG
 
 label Ch2_S2_T1_KG:
@@ -2352,7 +2626,11 @@ label Ch2_S3_T0_KG:
 
     ib "Okay, fine."
 
-    "The two take a bus and arrive at Gyeongbokgung Palace."
+    scene bg gyunbok:
+        zoom 2.8
+    with dissolve
+
+    "We two take a bus and arrive at Gyeongbokgung Palace."
 
     "There are many people walking around the palace wearing hanbok."
 
@@ -2400,9 +2678,12 @@ label Ch2_S3_T0_KG:
 
     ib "Oh, it's cold."
 
+    scene bg gyunbok_raining:
+        zoom 1.8
+
     p "Huh? It's raining."
 
-    "(Shooting, swoosh, the sound of rain falling)"
+    "_Shooting, swoosh, the sound of rain falling_"
 
     p "Do you have an umbrella? I only have one for myself…"
 
@@ -2417,16 +2698,22 @@ label Ch2_S3_T0_KG:
     "How should I respond to an unexpected downpour?"
 
     menu:
+
+        "How should I respond to an unexpected downpour?"
+
         "1. Go to a nearby convenience store and buy an umbrella each.":
+            $ affection += -2
             ## Slightly decrease in favorability
             jump Ch2_S4_T1_KG
 
         "2. Share an umbrella and run to the market.":
             ## Affection level goes up significantly
+            $ affection += 5
             jump Ch2_S4_T2_KG
 
         "3. Suggest that we both just go while getting rained on.":
             ## Affection level goes down significantly
+            $ affection += -5
             jump Ch2_S4_T3_KG
 
 label Ch2_S4_T1_KG:
@@ -2443,6 +2730,9 @@ label Ch2_S4_T3_KG:
 
 label Ch2_S5_T0_KG:
 
+    scene bg kmarket:
+        zoom 1.7
+
     "After many twists and turns, the two arrive at Gwangjang Market."
 
     p "Okay, this is Gwangjang Market."
@@ -2454,22 +2744,21 @@ label Ch2_S5_T0_KG:
 
     ib "Right. Let's eat something since we're hungry."
 
-    p "This is tteokbokki, a national snack that Koreans of all ages and genders love. "
-    p "It might be a little spicy, but is that okay?"
-
-    "What should I say in response to that suggestion?"
+    "I look around and see various foods. What kind of food should I recommend that the opponent like?"
 
     menu:
-        "1. Yeah, I like spicy food. Wow~":
+        "1. Tteokbokki ":
             ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_KG
 
-        "2. I can't eat spicy food well... I'll try it next time.":
+        "2. Bindaetteok":
             ## Affinity maintained
+            $ affection += 3
             jump Ch2_S6_T2_KG
 
-        "3. Hmm, I'll rinse it in water and try it. Give it to me.":
-            ## Affinity decrease
+        "3. Janchi noodles":
+            $ affection += 3
             jump Ch2_S6_T3_KG
 
 label Ch2_S6_T1_KG:
@@ -2492,11 +2781,12 @@ label Ch2_S7_T0_KG:
     p "This noodle is called janchi-guksu. "
     p "It originated from the fact that it was enjoyed at weddings, birthday parties, and 60th birthday parties in the hopes of longevity."
 
-    ib "The food here is really delicious."
+    ib "Oh, I love it!"
 
     "Then they enjoy the food with a happy conversation."
 
     jump Ch3_S1_T0_KG
+
 
 
 label Ch3_S1_T0_KG:
@@ -2509,61 +2799,47 @@ label Ch3_S1_T0_KG:
 
     ib "Hmm... Could we maybe go to a famous festival in Korea?"
 
-    p "Of course! How about we go to the largest music and water-themed festival in the country? "
-    p "It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights!"
+    p "Of course! How about we go to the largest music and water-themed festival in the country? It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights! The name of the festival is **'Waterbomb'**"
 
-    ib "Great! What's the name of that festival?"
+    ib "Great! I really want to go there!!"
 
-    p "Want to try guessing?"
+    p "That's right!! My darling! Then shall we go to Waterbomb?"
+
+    scene bg waterbomb:
+        zoom 1.2
+
+    "_Enjoy Waterbomb_"
+
+    ib "Wow! This is really fun!!"
+
+    "During the water gun play, [ib] became the target of many people."
+
+    p "[ib] got targeted by many people during the water gun play, but they don't seem to realize it yet."
 
     menu:
-        "Guess the name of the festival:"
-
-        "1. Pentaport Rock Festival":
+        "1. I'll surprise them by spraying them with a water gun too, since it's so fun!":
             jump Ch3_S2_T1_KG
 
-        "2. Waterbomb Festival":
+        "2. I'm my partner's bodyguard! I'll shield them with my own body.":
             jump Ch3_S2_T2_KG
 
-        "3. Boryeong Mud Festival":
+        "3. I'll just give them a quick heads up in English.":
             jump Ch3_S2_T3_KG
 
-        "4. Seoul Jazz Festival":
-            jump Ch3_S2_T4_KG
-
 label Ch3_S2_T1_KG:
-    p "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
     jump Ch3_S3_T0_KG
 
 label Ch3_S2_T2_KG:
-    p "That's right!! My darling! Then shall we go to Waterbomb?"
     jump Ch3_S3_T0_KG
 
 label Ch3_S2_T3_KG:
-    p "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
-    jump Ch3_S3_T0_KG
-
-label Ch3_S2_T4_KG:
-    p "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
     jump Ch3_S3_T0_KG
 
 label Ch3_S3_T0_KG:
 
-    "Enjoy Waterbomb water gun play photos attached"
+    p "Are you okay?"
 
-    ib "Wow! This is really fun!!"
-
-    "During the water gun play, I became the target of many people."
-
-    ib "Oh no..."
-
-    p "[ib]!!"
-
-    "My partner shielded me with their whole body."
-
-    p "Are you okay??"
-
-    ib "Yes!! Really thank you"
+    ib "Yes, I'm fine."
 
     p "How was it?"
 
@@ -2571,19 +2847,21 @@ label Ch3_S3_T0_KG:
 
     p "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "Performance photos attached"
+    #Performance photos attached
 
     ib "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    p "Oh really? Then should we go to **Hongdae** next time?"
+    p "Oh really? Then should we go to Hongdae next time?"
 
     ib "Why Hongdae? Is it famous for music?"
 
-    p "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    p "Many musicians do street performances in Hongdae!"
+    
+    "I saw busking in Hongdae with [ib]"
 
     ib "This is so enjoyable~"
 
-    "*gets a text message*"
+    "[ib] suddenly got a text message."
 
     ib "Oh no..."
 
@@ -2593,16 +2871,13 @@ label Ch3_S3_T0_KG:
 
     p "What? Didn't you have half a year left?"
 
-    ib "I loved Korea and you so much that I extended my exchange student program for another semester, "
-    ib "but I just got a message saying my application was rejected."
+    ib "I loved Korea and you so much that I extended my exchange student program for another semester, but I just got a message saying my application was rejected."
 
     p "What? I'm so disappointed... I'm tearing up..."
 
     ib "Oh honey, don't cry... I'm really disappointed too.."
 
-    p "So we won't be able to see each other anymore?"
-
-    ib "Choose the right sentence to comfort the other person:"
+    p "Choose the right sentence to comfort the other person:"
 
     menu:
         "1. I suppose so. I'm really sorry.":
@@ -2625,7 +2900,10 @@ label Ch3_S4_T3_KG:
 
 label Ch3_S5_T0_KG:
 
-    "*at the airport*"
+    scene bg kairport:
+        zoom 1.2
+
+    "_at the airport_"
 
     p "I wish we could meet again soon."
 
@@ -2633,59 +2911,36 @@ label Ch3_S5_T0_KG:
 
     p "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
 
-    ib "Guess the name of the costume:"
+    ib "Of course!! It's Hanbok!"
 
-    menu:
-        "1. Hanbok":
-            jump Ch3_S6_T1_KG
+    p "You remembered it well, didn't you?"
 
-        "2. Kimono":
-            jump Ch3_S6_T2_KG
-
-        "3. Ao Dai":
-            jump Ch3_S6_T3_KG
-
-        "4. Sari":
-            jump Ch3_S6_T4_KG
-
-label Ch3_S6_T1_KG:
-    jump Ch3_S7_T0_KG
-
-label Ch3_S6_T2_KG:
-    jump Ch3_S7_T0_KG
-
-label Ch3_S6_T3_KG:
-    jump Ch3_S7_T0_KG
-
-label Ch3_S6_T4_KG:
-    jump Ch3_S7_T0_KG
-
-label Ch3_S7_T0_KG:
-
-    ib "Wow, thank you so much. This will remind me of you."
+    ib "Of course! It's the gift you gave me!"
 
     p "Don't forget me when you go back to India."
 
     ib "Of course not. We're under the same sky. Our love will be eternal."
 
-    p "Take care in India."
-
-    ib "Yes, you take care in Korea too. Let's meet in India next time."
-
     jump Ch4_S1_T0_KG
 
-
 label Ch4_S1_T0_KG:
+    scene bg kstreet
 
-    "It's already been two months since he suddenly left. Even though he's not here, time keeps moving forward. Before I met him, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. Will I be able to meet him again if I go to the school he attends?"
+    "It's already been two months since he suddenly left. Even though he's not here, time keeps moving forward."
+
+    "Before I met him, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. "
+    
+    "Will I be able to meet him again if I go to the school he attends?"
 
     p "Should I text him to say I'll be at Christ University starting next week?"
 
     menu:
         "Send the text":
+            $ affection += 5
             jump Ch4_S1_T1_KG
 
         "Don't send the text":
+            $ affection += -5
             jump Ch4_S1_T2_KG
 
 label Ch4_S1_T1_KG:
@@ -2698,21 +2953,23 @@ label Ch4_S1_T2_KG:
 
 label Ch4_S2_T0_KG:
 
-    # (Narration, with the scenery of Delhi airport in the background)
+    scene bg india_airport
     "He didn't reply. I've arrived in India. It's a lively city."
 
-    #(Narration, with the Taj Mahal in the background)
+    scene bg tajmahal
     "Before heading to Bangalore, I decided to visit the Taj Mahal alone. He once told me that if I ever came to India, he would show me the Taj Mahal."
 
     #A: 
-    "Take a photo! I'll take it with the Taj Mahal in the background!"
+    m1 "Take a photo! I'll take it with the Taj Mahal in the background!"
 
     #B:
-    "Don't go to him, I'll take your photo for a cheaper price."
+    m2 "Don't go to him, I'll take your photo for a cheaper price."
 
     p "Trying to avoid the touting photographers, I joined a guided tour group."
 
-    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory. He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
+    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory." 
+    
+    gd "He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
 
     #(Narration)
     p "The Taj Mahal has such a romantic history."
@@ -2733,12 +2990,15 @@ label Ch4_S2_T0_KG:
 
     menu:
         "This place is such a beautiful palace.":
+            $ affection += -3
             jump Ch4_S3_T1_KG
 
         "This place is such a beautiful tomb.":
+            $ affection += 5
             jump Ch4_S3_T2_KG
 
         "This place is such a beautiful government building.":
+            $ affection += -5
             jump Ch4_S3_T3_KG
 
 label Ch4_S3_T1_KG:
@@ -2759,7 +3019,8 @@ label Ch4_S4_T0_KG:
     ib "Then let's try some Indian street food. I'll guide you."
 
     #(Narration)
-    p " We walk the streets of India together. In the exotic scenery."
+    scene bg india_street
+    "We walk the streets of India together. In the exotic scenery."
 
     ib "This is Paratha. Paratha is a flatbread made by rolling out dough and stuffing it with potatoes or beans. It's eaten with butter or yogurt."
 
@@ -2774,16 +3035,23 @@ label Ch4_S4_T0_KG:
     ib "Which one do you want to try?"
 
     menu:
+
+        "Which one do you want to try?"
+
         "I want to try Paratha!":
+            $ affection += 3
             jump Ch4_S5_T1_KG
 
         "I want to try Chaat!":
+            $ affection += 3
             jump Ch4_S5_T2_KG
 
         "I want to try Aloo Tikki!":
+            $ affection += 3
             jump Ch4_S5_T3_KG
 
         "I don't think I'll like any of them.":
+            $ affection += -5
             jump Ch4_S5_T4_KG
 
 label Ch4_S5_T1_KG:
@@ -2803,13 +3071,15 @@ label Ch4_S6_T0_KG:
     ib "Are you going to Christ University today? Let's go together."
 
     #(Narration)
-    p "I'm so happy to meet him again. Is this how our connection resumes?"
+    "I'm so happy to meet him again. Is this how our connection resumes?"
 
     menu:
         "Sure!":
+            $ affection += 3
             jump Ch4_S7_T1_KG
 
         "I want to go alone.":
+            $ affection += -3
             jump Ch4_S7_T2_KG
 
 label Ch4_S7_T1_KG:
@@ -2820,28 +3090,36 @@ label Ch4_S7_T2_KG:
 
 label Ch4_S8_T0_KG:
 
-    "Scene 1: Railway Travel to Bangalore"
+    scene bg india_train
 
     #(Narration)
-    p "After exploring Delhi and Agra, it was time to continue our journey to Bangalore. I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
+    "After exploring Delhi and Agra, it was time to continue our journey to Bangalore."
+    
+    p "I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
 
     p "I've heard that train journeys in India are quite an experience. I'm excited but also a bit nervous. How long will the journey take?"
 
-    ib "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. You'll get to see so much of India, from the bustling cities to the peaceful countryside."
+    ib "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. "
+    
+    ib "You'll get to see so much of India, from the bustling cities to the peaceful countryside."
 
     p "I can't wait! What should we expect during the journey?"
 
     menu:
         "Encourage I to tell me more about the diversity of regions and cultures in India.":
+            $ affection += 7
             jump Ch4_S9_T1_KG
 
         "Ask about the history and significance of Indian Railways.":
+            $ affection += 4
             jump Ch4_S9_T2_KG
 
         "Inquire about the food available on the train.":
+            $ affection += 1
             jump Ch4_S9_T3_KG
 
         "Suggest we rest or read to pass the time during the journey.":
+            $ affection += -5
             jump Ch4_S9_T4_KG
 
 label Ch4_S9_T1_KG:
@@ -2858,10 +3136,10 @@ label Ch4_S9_T4_KG:
 
 label Ch4_S10_T0_KG:
 
-    "Scene 2: Arrival in Bangalore"
-
-    #(Narration)
-    "After a long journey, we finally arrived in Bangalore. The city felt alive with energy, and the weather was so pleasant. I could see why it's such a popular place."
+    scene bg bangalore:
+        zoom 1.1
+    "After a long journey, we finally arrived in Bangalore. The city felt alive with energy, and the weather was so pleasant."
+    "I could see why it's such a popular place."
 
     p "Bangalore seems so lively! I've heard it's known as the Silicon Valley of India."
 
@@ -2870,17 +3148,22 @@ label Ch4_S10_T0_KG:
     p "I'm excited to explore it. What should we do first?"
 
     menu:
+        "Propose heading straight to the hotel to rest.":
+            $ affection += -5
+            jump Ch4_S11_T4_KG
+            
         "Express interest in exploring the historic parts of Bangalore.":
+            $ affection += 7
             jump Ch4_S11_T1_KG
 
         "Show enthusiasm for visiting the local parks and gardens.":
+            $ affection += 4
             jump Ch4_S11_T2_KG
 
         "Suggest exploring the local markets.":
+            $ affection += 0
             jump Ch4_S11_T3_KG
 
-        "Propose heading straight to the hotel to rest.":
-            jump Ch4_S11_T4_KG
 
 label Ch4_S11_T1_KG:
     jump Ch4_S12_T0_KG
@@ -2896,27 +3179,36 @@ label Ch4_S11_T4_KG:
 
 label Ch4_S12_T0_KG:
 
-    "Scene 3: Experiencing Indian Cinema"
+    scene bg theatre:
+        zoom 1.3
 
     #(Narration)
-    "After settling in, [ib] suggested we experience something truly unique—watching an Indian movie at a local theatre. I'd heard a lot about Indian cinema, and I was eager to see it for myself."
+    "After settling in, [ib] suggested we experience something truly unique—watching an Indian movie at a local theatre."
+    "I'd heard a lot about Indian cinema, and I was eager to see it for myself."
 
     p "I've heard so much about Indian cinema. Bollywood, right?"
 
-    ib "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. Indian cinema has a rich history, and it's evolved a lot over the years."
+    ib "Yes, but there's so much more to Indian cinema than just Bollywood. "
+    
+    ib "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka." 
+    
+    ib "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
-        "Ask about the history and evolution of Indian cinema.":
-            jump Ch4_S13_T1_KG
+        "Suggest watching the movie quietly without much discussion.":
+            $ affection += -5
+            jump Ch4_S13_T4_KG
 
         "Inquire about the global influence of Indian cinema.":
+            $ affection += 4
             jump Ch4_S13_T2_KG
 
         "Express curiosity about different film genres.":
+            $ affection += 1
             jump Ch4_S13_T3_KG
-
-        "Suggest watching the movie quietly without much discussion.":
-            jump Ch4_S13_T4_KG
+        "Ask about the history and evolution of Indian cinema.":
+            $ affection += 7
+            jump Ch4_S13_T1_KG
 
 label Ch4_S13_T1_KG:
     jump Ch4_S14_T0_KG
@@ -2932,10 +3224,9 @@ label Ch4_S13_T4_KG:
 
 label Ch4_S14_T0_KG:
 
-    "Scene 4: Watching the Movie"
-
-    #(Narration)
-    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
+    
+    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. "
+    "As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
 
     p "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
@@ -2949,11 +3240,15 @@ label Ch4_S14_T0_KG:
     jump Ch5_S1_T0_KG    
 
 label Ch5_S1_T0_KG:
-
-    jump Ch5_S1_T1_KG
+    if affection >= 50:
+        jump Ch5_S1_T1_KG
+    elif affection >= 25:
+        jump Ch5_S1_T2_KG
+    else:
+        jump Ch5_S1_T3_KG
 
 label Ch5_S1_T1_KG:
-
+    scene bg christ_dorm
     "After parting ways with [ib], I returned to my dormitory, trying to focus on my exams."
 
     ib "We're both busy, so let's concentrate on studying."
@@ -2971,6 +3266,8 @@ label Ch5_S1_T1_KG:
     "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [ib] again?"
     "Realizing today was [ib]'s departure, I called a taxi and headed to the airport."
 
+    scene bg india_airport
+    
     p "It was today! I still wanted to say goodbye..."
 
     "At the airport, I found the counter for flights to India and waited. Noticing missed calls, I called back."
@@ -2985,9 +3282,8 @@ label Ch5_S1_T1_KG:
 
     "We persuaded our parents, got back together, and continued our relationship between Korea and India."
 
-    "A vibrant Indian wedding with flowers."
-
-    "Officiant" 
+    scene bg wedding:
+        zoom 1.4
     
     "The bride is ready to enter!"
 
@@ -2998,10 +3294,12 @@ label Ch5_S1_T1_KG:
     p "Ready for the party? It's going to go late into the night!!"
 
     "As we entered the hall, I remembered when I first met [ib]. If I hadn't met [ib], what would have happened? This beautiful story of mine will continue forever."
-
+    "{b}Happy Ending{/b}"
+    
     return
 
 label Ch5_S1_T2_KG:
+    scene bg christ_dorm
 
     "After parting ways with [ib], I returned to my dormitory, trying to focus on my exams."
 
@@ -3022,23 +3320,29 @@ label Ch5_S1_T2_KG:
 
     p "Today's the day! I still wanted to say goodbye..."
 
+    scene bg india_airport
     "At the airport, I looked for flights to India and decided to wait. I saw missed calls and dialed back."
 
     p "Are you at the airport? I saw your letter at the dorm!"
 
     "Reflecting on the past, [ib] was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
 
-    "As time passed, life moved on. Years later, I joined a reunion trip for the exchange program. Among familiar faces, I saw [ib] again."
+    scene bg foreign_street
+    "As time passed, life moved on."
+    "Years later, I joined a reunion trip for the exchange program. "
+    "Among familiar faces, I saw [ib] again."
 
     ib "It's been a long time!"
 
     p "It really has. How have you been?"
 
-    "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [ib] again felt like a new beginning, in a different way."
-
+    "We shared stories and laughter, reconnecting as friends."
+    "Those moments we shared were a cherished chapter, and seeing [ib] again felt like a new beginning, in a different way."
+    "{b}Normal Ending{/b}"
     return
 
 label Ch5_S1_T3_KG:
+    scene bg christ_dorm
 
     "After parting ways with [ib], I returned to my dormitory, trying to focus on my exams."
 
@@ -3059,7 +3363,10 @@ label Ch5_S1_T3_KG:
 
     p "I should have gone... but I just couldn't face it."
 
-    "Time passed, and life moved on. Years later, I was on a business trip and unexpectedly saw [ib] again."
+    scene bg foreign_street
+
+    "Time passed, and life moved on. "
+    "Years later, I was on a business trip and unexpectedly saw [ib] again."
 
     "In a crowded conference room, our eyes met briefly. An awkward silence stretched between us, heavy with unspoken words."
 
@@ -3070,12 +3377,14 @@ label Ch5_S1_T3_KG:
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
     "All I could do was think about [ib], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
-
+    "{b}Bad ending{/b}"
     return
 
 ### KB ver. ###
 
 label Ch1_S1_T0_KB:
+    scene bg building_220:
+        zoom 1.2
 
     "It was a breezy day. I didn't know at the time that this semester would be a bit more special."
 
@@ -3083,6 +3392,10 @@ label Ch1_S1_T0_KB:
 
     p "Hmm, but I have some time to kill... Maybe I'll hang out at the 220 lounge and chat with some friends."
 
+    scene bg lounge_220:
+        zoom 4.5
+    with dissolve
+    
     "I arrive at the lounge and see my friends talking. I walk over, put my hand on someone's shoulder, and start talking."
 
     p "Hey! What were you guys talking about?"
@@ -3117,6 +3430,10 @@ label Ch1_S1_T0_KB:
 
     "We headed to the cafeteria together..."
 
+    scene bg snu_cafeteria:
+        zoom 1.4
+    with dissolve
+
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
 
     "Being left awkwardly alone... Well, let's go eat."
@@ -3147,12 +3464,15 @@ label Ch1_S2_T0_KB:
 
     menu:
         "1. Quickly dash to grab a tissue.":
+            $ affection += 5
             jump Ch1_S3_T1_KB
 
         "2. Apologize to [ig] in embarrassment.":
+            $ affection += 1
             jump Ch1_S3_T2_KB
 
         "3. Apologize to the person you bumped into first.":
+            $ affection += -5
             jump Ch1_S3_T3_KB
 
 label Ch1_S3_T1_KB:
@@ -3187,15 +3507,18 @@ label Ch1_S4_T0_KB:
 
 label Ch2_S1_T0_KB:
 
-    ## Chatting app
+    "_Chatting app_"
 
-    p "[player_name], have you ever been to Seol-ip?"
+    ig "[player_name], do you often go to Seol-ip?"
 
-    ig "Seol-ip..? You mean Seoul National University Station, right? I've never been there!"
+    p "Yeah, I go often."
 
-    p "Then do you want to go with me? I'll show you around."
+    ig "Then will you go with me? I've never been there before, so I'm curious.."
 
-    ig "Okay, good!"
+    p "Okay, I'll show you around."
+
+    scene bg seolip:
+        zoom 1.2
 
     "The next day. the two met in Seol-ip."
 
@@ -3203,21 +3526,36 @@ label Ch2_S1_T0_KB:
 
     p "Ta-da! Students from our school usually come here to hang out."
 
-    ig "Um... Since we just had lunch, how about going to a cafe I know and having some dessert?"
+    ig "Then what kind of food do you usually eat? I want to eat dessert."
 
-    p "Okay."
+    p "There's a cafe nearby that I often go to. Do you want to go and have some shaved ice?"
 
-    ig "I'll buy you some for your first time at Seol-ip."
+    "What should I say to the opponent who's visiting Seol-ip for the first time?"
+    menu:
+        "1. I'll buy it for you as a souvenir of your first visit to Seol-ip!":
+            $ affection += 5
 
-    p "Oh really?? Thank you. I'll eat well~"
+        "2. You know we split the bill, right? Haha..":
+            $ affection += -2
+
+        "3. You'll pay instead~~! I'll eat well ^^":
+            $ affection += -5
+            
+    ig "Phew, I'm full. The shaved ice here is really delicious."
+
+    p " I'm glad you enjoyed it."
 
     ig "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
 
     p "Really? Then let's go in now."
 
+    scene bg karaoke:
+        zoom 2.8
+    with dissolve
+
     p "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
 
-    ig "Thank you. You're so kind ㅜㅜ. I'll sing first!"
+    ig "Thank you. You're so kind TT. I'll sing first!"
 
     "I am confident in my singing skills, so I sing my favorite song with great enthusiasm."
     "I look to the side while singing and see the other person staring at me."
@@ -3237,12 +3575,15 @@ label Ch2_S1_T0_KB:
         "Which of the following actions should I choose?"
 
         "1. Sing along to the duet song.":
+            $ affection += 5
             jump Ch2_S2_T1_KB
 
         "2. Stay still.":
+            $ affection += -5
             jump Ch2_S2_T2_KB
 
         "3. Pick up a tambourine and dance like crazy.":
+            $ affection += 2
             jump Ch2_S2_T3_KB
 
 label Ch2_S2_T1_KB:
@@ -3266,6 +3607,10 @@ label Ch2_S3_T0_KB:
     p "Really? Then do you want to go to Gyeongbokgung Palace together?"
 
     ig "Okay, fine."
+
+    scene bg gyunbok:
+        zoom 2.8
+    with dissolve
 
     "The two take a bus and arrive at Gyeongbokgung Palace."
 
@@ -3315,6 +3660,9 @@ label Ch2_S3_T0_KB:
 
     ig "Oh, it's cold."
 
+    scene bg gyunbok_raining:
+        zoom 1.8
+
     p "Huh? It's raining."
 
     "(Shooting, swoosh, the sound of rain falling)"
@@ -3333,12 +3681,15 @@ label Ch2_S3_T0_KB:
 
     menu:
         "1. Go to a nearby convenience store and buy an umbrella each.":
+            $ affection += -2
             jump Ch2_S4_T1_KB
 
         "2. Share an umbrella and run to the market.":
+            $ affection += 5
             jump Ch2_S4_T2_KB
 
         "3. Suggest that we both just go while getting rained on.":
+            $ affection += -5
             jump Ch2_S4_T3_KB
 
 label Ch2_S4_T1_KB:
@@ -3355,6 +3706,9 @@ label Ch2_S4_T3_KB:
 
 label Ch2_S5_T0_KB:
 
+    scene bg kmarket:
+        zoom 1.7
+
     "After many twists and turns, the two arrive at Gwangjang Market."
 
     p "Okay, this is Gwangjang Market."
@@ -3366,19 +3720,21 @@ label Ch2_S5_T0_KB:
 
     ig "Right. Let's eat something since we're hungry."
 
-    p "This is tteokbokki, a national snack that Koreans of all ages and genders love. "
-    p "It might be a little spicy, but is that okay?"
-
-    "What should I say in response to that suggestion?"
+    "I look around and see various foods. What kind of food should I recommend that the opponent like?"
 
     menu:
-        "1. Yeah, I like spicy food. Wow~":
+        "1. Tteokbokki ":
+            ## Affinity increase
+            $ affection += 3
             jump Ch2_S6_T1_KB
 
-        "2. I can't eat spicy food well... I'll try it next time.":
+        "2. Bindaetteok":
+            ## Affinity maintained
+            $ affection += 3
             jump Ch2_S6_T2_KB
 
-        "3. Hmm, I'll rinse it in water and try it. Give it to me.":
+        "3. Janchi noodles":
+            $ affection += 3
             jump Ch2_S6_T3_KB
 
 label Ch2_S6_T1_KB:
@@ -3418,61 +3774,47 @@ label Ch3_S1_T0_KB:
 
     ig "Hmm... Could we maybe go to a famous festival in Korea?"
 
-    p "Of course! How about we go to the largest music and water-themed festival in the country? "
-    p "It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights!"
+    p "Of course! How about we go to the largest music and water-themed festival in the country? It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights! The name of the festival is **'Waterbomb'**"
 
-    ig "Great! What's the name of that festival?"
+    ig "Great! I really want to go there!!"
 
-    p "Want to try guessing?"
+    p "That's right!! My darling! Then shall we go to Waterbomb?"
+
+    scene bg waterbomb:
+        zoom 1.2
+
+    "_Enjoy Waterbomb_"
+
+    ig "Wow! This is really fun!!"
+
+    "During the water gun play, [ig] became the target of many people."
+
+    p "[ig] got targeted by many people during the water gun play, but they don't seem to realize it yet."
 
     menu:
-        "Guess the name of the festival:"
-
-        "1. Pentaport Rock Festival":
+        "1. I'll surprise them by spraying them with a water gun too, since it's so fun!":
             jump Ch3_S2_T1_KB
 
-        "2. Waterbomb Festival":
+        "2. I'm my partner's bodyguard! I'll shield them with my own body.":
             jump Ch3_S2_T2_KB
 
-        "3. Boryeong Mud Festival":
+        "3. I'll just give them a quick heads up in English.":
             jump Ch3_S2_T3_KB
 
-        "4. Seoul Jazz Festival":
-            jump Ch3_S2_T4_KB
-
 label Ch3_S2_T1_KB:
-    p "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
     jump Ch3_S3_T0_KB
 
 label Ch3_S2_T2_KB:
-    p "That's right!! My darling! Then shall we go to Waterbomb?"
     jump Ch3_S3_T0_KB
 
 label Ch3_S2_T3_KB:
-    p "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
-    jump Ch3_S3_T0_KB
-
-label Ch3_S2_T4_KB:
-    p "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
     jump Ch3_S3_T0_KB
 
 label Ch3_S3_T0_KB:
 
-    "Enjoy Waterbomb water gun play photos attached"
+    p "Are you okay?"
 
-    ig "Wow! This is really fun!!"
-
-    "During the water gun play, I became the target of many people."
-
-    ig "Oh no..."
-
-    p "[ig]!!"
-
-    "My partner shielded me with their whole body."
-
-    p "Are you okay??"
-
-    ig "Yes!! Really thank you"
+    ig "Yes, I'm fine."
 
     p "How was it?"
 
@@ -3480,19 +3822,21 @@ label Ch3_S3_T0_KB:
 
     p "Great! Then let's go watch the performances now? We can buy some beers too!"
 
-    "Performance photos attached"
+    #Performance photos attached
 
     ig "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
 
-    p "Oh really? Then should we go to **Hongdae** next time?"
+    p "Oh really? Then should we go to Hongdae next time?"
 
     ig "Why Hongdae? Is it famous for music?"
 
-    p "Many musicians do street performances in Hongdae! *Watching busking in Hongdae*"
+    p "Many musicians do street performances in Hongdae!"
+    
+    "I saw busking in Hongdae with [ig]"
 
     ig "This is so enjoyable~"
 
-    "*gets a text message*"
+    "[ig] suddenly got a text message."
 
     ig "Oh no..."
 
@@ -3502,16 +3846,13 @@ label Ch3_S3_T0_KB:
 
     p "What? Didn't you have half a year left?"
 
-    ig "I loved Korea and you so much that I extended my exchange student program for another semester, "
-    ig "but I just got a message saying my application was rejected."
+    ig "I loved Korea and you so much that I extended my exchange student program for another semester, but I just got a message saying my application was rejected."
 
     p "What? I'm so disappointed... I'm tearing up..."
 
     ig "Oh honey, don't cry... I'm really disappointed too.."
 
-    p "So we won't be able to see each other anymore?"
-
-    ig "Choose the right sentence to comfort the other person:"
+    p "Choose the right sentence to comfort the other person:"
 
     menu:
         "1. I suppose so. I'm really sorry.":
@@ -3534,7 +3875,10 @@ label Ch3_S4_T3_KB:
 
 label Ch3_S5_T0_KB:
 
-    "*at the airport*"
+    scene bg kairport:
+        zoom 1.2
+
+    "_at the airport_"
 
     p "I wish we could meet again soon."
 
@@ -3542,59 +3886,37 @@ label Ch3_S5_T0_KB:
 
     p "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
 
-    ig "Guess the name of the costume:"
+    ig "Of course!! It's Hanbok!"
 
-    menu:
-        "1. Hanbok":
-            jump Ch3_S6_T1_KB
+    p "You remembered it well, didn't you?"
 
-        "2. Kimono":
-            jump Ch3_S6_T2_KB
-
-        "3. Ao Dai":
-            jump Ch3_S6_T3_KB
-
-        "4. Sari":
-            jump Ch3_S6_T4_KB
-
-label Ch3_S6_T1_KB:
-    jump Ch3_S7_T0_KB
-
-label Ch3_S6_T2_KB:
-    jump Ch3_S7_T0_KB
-
-label Ch3_S6_T3_KB:
-    jump Ch3_S7_T0_KB
-
-label Ch3_S6_T4_KB:
-    jump Ch3_S7_T0_KB
-
-label Ch3_S7_T0_KB:
-
-    ig "Wow, thank you so much. This will remind me of you."
+    ig "Of course! It's the gift you gave me!"
 
     p "Don't forget me when you go back to India."
 
     ig "Of course not. We're under the same sky. Our love will be eternal."
 
-    p "Take care in India."
-
-    ig "Yes, you take care in Korea too. Let's meet in India next time."
-
     jump Ch4_S1_T0_KB
 
 
 label Ch4_S1_T0_KB:
+    scene bg kstreet
 
-    "It's already been two months since she suddenly left. Even though she's not here, time keeps moving forward. Before I met her, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. Will I be able to meet her again if I go to the school she attends?"
+    "It's already been two months since she suddenly left. Even though she's not here, time keeps moving forward. "
+    
+    "Before I met her, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. "
+    
+    "Will I be able to meet her again if I go to the school she attends?"
 
     p "Should I text her to say I'll be at Christ University starting next week?"
 
     menu:
         "Send the text":
+            $ affection += 5
             jump Ch4_S1_T1_KB
 
         "Don't send the text":
+            $ affection += -5
             jump Ch4_S1_T2_KB
 
 label Ch4_S1_T1_KB:
@@ -3606,18 +3928,24 @@ label Ch4_S1_T2_KB:
     jump Ch4_S2_T0_KB
 
 label Ch4_S2_T0_KB:
+    scene bg india_airport
 
     "She didn't reply. I've arrived in India. It's a lively city."
 
+    scene bg tajmahal
     "Before heading to Bangalore, I decided to visit the Taj Mahal alone. She once told me that if I ever came to India, she would show me the Taj Mahal."
 
-    "Take a photo! I'll take it with the Taj Mahal in the background!"
+    m1 "Take a photo! I'll take it with the Taj Mahal in the background!"
 
-    "Don't go to him, I'll take your photo for a cheaper price."
+    m2 "Don't go to him, I'll take your photo for a cheaper price."
 
     p "Trying to avoid the touting photographers, I joined a guided tour group."
 
-    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory. He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
+    gd "The Taj Mahal was built by the fifth Mughal Emperor, Shah Jahan. "
+    
+    gd "He loved his wife dearly, and after she passed away, he built the Taj Mahal in her memory." 
+    
+    gd "He wanted to give her a perfect architectural gift, which is why it took 22 years to complete."
 
     p "The Taj Mahal has such a romantic history."
 
@@ -3635,12 +3963,15 @@ label Ch4_S2_T0_KB:
 
     menu:
         "This place is such a beautiful palace.":
+            $ affection += -3
             jump Ch4_S3_T1_KB
 
         "This place is such a beautiful tomb.":
+            $ affection += 5
             jump Ch4_S3_T2_KB
 
         "This place is such a beautiful government building.":
+            $ affection += -5
             jump Ch4_S3_T3_KB
 
 label Ch4_S3_T1_KB:
@@ -3660,7 +3991,9 @@ label Ch4_S4_T0_KB:
 
     ig "Then let's try some Indian street food. I'll guide you."
 
-    p "We walk the streets of India together. In the exotic scenery."
+    scene bg india_street
+
+    "We walk the streets of India together. In the exotic scenery."
 
     ig "This is Paratha. Paratha is a flatbread made by rolling out dough and stuffing it with potatoes or beans. It's eaten with butter or yogurt."
 
@@ -3676,15 +4009,19 @@ label Ch4_S4_T0_KB:
 
     menu:
         "I want to try Paratha!":
+            $ affection += 3
             jump Ch4_S5_T1_KB
 
         "I want to try Chaat!":
+            $ affection += 3
             jump Ch4_S5_T2_KB
 
         "I want to try Aloo Tikki!":
+            $ affection += 3
             jump Ch4_S5_T3_KB
 
         "I don't think I'll like any of them.":
+            $ affection += -5
             jump Ch4_S5_T4_KB
 
 label Ch4_S5_T1_KB:
@@ -3707,9 +4044,11 @@ label Ch4_S6_T0_KB:
 
     menu:
         "Sure!":
+            $ affection += 3
             jump Ch4_S7_T1_KB
 
         "I want to go alone.":
+            $ affection += -3
             jump Ch4_S7_T2_KB
 
 label Ch4_S7_T1_KB:
@@ -3720,27 +4059,34 @@ label Ch4_S7_T2_KB:
 
 label Ch4_S8_T0_KB:
 
-    "Scene 1: Railway Travel to Bangalore"
+    scene bg india_train
 
-    p "After exploring Delhi and Agra, it was time to continue our journey to Bangalore. I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
+    "After exploring Delhi and Agra, it was time to continue our journey to Bangalore. "
+    
+    p "I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
 
     p "I've heard that train journeys in India are quite an experience. I'm excited but also a bit nervous. How long will the journey take?"
 
-    ig "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. You'll get to see so much of India, from the bustling cities to the peaceful countryside."
+    ig "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. "
+    ig "You'll get to see so much of India, from the bustling cities to the peaceful countryside."
 
     p "I can't wait! What should we expect during the journey?"
 
     menu:
         "Encourage I to tell me more about the diversity of regions and cultures in India.":
+            $ affection += 7
             jump Ch4_S9_T1_KB
 
         "Ask about the history and significance of Indian Railways.":
+            $ affection += 4
             jump Ch4_S9_T2_KB
 
         "Inquire about the food available on the train.":
+            $ affection += 1
             jump Ch4_S9_T3_KB
 
         "Suggest we rest or read to pass the time during the journey.":
+            $ affection += -5
             jump Ch4_S9_T4_KB
 
 label Ch4_S9_T1_KB:
@@ -3757,9 +4103,11 @@ label Ch4_S9_T4_KB:
 
 label Ch4_S10_T0_KB:
 
-    "Scene 2: Arrival in Bangalore"
+    scene bg bangalore:
+        zoom 1.1
 
-    "After a long journey, we finally arrived in Bangalore. The city felt alive with energy, and the weather was so pleasant. I could see why it's such a popular place."
+    "After a long journey, we finally arrived in Bangalore. "
+    "The city felt alive with energy, and the weather was so pleasant. I could see why it's such a popular place."
 
     p "Bangalore seems so lively! I've heard it's known as the Silicon Valley of India."
 
@@ -3768,17 +4116,21 @@ label Ch4_S10_T0_KB:
     p "I'm excited to explore it. What should we do first?"
 
     menu:
+        "Propose heading straight to the hotel to rest.":
+            $ affection += -5
+            jump Ch4_S11_T4_KB
+            
         "Express interest in exploring the historic parts of Bangalore.":
+            $ affection += 7
             jump Ch4_S11_T1_KB
 
         "Show enthusiasm for visiting the local parks and gardens.":
+            $ affection += 4
             jump Ch4_S11_T2_KB
 
         "Suggest exploring the local markets.":
+            $ affection += 0
             jump Ch4_S11_T3_KB
-
-        "Propose heading straight to the hotel to rest.":
-            jump Ch4_S11_T4_KB
 
 label Ch4_S11_T1_KB:
     jump Ch4_S12_T0_KB
@@ -3794,26 +4146,33 @@ label Ch4_S11_T4_KB:
 
 label Ch4_S12_T0_KB:
 
-    "Scene 3: Experiencing Indian Cinema"
+    scene bg theatre:
+        zoom 1.3
 
-    "After settling in, [ig] suggested we experience something truly unique—watching an Indian movie at a local theatre. I'd heard a lot about Indian cinema, and I was eager to see it for myself."
+    "After settling in, [ig] suggested we experience something truly unique—watching an Indian movie at a local theatre. "
+    "I'd heard a lot about Indian cinema, and I was eager to see it for myself."
 
     p "I've heard so much about Indian cinema. Bollywood, right?"
 
-    ig "Yes, but there's so much more to Indian cinema than just Bollywood. Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. Indian cinema has a rich history, and it's evolved a lot over the years."
+    ig "Yes, but there's so much more to Indian cinema than just Bollywood. "
+    ig "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka. "
+    ig "Indian cinema has a rich history, and it's evolved a lot over the years."
 
     menu:
-        "Ask about the history and evolution of Indian cinema.":
-            jump Ch4_S13_T1_KB
+        "Suggest watching the movie quietly without much discussion.":
+            $ affection += -5
+            jump Ch4_S13_T4_KB
 
         "Inquire about the global influence of Indian cinema.":
+            $ affection += 4
             jump Ch4_S13_T2_KB
 
         "Express curiosity about different film genres.":
+            $ affection += 1
             jump Ch4_S13_T3_KB
-
-        "Suggest watching the movie quietly without much discussion.":
-            jump Ch4_S13_T4_KB
+        "Ask about the history and evolution of Indian cinema.":
+            $ affection += 7
+            jump Ch4_S13_T1_KB
 
 label Ch4_S13_T1_KB:
     jump Ch4_S14_T0_KB
@@ -3829,9 +4188,8 @@ label Ch4_S13_T4_KB:
 
 label Ch4_S14_T0_KB:
 
-    "Scene 4: Watching the Movie"
-
-    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
+    "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. "
+    "As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
 
     p "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
 
@@ -3845,10 +4203,15 @@ label Ch4_S14_T0_KB:
 
 
 label Ch5_S1_T0_KB:
-
-    jump Ch5_S1_T1_KB
+    if affection >= 50:
+        jump Ch5_S1_T1_KB
+    elif affection >= 25:
+        jump Ch5_S1_T2_KB
+    else:
+        jump Ch5_S1_T3_KB
 
 label Ch5_S1_T1_KB:
+    scene bg christ_dorm
 
     "After parting ways with [ig], I returned to my dormitory, trying to focus on my exams."
 
@@ -3867,6 +4230,7 @@ label Ch5_S1_T1_KB:
     "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [ig] again?"
     "Realizing today was [ig]'s departure, I called a taxi and headed to the airport."
 
+    scene bg india_airport
     p "It was today! I still wanted to say goodbye..."
 
     "At the airport, I found the counter for flights to India and waited. Noticing missed calls, I called back."
@@ -3881,9 +4245,8 @@ label Ch5_S1_T1_KB:
 
     "We persuaded our parents, got back together, and continued our relationship between Korea and India."
 
-    "A vibrant Indian wedding with flowers."
-
-    "Officiant" 
+    scene bg wedding:
+        zoom 1.4
     
     "The bride is ready to enter!"
 
@@ -3894,10 +4257,11 @@ label Ch5_S1_T1_KB:
     p "Ready for the party? It's going to go late into the night!!"
 
     "As we entered the hall, I remembered when I first met [ig]. If I hadn't met [ig], what would have happened? This beautiful story of mine will continue forever."
-
+    "{b}Happy Ending{/b}"
     return
 
 label Ch5_S1_T2_KB:
+    scene bg christ_dorm
 
     "After parting ways with [ig], I returned to my dormitory, trying to focus on my exams."
 
@@ -3918,23 +4282,29 @@ label Ch5_S1_T2_KB:
 
     p "Today's the day! I still wanted to say goodbye..."
 
+    scene bg india_airport
     "At the airport, I looked for flights to India and decided to wait. I saw missed calls and dialed back."
 
     p "Are you at the airport? I saw your letter at the dorm!"
 
     "Reflecting on the past, [ig] was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
 
-    "As time passed, life moved on. Years later, I joined a reunion trip for the exchange program. Among familiar faces, I saw [ig] again."
+    scene bg foreign_street
+    "As time passed, life moved on. "
+    "Years later, I joined a reunion trip for the exchange program. "
+    "Among familiar faces, I saw [ig] again."
 
     ig "It's been a long time!"
 
     p "It really has. How have you been?"
 
-    "We shared stories and laughter, reconnecting as friends. Those moments we shared were a cherished chapter, and seeing [ig] again felt like a new beginning, in a different way."
-
+    "We shared stories and laughter, reconnecting as friends. "
+    "Those moments we shared were a cherished chapter, and seeing [ig] again felt like a new beginning, in a different way."
+    "{b}Normal Ending{/b}"
     return
 
 label Ch5_S1_T3_KB:
+    scene bg christ_dorm
 
     "After parting ways with [ig], I returned to my dormitory, trying to focus on my exams."
 
@@ -3955,7 +4325,9 @@ label Ch5_S1_T3_KB:
 
     p "I should have gone... but I just couldn't face it."
 
-    "Time passed, and life moved on. Years later, I was on a business trip and unexpectedly saw [ig] again."
+    scene bg foreign_street
+    "Time passed, and life moved on. "
+    "Years later, I was on a business trip and unexpectedly saw [ig] again."
 
     "In a crowded conference room, our eyes met briefly. An awkward silence stretched between us, heavy with unspoken words."
 
@@ -3965,6 +4337,8 @@ label Ch5_S1_T3_KB:
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
 
-    "All I could do was think about [ig], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
-
+    "All I could do was think about [ig], trapped by what once was, but unable to bridge the gap between us. "
+    "The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
+    "{b}Bad ending{/b}"
     return
+    "test"

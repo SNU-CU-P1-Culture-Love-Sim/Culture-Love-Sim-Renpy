@@ -1,22 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 64, in script
-    jump Korean_girl_ver
-ScriptError: could not find label 'Korean_girl_ver'.
+PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: 'C:\\Users\\uzinf\\Downloads\\renpy-8.2.3-sdk\\Culture-Love-Sim-Renpy\\game\\saves\\persistent'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 64, in script
-    jump Korean_girl_ver
-  File "C:\Users\heon0\OneDrive\Desktop\와플\renpy-8.2.3-sdk\renpy\ast.py", line 1701, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\heon0\OneDrive\Desktop\와플\renpy-8.2.3-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'Korean_girl_ver'.
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\main.py", line 651, in main
+    renpy.persistent.update(True)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\persistent.py", line 434, in update
+    save()
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\persistent.py", line 455, in save
+    renpy.loadsave.location.save_persistent(compressed)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 566, in save_persistent
+    l.save_persistent(data)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 378, in save_persistent
+    safe_rename(fn_new, fn)
+  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\loadsave.py", line 303, in safe_rename
+    os.unlink(new)
+PermissionError: [WinError 32] 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다: 'C:\\Users\\uzinf\\Downloads\\renpy-8.2.3-sdk\\Culture-Love-Sim-Renpy\\game\\saves\\persistent'
 
-Windows-10-10.0.19045 AMD64
+Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.3.24061702
 miyeonsi_01 1.0
-Thu Aug 15 18:05:54 2024
+Tue Aug 20 07:03:27 2024

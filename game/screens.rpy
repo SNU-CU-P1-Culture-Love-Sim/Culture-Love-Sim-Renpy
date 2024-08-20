@@ -1608,3 +1608,12 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+screen show_affection():
+    frame:
+        xalign 0.9
+        yalign 0.1
+        has vbox
+
+        text "Affection: [affection]" size 30 color "#FFFFFF"
+
