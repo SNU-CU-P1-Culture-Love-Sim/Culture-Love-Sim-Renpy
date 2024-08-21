@@ -252,9 +252,7 @@ screen quick_menu():
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
 
@@ -290,8 +288,13 @@ screen navigation():
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        if main_menu:
+            xalign 0.5
+            yalign 0.8
+        else:
+            xoffset 40
+            yalign 0.5
+        
 
         spacing gui.navigation_spacing
 
@@ -305,10 +308,6 @@ screen navigation():
 
             textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
-
-        textbutton _("Preferences") action ShowMenu("preferences")
-
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)
@@ -317,7 +316,6 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -340,6 +338,9 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    font "fonts/bryndan-write.ttf"
+    xalign 0.5
+
 
 
 ## Main Menu screen ############################################################
@@ -356,8 +357,7 @@ screen main_menu():
     add gui.main_menu_background
 
     ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+   
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 193: expected 'image_name_component' not found.
-    show 
-         ^
+File "game/screens.rpy", line 293: vbox expects a non-empty block.
+    if main_menu:
+                 ^
 
 Ren'Py Version: Ren'Py 8.2.3.24061702
-Tue Aug 20 22:17:50 2024
+Wed Aug 21 10:55:59 2024
