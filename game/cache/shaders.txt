@@ -4,8 +4,8 @@ renpy.geometry renpy.texture
 renpy.texture
 =======
 renpy.dissolve renpy.dissolve
-renpy.dissolve renpy.geometry
 renpy.alpha renpy.geometry renpy.texture
+renpy.dissolve renpy.geometry
 renpy.alpha renpy.texture
 renpy.ftl
 >>>>>>> 177378a180105dd36192b4d8d495681fe0d480f5
