@@ -168,8 +168,10 @@ label Ch1_S1_T0_IG:
     scene bg lounge_220:
         zoom 4.5
     with dissolve
-    
+
+    show f1 start    
     f1 "Oh? A new face. Are you an exchange student by any chance?"
+    hide f1 start
     show ig cafeteria at left
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
     hide ig cafeteria
@@ -1407,13 +1409,15 @@ label Ch1_S1_T0_IB:
     scene bg lounge_220:
         zoom 4.5
     with dissolve
-    
+    show f1 start 
     f1 "Oh? A new face. Are you an exchange student by any chance?"
+    hide f1 start 
     show ib cafeteria at left
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
-
+    hide ib cafeteria
+    show f1 start at right
     f1 "Nice to meet you! If you have any questions, feel free to ask!"
-
+    hide f1 start
     "Just then, someone suddenly grabbed my shoulder."
     hide ib cafeteria
     show kg cafeteria at right
@@ -1430,19 +1434,20 @@ label Ch1_S1_T0_IB:
     "That was how we first met. She was quite flustered, and her cheeks turned a bit red with embarrassment. Haha."
 
     kg "Oh!! I'm so sorry!!"
-    hide kg  cafeteria 
-    
+    hide kg cafeteria 
+    show f1 start at right
     
     f1 "Haha, introduce yourself. She's an exchange student who just joined the College of Liberal Studies today."
-
+    hide f1 start
+    show ib cafeteria at left
     p "Hi, I'm [player_name]. I'm an exchange student from Christ University in India, now studying at SNU's College of Liberal Studies."
     hide ib cafeteria 
-    show kg  cafeteria at right
+    show kg cafeteria at right
     kg "Oh, nice to meet you!! I'm [kg]. I heard an SNU student went to India, and now we have an exchange student here, too!"
 
     kg "Anyway, if you need help with anything, feel free to ask! Oh, wait, I don't have your number yet! What's your number?"
-    hide kg  cafeteria 
-    show ib caferia at left
+    hide kg cafeteria 
+    show ib cafeteria at left
     p "My number is ~~!"
     hide ib cafeteria 
     show kg cafeteria at right
@@ -1452,7 +1457,9 @@ label Ch1_S1_T0_IB:
 
     kg "(Quickly changing the subject) Uh, did you have lunch yet? Haha"
     hide kg cafeteria 
+    show f1 start at right
     f1 "Haha, we were just about to grab something. Let's go together!"
+    hide f1 start
     show ib cafeteria at left
     p "Sounds good!"
     hide ib cafeteria 
@@ -1461,9 +1468,9 @@ label Ch1_S1_T0_IB:
     scene bg snu_cafeteria:
         zoom 1.4
     with dissolve
-
+    show f1 start at right
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
-
+    hide f1 start
     "Being left awkwardly alone... Well, let's go eat."
 
     jump Ch1_S2_T0_IB
@@ -1834,26 +1841,26 @@ label Ch2_S7_T0_IB:
 label Ch3_S1_T0_IB:
 
     kg "How about we try dating somewhere new?"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
     show ib waterbomb at right
     p "Sounds good! Where should we go?"
     hide ib waterbomb 
-    show kg waterbomb vigorous at left
+    show kg waterbomb at left
     kg "Is there anything you'd like to try?"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
     show ib waterbomb at right
     p "Hmm... Could we maybe go to a famous festival in Korea?"
     hide ib waterbomb
-    show kg waterbomb vigorous at left
+    show kg waterbomb at left
     kg "Of course! How about we go to the largest music and water-themed festival in the country? "
     kg "It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights!"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
     show ib waterbomb at right
     p "Great! What's the name of that festival?"
     hide ib waterbomb 
-    show kg waterbomb vigorous at left
+    show kg waterbomb at left
     kg "Want to try guessing?"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
 
     menu:
 
@@ -1876,25 +1883,25 @@ label Ch3_S1_T0_IB:
             jump Ch3_S2_T4_IB
 
 label Ch3_S2_T1_IB:
-    show kg waterbomb vigorous at left
+    show kg waterbomb at left
     kg "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
 
     jump Ch3_S3_T0_IB
 
 label Ch3_S2_T2_IB:
-    show kg waterbomb vigorous at left
+    show kg waterbomb at left
     kg "That's right!! My darling! Then shall we go to Waterbomb?"
 
     jump Ch3_S3_T0_IB
 
 label Ch3_S2_T3_IB:
-    show kg waterbomb vigorous at left
+    show kg waterbomb at left
     kg "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
 
     jump Ch3_S3_T0_IB
 
 label Ch3_S2_T4_IB:
-    show kg waterbomb vigorous at left
+    show kg waterbomb at left
     kg "Ah, unfortunately the answer was Waterbomb :( Well then, shall we go to Waterbomb now?"
 
     jump Ch3_S3_T0_IB
@@ -1904,7 +1911,7 @@ label Ch3_S3_T0_IB:
         zoom 1.2
 
     "We really enjoyed Waterbomb."
-    hide kg waterbomb vigorous
+    hide kg waterbomb
     show ib waterbomb at right
     p "Wow! This is really fun!!"
     hide ib waterbomb 
@@ -1912,39 +1919,39 @@ label Ch3_S3_T0_IB:
     show ib waterbomb at left
     p "Oh no..."
     hide ib waterbomb
-    show kg waterbomb vigorous at right
+    show kg waterbomb at right
     kg "[player_name]!!"
-    hide kg waterbomb vigorous
+    hide kg waterbomb
     "[kg] shielded me with her whole body."
-    show kg waterbomb vigorous at right
+    show kg waterbomb at right
     kg "Are you okay??"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
     show ib waterbomb at left
     p "Yes!! Really thank you"
     hide ib waterbomb
-    show kg waterbomb vigorous at right
+    show kg waterbomb at right
     kg "How was it?"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
     show ib waterbomb at left
     p "This was so much fun!!"
     hide ib waterbomb
-    show kg waterbomb vigorous at right
+    show kg waterbomb at right
     kg "Great! Then let's go watch the performances now? We can buy some beers too!"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
     show ib waterbomb at left
     #"*Performance photos attached*"
 
     p "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
     hide ib waterbmob
-    show kg waterbomb vigorous at right
+    show kg waterbomb at right
     kg "Oh really? Then should we go to Hongdae next time?"
-    hide kg waterbomb vigorous
+    hide kg waterbomb 
     show ib waterbomb at left
     p "Why Hongdae? Is it famous for music?"
     hide ib waterbomb 
-    show kg waterbomb vigorous at right 
+    show kg waterbomb at right 
     "I saw busking in Hongdae with [kg]"
-    hide kg waterbomb vigorous
+    hide kg waterbomb
     show ib waterbomb 
     p "This is so enjoyable~"
     hide ib waterbomb
@@ -2014,7 +2021,7 @@ label Ch3_S5_T0_IB:
     show ib rushed
     p "Be happy even after you go back."
     hide ib airport
-    show kg kurta
+    show kg kurti
     kg "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
     hide kg airport
     menu:
@@ -2511,7 +2518,7 @@ label Ch5_S1_T1_IB:
     hide kg happy ending
     show ib happyending at left 
     p "Ready for the party? It's going to go late into the night!!"
-    show kg at right
+    show kg happy ending at right
     "As we entered the hall, I remembered when I first met [kg]. If I hadn't met [kg], what would have happened? This beautiful story of mine will continue forever."
     "{b}Happy ending{/b}"
     return
