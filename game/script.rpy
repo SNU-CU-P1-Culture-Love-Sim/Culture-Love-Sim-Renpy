@@ -43,7 +43,7 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show e start
     
     show screen show_affection
 
@@ -172,11 +172,12 @@ label Ch1_S1_T0_IG:
     f1 "Oh? A new face. Are you an exchange student by any chance?"
     show ig cafeteria at left
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
-
-    f1 "Nice to meet you! If you have any questions, feel free to ask!"
-
-    "Just then, someone suddenly grabbed my shoulder."
     hide ig cafeteria
+    show f1 start at right
+    f1 "Nice to meet you! If you have any questions, feel free to ask!"
+    hide f1 start
+    "Just then, someone suddenly grabbed my shoulder."
+    
     show kb cafeteria at right
 
     kb "Hey! What were you guys talking about?"
@@ -191,8 +192,9 @@ label Ch1_S1_T0_IG:
 
     kb "Oh!! I'm so sorry!!"
     hide kb cafeteria 
-    
+    show f1 start at right
     f1 "Haha, introduce yourself. He's an exchange student who just joined the College of Liberal Studies today."
+    hide f1 start
     show ig cafeteria at left
     p "Hi, I'm [player_name]. I'm an exchange student from Christ University in India, now studying at SNU's College of Liberal Studies."
     hide ig cafeteria 
@@ -201,7 +203,7 @@ label Ch1_S1_T0_IG:
 
     kb "Anyway, if you need help with anything, feel free to ask! Oh, wait, I don't have your number yet! What's your number?"
     hide kb cafeteria 
-    show ig caferia at left
+    show ig cafeteria at left
     p "My number is ~~!"
     hide ig cafeteria 
     show kb cafeteria at right
@@ -211,7 +213,9 @@ label Ch1_S1_T0_IG:
 
     kb "(Quickly changing the subject) Uh, did you have lunch yet? Haha"
     hide kb cafeteria 
+    show f1 start at right
     f1 "Haha, we were just about to grab something. Let's go together!"
+    hide f1 start
     show ig cafeteria at left
     p "Sounds good!"
     hide ig cafeteria 
@@ -219,9 +223,9 @@ label Ch1_S1_T0_IG:
     scene bg snu_cafeteria:
         zoom 1.4
     with dissolve
-
+    show f1 start at right
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
-    
+    hide f1 start
     "Being left awkwardly alone... Well, let's go eat."
 
     jump Ch1_S2_T0_IG
