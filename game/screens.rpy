@@ -290,7 +290,7 @@ screen navigation():
 
         if main_menu:
             xalign 0.5
-            yalign 0.8
+            yalign 0.9
         else:
             xoffset 40
             yalign 0.5
