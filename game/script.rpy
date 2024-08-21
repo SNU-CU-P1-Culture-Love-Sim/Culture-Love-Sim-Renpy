@@ -1289,7 +1289,7 @@ label Ch5_S1_T1_IG:
     hide kb happy ending
     show ig happyending at left 
     p "Ready for the party? It's going to go late into the night!!"
-    show kb ending at right
+    show kb happy ending at right
     "As we entered the hall, I remembered when I first met [kb]. If I hadn't met [kb], what would have happened? This beautiful story of mine will continue forever."
     
     "{b}Happy Ending{/b}"
