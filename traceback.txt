@@ -1,41 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "renpy/common/00start.rpy", line 216, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 531, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 531, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 542, in _execute_python_hide
-    renpy.load(renpy.session["_reload_slot"])
-FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\uzinf\\AppData\\Roaming/RenPy/miyeonsi_01-1723704089/sync\\_reload-1-LT1.save'
+  File "game/script.rpy", line 1841, in script
+    show kg waterbomb vigorous at left
+Exception: Image 'kg waterbomb' does not accept attributes 'vigorous'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00start.rpy", line 216, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 531, in script
-    python hide:
-  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 823, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 531, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 542, in _execute_python_hide
-    renpy.load(renpy.session["_reload_slot"])
-  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\loadsave.py", line 823, in load
-    log_data, signature = location.load(filename)
-  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 532, in load
-    return l.load(slotname) # type: ignore
-  File "C:\Users\uzinf\Downloads\renpy-8.2.3-sdk\renpy\savelocation.py", line 284, in load
-    with zipfile.ZipFile(filename, "r") as zf:
-  File "lib/python3.9/zipfile.py", line 1239, in __init__
-FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\uzinf\\AppData\\Roaming/RenPy/miyeonsi_01-1723704089/sync\\_reload-1-LT1.save'
+  File "game/script.rpy", line 1841, in script
+    show kg waterbomb vigorous at left
+  File "C:\Users\heon0\OneDrive\Desktop\renpy\renpy-8.2.3-sdk\renpy\ast.py", line 1113, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\heon0\OneDrive\Desktop\renpy\renpy-8.2.3-sdk\renpy\ast.py", line 1076, in show_imspec
+    renpy.config.show(name,
+  File "C:\Users\heon0\OneDrive\Desktop\renpy\renpy-8.2.3-sdk\renpy\exports.py", line 739, in show
+    if not base.find_target() and renpy.config.missing_show:
+  File "C:\Users\heon0\OneDrive\Desktop\renpy\renpy-8.2.3-sdk\renpy\display\image.py", line 421, in find_target
+    self.target = target._duplicate(a)
+  File "C:\Users\heon0\OneDrive\Desktop\renpy\renpy-8.2.3-sdk\renpy\display\displayable.py", line 246, in _duplicate
+    args.extraneous()
+  File "C:\Users\heon0\OneDrive\Desktop\renpy\renpy-8.2.3-sdk\renpy\display\displayable.py", line 109, in extraneous
+    raise Exception("Image '{}' does not accept attributes '{}'.".format(
+Exception: Image 'kg waterbomb' does not accept attributes 'vigorous'.
 
-Windows-10-10.0.22631 AMD64
+Windows-10-10.0.19045 AMD64
 Ren'Py 8.2.3.24061702
 P1 Game Project 1.0
-Wed Aug 21 11:30:13 2024
+Wed Aug 21 12:21:36 2024
