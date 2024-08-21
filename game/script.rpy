@@ -330,7 +330,7 @@ label Ch2_S1_T0_IG:
 
     "The next day. We met in Seol-ip."
 
-    show kb at right
+    show kb date at right
     kb "Ta-da! Students from our school usually come here to hang out."
     hide kb date
     show ig date at left
@@ -1013,13 +1013,13 @@ label Ch4_S7_T3_IG:
     jump Ch4_S8_T0_IG
 
 label Ch4_S8_T0_IG:
-    show kb at right
+    show kb kurta at right
     kb "That's right! You seem to know quite a lot about Korea now!"
     hide kb kurta
     show ig kurti at left
     p "Of course! It's always a place I miss."
     hide ig kurti
-    show kb at right
+    show kb kurta at right
     kb "What should we do now?"
     hide kb kurta
 
