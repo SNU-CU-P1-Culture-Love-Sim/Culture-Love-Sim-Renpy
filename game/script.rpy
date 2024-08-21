@@ -168,8 +168,9 @@ label Ch1_S1_T0_IG:
     scene bg lounge_220:
         zoom 4.5
     with dissolve
-    
+    show f1 start at right
     f1 "Oh? A new face. Are you an exchange student by any chance?"
+    hide f1 start
     show ig cafeteria at left
     p "Yeah, I just arrived as an exchange student from Christ University. My name is [player_name]."
     hide ig cafeteria
@@ -1816,7 +1817,7 @@ label Ch2_S6_T3_IB:
     jump Ch2_S7_T0_IB
 
 label Ch2_S7_T0_IB:
-
+    show kg hanbok
     kg "This is bindae-tteok, a specialty of Gwangjang Market. "
     "It is a dish made by mixing vegetables or meat into a dough made from ground soybeans and frying it."
 
@@ -2634,46 +2635,55 @@ label Ch1_S1_T0_KG:
 
     "I arrive at the lounge and see my friends talking. "
     "I walk over, put my hand on someone's shoulder, and start talking."
-
+    show kg smart casuals at right
     p "Hey! What were you guys talking about?"
-
+    hide kg smart casuals
+    show ib cafeteria at left
     ib "Huh?"
-
+    hide ib cafeteria 
+    show kg smart casuals at right
     p "Huh? Who... are you?"
-
+    hide kg smart casuals
     "That was my first meeting with him."
-
+    show kg smart casuals at right
     p "Oh!! I'm so sorry!!"
-
+    hide kg smart casuals
+    show f1 starting
     f1 "Haha, introduce yourself. He's an exchange student who just joined the College of Liberal Studies today."
-
+    hide f1 start
+    show ib cafeteria at left 
     ib "Hi, I'm [ib]. I'm an exchange student from Christ University in India, now studying at SNU's College of Liberal Studies."
-
+    hide ib cafeteria 
+    show kg smart casuals
     p "Oh, nice to meet you!! I'm [p]. I heard an SNU student went to India, and now we have an exchange student here, too!"
 
     p "Anyway, if you need help with anything, feel free to ask! "
     
     p "Oh, wait, I don't have your number yet! What's your number?"
-
+    hide kg smart casuals
+    show ib cafeteria at left
     ib "My number is ~~!"
-
+    hide ib cafeteria
+    show kg smart casuals at right
     p "Great, thanks!"
 
     "(Growling sound)"
 
     p "(Quickly changing the subject) Uh, did you have lunch yet? Haha"
-
+    hide kg smart casuals
+    show f1 start
     f1 "Haha, we were just about to grab something. Let's go together!"
-
+    hide f1 start
+    show ib cafeteria at left
     ib "Sounds good!"
-
+    hide ib cafeteria
     "We headed to the cafeteria together..."
     scene bg snu_cafeteria:
         zoom 1.4
     with dissolve
-
+    show f1 start
     f1 "Oh, shoot! I forgot I had an assignment due! You two go ahead and eat! I'll see you later!"
-
+    hide f1 start
     "Being left awkwardly alone... Well, let's go eat."
 
     jump Ch1_S2_T0_KG
@@ -2681,15 +2691,17 @@ label Ch1_S1_T0_KG:
 label Ch1_S2_T0_KG:
 
     "We arrive at the cafeteria, and today's menu is bibimbap. We each grab a bowl and sit down."
-
+    show kg smart casuals at left
     p "This must be your first time at the cafeteria, right? This is SNU's cafeteria!"
 
     p "This is bibimbap, a Korean dish where you mix rice with various vegetables and gochujang (Korean chili paste)!"
-
+    hide kg smart casuals
+    show ib cafeteria at right
     ib "Oh!! It looks delicious!! I've never had bibimbap before!"
-
+    hide ib cafeteria
+    show kg smart casuals at left
     p "Let me mix it for you!"
-
+    hide kg smart casuals
     "I put all my effort into mixing it."
 
     "But I get so into it that I accidentally bump into someone's arm, causing the spoon to fling a grain of rice onto their face."
@@ -2724,52 +2736,61 @@ label Ch1_S3_T3_KG:
     jump Ch1_S4_T0_KG
 
 label Ch1_S4_T0_KG:
-
+    show ib cafeteria at right
     ib "Haha, it's okay. I have a handkerchief. You got some rice on your face."
-
+    hide ib cafeteria
     "He wipes my face with his handkerchief and tidies up the area."
 
     "Suddenly, I feel a bit embarrassed, and my face turns slightly red."
-
+    show ib cafeteria at right
     ib "This bibimbap is really good! The flavors are mild, and it goes well with the gochujang!"
-
+    hide ib cafeteria
+    show kg smart casuals at left
     p "Really? I'm glad you like it, haha. By the way, are you busy these days? Have you explored Seoul much?"
-
+    hide kg smart casuals
+    show ib cafeteria at right
     ib "Huh? No, I haven't really had the chance to see much outside the campus... "
     
     ib "Do you have time tomorrow? Maybe you could show me around Seoul?"
-
+    hide ib cafeteria
+    show kg smart casuals at right
     p "Yeah, I'm free tomorrow! Let's meet up after class! I'll text you!"
-
+    hide kg smart casuals
+    show ib cafeteria at left
     ib "Sounds good. See you tomorrow then!"
-
+    hide ib cafeteria
     jump Ch2_S1_T0_KG
 
 label Ch2_S1_T0_KG:
 
     "_Chatting app_"
-
+    show ib pyjamas
     ib "[player_name], do you often go to Seol-ip?"
-
+    hide ib pyjamas
+    show kg pyjamas
     p "Yeah, I go often."
-
+    show ib pyjamas
     ib "Then will you go with me? I've never been there before, so I'm curious.."
-
+    hide ib pyjamas
+    show kg pyjamas
     p "Okay, I'll show you around."
-
+    hide kg pyjamas
     scene bg seolip:
         zoom 1.2
 
     "The next day, the two met in Seol-ip."
-
+    show ib date at left
     ib "Wow! there are a lot of people."
-
+    hide ib date
+    show kg date at right
     p "Ta-da! Students from our school usually come here to hang out."
-
+    hide kg date
+    show ib date at left
     ib "Then what kind of food do you usually eat? I want to eat dessert."
-
+    hide ib date
+    show kg date at right
     p "There's a cafe nearby that I often go to. Do you want to go and have some shaved ice?"
-    
+    hide kg date
     menu:
         "What should I say to [ib] who's visiting Seol-ip for the first time?"
 
@@ -2781,34 +2802,42 @@ label Ch2_S1_T0_KG:
 
         "3. You'll pay instead~~! I'll eat well ^^":
             $ affection += -5
+    show ib date at right 
     ib "Phew, I'm full. The shaved ice here is really delicious."
-
+    hide ib date
+    show kg date at left
     p " I'm glad you enjoyed it."
-    
-    
+    hide kg date 
+    show ib date at right
     ib "Huh? It's a karaoke! I wanted to go to a karaoke, haha."
-
+    hide ib date
+    show kg date at left
     p "Really? Then let's go in now."
-
+    hide kg date 
     scene bg karaoke:
         zoom 2.8
     with dissolve
-
+    show kg date at right
     p "You can pay for the time you want, and select the song you want to sing with the remote control. Here, the mic."
-
-    ib "Thank you. You're so kind TT. I'll sing first!"
-
+    hide kg date 
+    show ib date at left
+    ib "Thank you. You're so kind TT. You sing first!"
+    hide ib date
+    show kg date at right
     "I am confident in my singing skills, so I sing my favorite song with great enthusiasm."
     "I look to the side while singing and see the other person staring at me."
     "I was a little nervous about the other person until the song ended."
-
+    hide kg date
+    show ib date at left
     ib "Wow, you sing really well!"
-
+    hide ib date
+    show kg date at right
     p "Haha, no. Now sing too."
-
+    hide kg date
+    show ib date at right
     "The other person chose a duet song that is famous for being romantic."
     "Blah blah~"
-
+    hide ib date
     "Which of the following actions should I choose?"
 
     menu:
@@ -2843,15 +2872,18 @@ label Ch2_S2_T3_KG:
     jump Ch2_S3_T0_KG
 
 label Ch2_S3_T0_KG:
-
+    show kg date at left
     p "Phew, I had fun. Where should we go now... Is there a place you want to go?"
-
+    hide kg date
+    show ib date at right
     ib "Um... Actually, I wanted to see the palaces of Korea."
-
+    hide ib 
+    show kg date at left
     p "Really? Then do you want to go to Gyeongbokgung Palace together?"
-
+    hide kg date
+    show ib date at right
     ib "Okay, fine."
-
+    hide ib date
     scene bg gyunbok:
         zoom 2.8
     with dissolve
@@ -2859,9 +2891,10 @@ label Ch2_S3_T0_KG:
     "We two take a bus and arrive at Gyeongbokgung Palace."
 
     "There are many people walking around the palace wearing hanbok."
-
+    show ib date at left
     ib "What are those clothes?"
-
+    hide ib date
+    show kg date at right
     p "That's a traditional Korean costume called hanbok. Hanbok is a costume that our people have worn since ancient times, "
     
     p "and it has changed over time based on the basics of a skirt, jeogori, and pants. "
@@ -2871,13 +2904,14 @@ label Ch2_S3_T0_KG:
     p "and modernized hanbok, which is designed to be worn in everyday life, is also popular. "
     
     p "You can rent a hanbok nearby. Shall we try it on together?"
-
+    hide kg date
+    show ib date at left
     ib "Okay, let's do that!"
-
+    hide ib date
     "The two change into hanbok."
-
+    show kg hanbok at right
     p "Now let's take a look around Gyeongbokgung Palace."
-
+    hide kg hanbok
     gd "Gyeongbokgung Palace is the first palace built when Joseon was founded and Hanyang (present-day Seoul) became the capital. "
  
     gd "It was used for banquets and receptions by the king and his subjects, as well as for receiving envoys, "
@@ -2891,36 +2925,41 @@ label Ch2_S3_T0_KG:
     gd "It is a symbolic palace of the Joseon Dynasty that still maintains its original location since its founding."
 
     "The two leisurely stroll through Geunjeongjeon and Gyeonghoeru, enjoying the tranquil atmosphere of Gyeongbokgung Palace."
-
+    show kg hanbok at left 
     p "I think we've seen all the palaces. How was it?"
-
+    hide kg hanbok
+    show ib hanbok at right
     ib "It was really beautiful! The color arrangement and elaborate design were really impressive. "
     ib "It was touching to be able to experience Korean history and tradition in person while wearing hanbok. "
     ib "It felt like a harmony of tradition and modernity, considering that there is a palace like this in the middle of Seoul."
-
+    hide ib hanbok
+    show kg hanbok at right
     p "I'm glad it was a good experience haha. Next, I'll introduce you to the famous traditional market in this area."
-
+    hide kg hanbok
+    show ib hanbok at left
     ib "Right!"
 
     ib "Oh, it's cold."
-
+    hide ib hanbok
     scene bg gyunbok_raining:
         zoom 1.8
-
+    show kg hanbok at right
     p "Huh? It's raining."
-
+    hide kg hanbok
     "_Shooting, swoosh, the sound of rain falling_"
-
+    show kg hanbok at right
     p "Do you have an umbrella? I only have one for myself…"
-
+    hide kg hanbok
+    show ib hanbok at left
     ib "No. It seems like Korea gets a lot of rain showers."
-
+    hide ib hanbok
+    show kg hanbok at right
     p "Let's go under the eaves and wait for it to stop."
-
+    hide kg hanbok
     "The two moved under the skirts to take shelter from the rain for a while, but the rain showed no sign of stopping."
-
+    show kg hanbok at right
     p "Hmm, the rain won't stop. We have to get to the market on time, but..."
-
+    hide kg hanbok
     "How should I respond to an unexpected downpour?"
 
     menu:
@@ -2960,17 +2999,20 @@ label Ch2_S5_T0_KG:
         zoom 1.7
 
     "After many twists and turns, the two arrive at Gwangjang Market."
-
+    show kg hanbok at left
     p "Okay, this is Gwangjang Market."
-
+    hide kg hanbok 
+    show ib hanbok at right
     ib "It's bigger and more crowded than I thought."
-
+    hide ib hanbok
+    show kg hanbok at left
     p "That's right. Gwangjang Market is the largest and oldest traditional market in Korea. "
     p "There are various food alleys in Gwangjang Market, hanbok stores where you can buy daily necessities, and second-hand stores."
-
+    hide kg hanbok
+    show ib hanbok at right
     ib "Right. Let's eat something since we're hungry."
-
-    "I look around and see various foods. What kind of food should I recommend that the opponent like?"
+    hide ib hanbok
+    "I look around and see various foods. What kind of food should I recommend that he would like?"
 
     menu:
         "1. Tteokbokki ":
@@ -3000,15 +3042,16 @@ label Ch2_S6_T3_KG:
     jump Ch2_S7_T0_KG
 
 label Ch2_S7_T0_KG:
-
+    show kg hanbok at left
     p "This is bindae-tteok, a specialty of Gwangjang Market. "
     p "It is a dish made by mixing vegetables or meat into a dough made from ground soybeans and frying it."
 
     p "This noodle is called janchi-guksu. "
     p "It originated from the fact that it was enjoyed at weddings, birthday parties, and 60th birthday parties in the hopes of longevity."
-
+    hide kg hanbok
+    show ib hanbok at right
     ib "Oh, I love it!"
-
+    hide ib hanbok
     "Then they enjoy the food with a happy conversation."
 
     jump Ch3_S1_T0_KG
@@ -3016,28 +3059,34 @@ label Ch2_S7_T0_KG:
 
 
 label Ch3_S1_T0_KG:
-
-    p "How about we try dating somewhere new?"
-
+    show kg waterbomb at left
+    p "How about we go have fun somewhere new?"
+    hide kg waterbomb
+    show ib waterbomb at right
     ib "Sounds good! Where should we go?"
-
+    hide ib waterbomb
+    show kg waterbomb at left
     p "Is there anything you'd like to try?"
-
+    hide kg waterbomb 
+    show ib waterbomb at right
     ib "Hmm... Could we maybe go to a famous festival in Korea?"
-
+    hide ib waterbomb
+    show kg waterbomb at left
     p "Of course! How about we go to the largest music and water-themed festival in the country? It combines performances from various genres like K-POP, hip-hop, EDM, and large-scale water fights! The name of the festival is **'Waterbomb'**"
-
+    hide kg waterbomb
+    show ib waterbomb at right
     ib "Great! I really want to go there!!"
-
+    hide ib waterbomb
+    show kg waterbomb at left
     p "That's right!! My darling! Then shall we go to Waterbomb?"
 
     scene bg waterbomb:
         zoom 1.2
 
     "_Enjoy Waterbomb_"
-
+    show ib waterbomb
     ib "Wow! This is really fun!!"
-
+    hide ib waterbomb
     "During the water gun play, [ib] became the target of many people."
 
     p "[ib] got targeted by many people during the water gun play, but they don't seem to realize it yet."
@@ -3065,47 +3114,61 @@ label Ch3_S2_T3_KG:
     jump Ch3_S3_T0_KG
 
 label Ch3_S3_T0_KG:
-
+    show kg waterbomb at left
     p "Are you okay?"
-
+    hide kg waterbomb
+    show ib waterbomb at right
     ib "Yes, I'm fine."
-
+    hide ib waterbomb 
+    show kg waterbomb at left
     p "How was it?"
-
+    hide kg waterbomb
+    show ib waterbomb at right
     ib "This was so much fun!!"
-
+    hide ib waterbomb
+    show kg waterbomb at left
     p "Great! Then let's go watch the performances now? We can buy some beers too!"
-
+    hide kg waterbomb
     #Performance photos attached
-
+    show ib waterbomb at left
     ib "It was so much fun!! I especially enjoyed seeing the K-pop singers. I love music!"
-
+    hide ib waterbomb
+    show kg waterbomb at right
     p "Oh really? Then should we go to Hongdae next time?"
-
+    hide kg waterbomb
+    show ib waterbomb at left
     ib "Why Hongdae? Is it famous for music?"
-
+    hide ib waterbomb
+    show kg waterbomb at right
     p "Many musicians do street performances in Hongdae!"
-    
+    hide kg waterbomb
     "I saw busking in Hongdae with [ib]"
-
+    show ib waterbomb
     ib "This is so enjoyable~"
-
+    hide ib waterbomb
     "[ib] suddenly got a text message."
-
+    show ib waterbomb
     ib "Oh no..."
-
+    hide ib waterbomb
+    show kg waterbomb
     p "What's wrong? You don't look good."
-
+    hide kg waterbomb 
+    show ib waterbomb
     ib "I think I need to go back to India now."
-
+    hide ib waterbomb
+    show kg waterbomb sad
     p "What? Didn't you have half a year left?"
-
-    ib "I loved Korea and you so much that I extended my exchange student program for another semester, but I just got a message saying my application was rejected."
-
+    hide kg waterbomb sad
+    show ib waterbomb
+    ib "I loved Korea and you so much that I extended my exchange student program for another semester, but I just got a message saying my mother met with an accident."
+    hide ib waterbomb
+    show kg waterbomb sad
     p "What? I'm so disappointed... I'm tearing up..."
-
-    ib "Oh honey, don't cry... I'm really disappointed too.."
-
+    hide kg waterbomb sad
+    show ib waterbomb
+    ib "Oh honey, don't cry... I'm really miserable too.."
+    hide ib waterbomb
+    show kg waterbomb sad
     p "Choose the right sentence to comfort the other person:"
 
     menu:
@@ -3136,23 +3199,30 @@ label Ch3_S5_T0_KG:
         zoom 1.2
 
     "_at the airport_"
-
+    show kg airport at left
     p "I wish we could meet again soon."
-
-    ib "Be happy even after you go back."
-
+    hide kg airport
+    show ib airportrushed at right
+    ib "Be happy even after I go back."
+    hide ib airportrushed
+    show kg airport at left
     p "I prepared a gift for you. This is a traditional Korean costume, do you remember the name of it?"
-
+    hide kg airport
+    show ib airportrushed at right
     ib "Of course!! It's Hanbok!"
-
+    hide ib airportrushed
+    show kg airport at left
     p "You remembered it well, didn't you?"
-
+    hide kg airport
+    show ib airportrushed at right
     ib "Of course! It's the gift you gave me!"
-
+    hide ib airportrushed
+    show kg airport
     p "Don't forget me when you go back to India."
-
+    hide kg airport
+    show ib airportrushed
     ib "Of course not. We're under the same sky. Our love will be eternal."
-
+    hide ib airportrushed
     jump Ch4_S1_T0_KG
 
 label Ch4_S1_T0_KG:
@@ -3163,9 +3233,9 @@ label Ch4_S1_T0_KG:
     "Before I met him, I had applied for the exchange student program at Christ University in India, and now I've been accepted and am about to depart. "
     
     "Will I be able to meet him again if I go to the school he attends?"
-
+    show kg pyjamas
     p "Should I text him to say I'll be at Christ University starting next week?"
-
+    hide kg pyjamas
     menu:
         "Send the text":
             $ affection += 5
@@ -3205,21 +3275,26 @@ label Ch4_S2_T0_KG:
 
     #(Narration)
     p "The Taj Mahal has such a romantic history."
-
+    show ib kurta
     ib "Hey! [p]!"
-
+    hide ib kurta
     #(Narration)
+    show kg kurti
     p "No way! Why is he here?"
-
+    hide kg kurti
+    show ib kurta
     ib "I got your text and thought you might be here around this time, so I came."
-
+    hide ib kurta
     #(Narration)
+    show kg kurti
     p "No way... I can't believe he's here."
-
+    hide kg kurti
+    show ib kurta
     ib "Do you like the Taj Mahal?"
-
+    hide ib kurta
+    show kg kurti
     p "I'm glad I came here!"
-
+    hide kg kurti
     menu:
         "This place is such a beautiful palace.":
             $ affection += -3
@@ -3243,27 +3318,33 @@ label Ch4_S3_T3_KG:
     jump Ch4_S4_T0_KG
 
 label Ch4_S4_T0_KG:
-
+    show ib kurta at left
     ib "I'm glad you like it. Have you had lunch yet?"
-
+    hide ib kurta
+    show ig kurti at right
     p "Not yet!"
-
+    hide kg kurti
+    show ib kurta
     ib "Then let's try some Indian street food. I'll guide you."
-
+    hide ib kurta
     #(Narration)
     scene bg india_street
     "We walk the streets of India together. In the exotic scenery."
-
+    show ib kurta at left
     ib "This is Paratha. Paratha is a flatbread made by rolling out dough and stuffing it with potatoes or beans. It's eaten with butter or yogurt."
-
+    hide ib kurta 
+    show kg kurti at right
     p "Oh, interesting."
-
+    hide kg kurti
+    show ib kurta at left
     ib "This is Chaat. It's made with potatoes, beans, yogurt, various sauces, and spices."
 
     ib "That's Aloo Tikki. It's a potato patty that's fried and served with sauces. The crispy potato patty with spices gives it a unique taste."
-
+    hide ib kurta
+    show kg jurti at right
     p "It smells exotic and delicious."
-
+    hide kg kurti
+    show ib kurta at left
     ib "Which one do you want to try?"
 
     menu:
@@ -3299,9 +3380,9 @@ label Ch4_S5_T4_KG:
     jump Ch4_S6_T0_KG
 
 label Ch4_S6_T0_KG:
-
+    show ib kurta
     ib "Are you going to Christ University today? Let's go together."
-
+    hide ib kurta
     #(Narration)
     "I'm so happy to meet him again. Is this how our connection resumes?"
 
@@ -3326,17 +3407,19 @@ label Ch4_S8_T0_KG:
 
     #(Narration)
     "After exploring Delhi and Agra, it was time to continue our journey to Bangalore."
-    
+    show kg train at left
     p "I was excited and a little nervous about the long train ride. It's going to be a unique way to see more of India."
 
     p "I've heard that train journeys in India are quite an experience. I'm excited but also a bit nervous. How long will the journey take?"
-
+    hide kg train
+    show ib train at right
     ib "It'll take around 36 to 40 hours, depending on the train. But trust me, it's going to be an unforgettable experience. "
     
     ib "You'll get to see so much of India, from the bustling cities to the peaceful countryside."
-
+    hide ib train
+    show kg train at left
     p "I can't wait! What should we expect during the journey?"
-
+    hide kg train
     menu:
         "Encourage I to tell me more about the diversity of regions and cultures in India.":
             $ affection += 7
@@ -3372,13 +3455,15 @@ label Ch4_S10_T0_KG:
         zoom 1.1
     "After a long journey, we finally arrived in Bangalore. The city felt alive with energy, and the weather was so pleasant."
     "I could see why it's such a popular place."
-
+    show kg date at left
     p "Bangalore seems so lively! I've heard it's known as the Silicon Valley of India."
-
+    hide kg date 
+    show ib bangalore at right
     ib "That's right. Bangalore is a major hub for technology and startups, but it's also known for its parks, historic sites, and diverse culture."
-
+    hide ib bangalore
+    show kg date at left
     p "I'm excited to explore it. What should we do first?"
-
+    hide kg date
     menu:
         "Propose heading straight to the hotel to rest.":
             $ affection += -5
@@ -3417,15 +3502,16 @@ label Ch4_S12_T0_KG:
     #(Narration)
     "After settling in, [ib] suggested we experience something truly unique—watching an Indian movie at a local theatre."
     "I'd heard a lot about Indian cinema, and I was eager to see it for myself."
-
+    show kg date at left
     p "I've heard so much about Indian cinema. Bollywood, right?"
-
+    hide kg date
+    show ib bangalore at right
     ib "Yes, but there's so much more to Indian cinema than just Bollywood. "
     
     ib "Each region has its own film industry—Kollywood in Tamil Nadu, Tollywood in Andhra Pradesh, and Sandalwood right here in Karnataka." 
     
     ib "Indian cinema has a rich history, and it's evolved a lot over the years."
-
+    hide ib bangalore
     menu:
         "Suggest watching the movie quietly without much discussion.":
             $ affection += -5
@@ -3459,13 +3545,15 @@ label Ch4_S14_T0_KG:
     
     "The theatre was buzzing with excitement. The air was filled with the scent of popcorn, and I could feel the anticipation in the audience. "
     "As the movie began, I was completely drawn in by the vibrant colors, music, and emotions on screen."
-
+    show kg date at left
     p "That was incredible! The energy, the colors, the music—it's so different from what I'm used to, but I loved it."
-
+    hide kg date
+    show ib bangalore at right
     ib "I'm glad you enjoyed it. Indian cinema is all about making you feel deeply, whether it's joy, sorrow, or excitement."
-
+    hide ib bangalore
+    show kg date at left
     p "I can't wait to watch more. Thank you for introducing me to this part of your culture."
-
+    hide kg date
     #(Narration)
     "As we left the theatre, I felt even closer to [ib]. Sharing these experiences together has deepened our bond, and I'm excited to see where our journey takes us next."
 
@@ -3482,24 +3570,25 @@ label Ch5_S1_T0_KG:
 label Ch5_S1_T1_KG:
     scene bg christ_dorm
     "After parting ways with [ib], I returned to my dormitory, trying to focus on my exams."
-
+    show ib pyjamas at left
     ib "We're both busy, so let's concentrate on studying."
-
+    hide ib pyjamas
+    show kg pyjamas at right
     p "Yeah, let's do that."
-
+    hide kg pyjamas
     "Back then, if I'd acted differently, could we have stayed closer? This question lingered in my mind as the days passed."
 
     "With the semester ending, I immersed myself in exams. Uncertain about my feelings, I hesitated."
-
+    show kg pyjmas
     p "When did [ib]'s exchange program end again?"
 
     "I found myself at [ib]'s dormitory. Seeing the empty room, I wondered if I would regret this day."
 
     "We were so happy together, but perhaps it was beautiful because it's now the past. But still... (reflects briefly). Will I meet someone like [ib] again?"
     "Realizing today was [ib]'s departure, I called a taxi and headed to the airport."
-
+    hide kg pyjamas
     scene bg india_airport
-    
+    show kg smart casuals
     p "It was today! I still wanted to say goodbye..."
 
     "At the airport, I found the counter for flights to India and waited. Noticing missed calls, I called back."
@@ -3507,24 +3596,28 @@ label Ch5_S1_T1_KG:
     p "Are you at the airport? I saw the letter you left!"
 
     "Even now, [ib] was the best person I'd met. So kind and together often. I don't think I'll meet someone like [ib] again."
-
+    hide kg smart casuals
+    show ib airport
     ib "Yeah... but I don't want to go. I couldn't say it then, but I realize I need you."
-
+    hide ib airport
+    show kg smart casuals
     p "Smiles silently."
-
-    "We persuaded our parents, got back together, and continued our relationship between Korea and India."
+    hide kg smart casuals
+    "We got back together, and continued our beautiful relationship between Korea and India."
 
     scene bg wedding:
         zoom 1.4
     
     "The bride is ready to enter!"
-
+    show kg happy ending at left
     p "Today is the happiest day of my life!!"
-
+    hide kg happy ending
+    show ib happyending at right
     ib "Me too, hehe."
-
+    hide ib happyending
+    show kg happy ending at left
     p "Ready for the party? It's going to go late into the night!!"
-
+    show ib happyending
     "As we entered the hall, I remembered when I first met [ib]. If I hadn't met [ib], what would have happened? This beautiful story of mine will continue forever."
     "{b}Happy Ending{/b}"
     
@@ -3534,15 +3627,16 @@ label Ch5_S1_T2_KG:
     scene bg christ_dorm
 
     "After parting ways with [ib], I returned to my dormitory, trying to focus on my exams."
-
+    show ib pyjamas
     ib "We're both busy, so let's concentrate on studying."
-
+    hide ib pyjamas
+    show kg pyjamas 
     p "Yeah, let's do that."
-
+    hide kg pyjamas
     "Back then, if I'd acted differently, could we have stayed closer? This question lingered in my mind as the days passed."
 
     "With the semester ending, I immersed myself in exams. Uncertain about my feelings, I hesitated."
-
+    show kg pyjamas
     p "When does [ib]'s exchange program end?"
 
     "I found myself standing outside [ib]'s empty dormitory, wondering if I'd regret letting go."
@@ -3551,21 +3645,21 @@ label Ch5_S1_T2_KG:
     "Realizing today was [ib]'s departure, I impulsively headed to the airport."
 
     p "Today's the day! I still wanted to say goodbye..."
-
+    hide kg pyjamas
     scene bg india_airport
     "At the airport, I looked for flights to India and decided to wait. I saw missed calls and dialed back."
-
+    show kg smart casuals
     p "Are you at the airport? I saw your letter at the dorm!"
-
+    hide kg smart casuals
     "Reflecting on the past, [ib] was one of the kindest people I'd met. Though we parted ways, those memories stayed with me."
 
     scene bg foreign_street
     "As time passed, life moved on."
     "Years later, I joined a reunion trip for the exchange program. "
     "Among familiar faces, I saw [ib] again."
-
+    show ib neutralending at left
     ib "It's been a long time!"
-
+    show kg neutral ending at right
     p "It really has. How have you been?"
 
     "We shared stories and laughter, reconnecting as friends."
@@ -3577,15 +3671,16 @@ label Ch5_S1_T3_KG:
     scene bg christ_dorm
 
     "After parting ways with [ib], I returned to my dormitory, trying to focus on my exams."
-
+    show ib pyjamas
     ib "We're both busy, so let's concentrate on studying."
-
+    hide ib pyjamas
+    show kg pyjamas
     p "Yeah, let's do that."
-
+    hide kg pyjamas
     "Back then, if I'd acted differently, could we have stayed closer? This question lingered in my mind as the days passed."
 
     "With the semester ending, I immersed myself in exams. Uncertain about my feelings, I hesitated."
-
+    show kg pyjamas
     p "When does [ib]'s exchange program end?"
 
     "I found myself outside [ib]'s empty dormitory, wondering if I'd regret how things ended."
@@ -3594,12 +3689,12 @@ label Ch5_S1_T3_KG:
     "I knew today was [ib]'s departure, but I couldn't bring myself to go to the airport."
 
     p "I should have gone... but I just couldn't face it."
-
+    hide kg pyjamas
     scene bg foreign_street
-
+    show kg bad ending
     "Time passed, and life moved on. "
     "Years later, I was on a business trip and unexpectedly saw [ib] again."
-
+    show ib badending
     "In a crowded conference room, our eyes met briefly. An awkward silence stretched between us, heavy with unspoken words."
 
     "I tried to focus on my work, but my thoughts kept drifting back to [ib]. Memories of our time together resurfaced, mingling with the bitterness of our breakup."
@@ -3607,7 +3702,8 @@ label Ch5_S1_T3_KG:
     p "I wish things had ended differently."
 
     "We passed each other in the hallway, pretending not to notice, but the weight of our shared history was palpable."
-
+    hide kg bad ending
+    hide ib badending
     "All I could do was think about [ib], trapped by what once was, but unable to bridge the gap between us. The silence spoke louder than words, and we both walked away, unable to reconnect or find closure."
     "{b}Bad ending{/b}"
     return
