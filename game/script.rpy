@@ -166,7 +166,7 @@ label Ch1_S1_T0_IG:
 
 ## need to change the lounge pic
     scene bg lounge_220:
-        zoom 4.5
+        zoom 1.4
     with dissolve
     
     f1 "Oh? A new face. Are you an exchange student by any chance?"
@@ -1405,7 +1405,7 @@ label Ch1_S1_T0_IB:
     "I headed towards the lounge in Building 220 and opened the door."
 
     scene bg lounge_220:
-        zoom 4.5
+        zoom 1.4
     with dissolve
     
     f1 "Oh? A new face. Are you an exchange student by any chance?"
@@ -2629,7 +2629,7 @@ label Ch1_S1_T0_KG:
     p "Maybe I'll hang out at the 220 lounge and chat with some friends."
 
     scene bg lounge_220:
-        zoom 4.5
+        zoom 1.4
     with dissolve
 
     "I arrive at the lounge and see my friends talking. "
@@ -3625,7 +3625,7 @@ label Ch1_S1_T0_KB:
     p "Hmm, but I have some time to kill... Maybe I'll hang out at the 220 lounge and chat with some friends."
 
     scene bg lounge_220:
-        zoom 4.5
+        zoom 1.4
     with dissolve
     
     "I arrive at the lounge and see my friends talking. I walk over, put my hand on someone's shoulder, and start talking."
